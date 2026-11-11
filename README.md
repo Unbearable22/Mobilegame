@@ -67,19 +67,11 @@ godot --headless --path . --script tools/benchmark.gd
 
 ## Android
 
-APK/AAB в этой среде **не собраны**: нет настроенных Android SDK, export templates и ключа подписи. При импорте редактор сообщает об отсутствующей директории Android build-tools; это не мешает запуску и headless-тестам.
+Реальный debug APK ARM64 собран и проверен. Путь: `build/android/chain-react-debug-arm64.apk` (сборки не хранятся в Git). [Инструкция сборки и скачивания через Actions](docs/android-build.md) · [Ручной тест телефона](docs/android-device-checklist.md).
 
-Для APK установите export templates **точно версии редактора**, OpenJDK 17 и Android SDK; укажите пути в Editor Settings → Export → Android. Откройте preset Android и настройте debug signing. Создайте `build/android/`, затем:
+Package ID `org.chainreact.onetappuzzle`, Android 7.0+/API24, target36, portrait, Compatibility/OpenGL, debug-подпись. Все 10 JSON входят в APK; лишних разрешений, рекламы и аналитики нет. Скрипт `tools/build_android.py` запускает тесты перед каждым экспортом, проверяет подпись/ABI/манифест/содержимое и запускает извлечённые ресурсы APK десктопным Godot. Физическое Android-устройство не использовалось.
 
-```bash
-godot --headless --path . --export-debug Android build/android/chain-react.apk
-```
-
-Для Google Play нужны Gradle/AAB и release keystore; проверьте package ID перед публикацией. Ключи и пароли не должны попадать в репозиторий. Точные требования SDK и порядок подписания: [официальная документация Godot](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_android.html).
-
-Перед релизом необходимы тесты на реальных Android-устройствах: touch, системный Back, вырезы и safe area, сворачивание/возврат, звук, сохранение после перезапуска, FPS/нагрев. Также нужны финальные launcher icons, пользовательские плейтесты сложности и материалы магазина.
-
-Реальные AdMob, покупки, серверы и аккаунты отсутствуют по ТЗ. Навык монетизации подключён для последующих этапов; MVP не зависит от рекламных SDK.
+Для Play Store всё ещё нужны отдельные release signing, Gradle/AAB, финальные материалы и проверки на устройствах. Release-ключи и пароли не входят в проект.
 
 Для графической приёмки на Linux используйте Xvfb:
 

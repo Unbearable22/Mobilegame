@@ -1,0 +1,47 @@
+name: Android debug APK
+on:
+  push:
+    branches: [main, feat/chain-react-mvp]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android packages
+        run: sdkmanager 'platform-tools' 'build-tools;36.0.0' 'platforms;android-36'
+      - name: Install matching Godot and Android templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/godot" "$RUNNER_TEMP/templates"
+          curl --fail --location --retry 3 https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip -o "$RUNNER_TEMP/godot.zip"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          chmod +x "$RUNNER_TEMP/godot/Godot_v4.7.2-stable_linux.x86_64"
+          curl --fail --location --retry 3 https://github.com/godotengine/godot/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz -o "$RUNNER_TEMP/templates.tpz"
+          unzip -q "$RUNNER_TEMP/templates.tpz" templates/android_debug.apk templates/android_release.apk templates/version.txt -d "$RUNNER_TEMP/templates"
+      - name: Test, build and verify debug ARM64 APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/android
+          python3 tools/build_android.py \
+            --godot "$RUNNER_TEMP/godot/Godot_v4.7.2-stable_linux.x86_64" \
+            --sdk "$ANDROID_HOME" --java "$JAVA_HOME" \
+            --templates "$RUNNER_TEMP/templates/templates" 2>&1 | tee build/android/build.log
+      - name: Upload verified APK and reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: chain-react-debug-arm64-${{ github.sha }}
+          path: build/android/
+          if-no-files-found: error
+          retention-days: 14

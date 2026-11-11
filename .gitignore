@@ -2,3 +2,7 @@
 build/
 *.tmp
 .superpowers/
+*.keystore
+*.jks
+.android-toolchain/
+__pycache__/
