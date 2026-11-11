@@ -16,7 +16,7 @@ python3 tools/build_android.py \
   --templates /tmp/chain-android-toolchain/data/godot/export_templates/4.7.2.stable
 ```
 
-Скрипт проверяет версии, использует изолированные настройки Godot в игнорируемой `build/tooling/`, запускает 5 Python-регрессий и 138 проверок GDScript, затем `--export-debug`. Стандартный debug-ключ создаётся в директории SDK и не попадает в Git/артефакт. Это не release identity. Полная перезапись build-папки не удаляет SDK-ключ.
+Скрипт проверяет версии, использует изолированные настройки Godot в игнорируемой `build/tooling/`, запускает 5 Python-регрессий и 205 проверок GDScript, затем `--export-debug`. Стандартный debug-ключ создаётся в директории SDK и не попадает в Git/артефакт. Это не release identity. Полная перезапись build-папки не удаляет SDK-ключ.
 
 Результат: **`build/android/chain-react-debug-arm64.apk`**. Рядом `.sha256`, `.verification.json`, `.manifest.txt`, `.badging.txt`, `.signature.txt`, `.smoke.txt`. Хеш зависит от ключа и сборки; сверять с отчётом из той же папки/того же CI-артефакта.
 
@@ -34,4 +34,8 @@ python3 tools/build_android.py \
 
 [Чек-лист телефона](android-device-checklist.md). Физический Android не использовался. FPS/нагрев, аппаратный Back, вырезы и жизненный цикл требуют ручной проверки.
 
-Проверенный [успешный запуск CI](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923) · [скачать APK и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923/artifacts/13853971657). Файл внутри: `chain-react-debug-arm64.apk`. Характеристики CI-файла: [android-ci-artifact.json](android-ci-artifact.json). Артефакт доступен 14 дней, затем пересоберите workflow.
+## Последняя сборка 0.2.0
+
+[Успешный CI](https://github.com/Unbearable22/Mobilegame/actions/runs/43022520923) · [скачать APK и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43022520923/artifacts/13854734447). Внутри `chain-react-debug-arm64.apk`, 28 347 966 байт. [Отчёт](android-settings-ci-artifact.json). SHA256 `3b48f8afb3383d45e8c59c78d236895d4f4f6c8bd10c85debd6a21100fa13e8c`.
+
+205 GDScript +5 Python-проверок прошли; исправление конкретного смартфона ожидает повторного теста, [debug-диагностика](android-touch-debug.md). Всего **210** автоматических проверок: 205 Godot и 5 Python.

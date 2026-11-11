@@ -89,3 +89,7 @@ Linux x86_64, Godot **4.7.2.stable.official.ed1daf0bf**. Полный скрип
 Локальный APK0.2.0(versionCode2): `/workspaces/Mobilegame/build/android/chain-react-debug-arm64.apk`, **28347966 байт**, SHA256 `7de46ee1ddb78f6bd2af63fc813908ea871e4132af8918a6e3987f8188b9bb5b`. Подпись, ARM64, min24/target36, package ID,portrait, отсутствие permissions,10JSON и packaged-resource smoke прошли. [Отчёт](android-settings-artifact.json). CI создаёт другой debug-ключ и свой хеш; ссылку/CI-хеш публикуем отдельно.
 
 Нужен повторный тест пользователя: уровень3/9 до запуска, четыре касания, Undo/Restart, журнал если снова отказ. Обновлён [чек-лист телефона](android-device-checklist.md). При смене CI debug-подписи прежде удаления старой игры сохранить прогресс через adb run-as.
+
+### Итог CI0.2.0
+
+[Run43022520923](https://github.com/Unbearable22/Mobilegame/actions/runs/43022520923) на коммите `c6ebfd1` завершён **success**; все восемь GDScript-наборов(205проверок),5Python, экспорт, APK verifier и upload прошли. [Прямой Actions artifact](https://github.com/Unbearable22/Mobilegame/actions/runs/43022520923/artifacts/13854734447), хранение14дней. ZIP скачан обратно: размер28 347 966 байт и SHA256 `3b48f8afb3383d45e8c59c78d236895d4f4f6c8bd10c85debd6a21100fa13e8c` сверены с [CI-отчётом](android-settings-ci-artifact.json). Отладочная подпись отличается от локального APK. Проверки на настоящем телефоне с этой версией пока нет.
