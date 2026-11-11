@@ -1,0 +1,94 @@
+{
+  "id": 10,
+  "name": "Полная цепь",
+  "hint": "Всего один запуск. Две ветви должны зарядить батарею одновременно. Настройте стрелки до запуска.",
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        0,
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "normal"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "normal"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "type": "target"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "blocker"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "blocker"
+    }
+  ]
+}

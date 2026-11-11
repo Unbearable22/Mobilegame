@@ -1,0 +1,94 @@
+class_name GameManager
+extends Node
+const Loader = preload("res://scripts/core/level_loader.gd")
+const Grid = preload("res://scripts/core/grid_manager.gd")
+const Progress = preload("res://scripts/core/progression_manager.gd")
+signal changed
+signal reaction_frame(frame: Dictionary)
+signal finished(won: bool, stars: int)
+signal feedback(kind: String)
+var levels: Array = []
+var grid: RefCounted = Grid.new()
+var progress: RefCounted
+var current: int = 0
+var busy: bool = false
+var paused: bool = false
+var frame_seconds: float = 0.16
+var epoch: int = 0
+var error_message: String = ""
+
+func _init(save_path: String = "user://progress.json") -> void:
+	progress = Progress.new(preload("res://scripts/core/save_manager.gd").new(save_path))
+
+func _ready() -> void:
+	var loader := Loader.new()
+	levels = loader.load_all()
+	if not loader.errors.is_empty():
+		error_message = "\n".join(loader.errors)
+		changed.emit()
+		return
+	select_level(int(progress.data.last_level) - 1)
+
+func select_level(index: int) -> void:
+	if levels.is_empty(): return
+	epoch += 1
+	busy = false
+	paused = false
+	current = clampi(index, 0, levels.size() - 1)
+	grid.load_level(levels[current])
+	progress.select_level(current + 1)
+	changed.emit()
+
+func restart() -> void:
+	select_level(current)
+
+func undo() -> void:
+	if busy or paused: return
+	if grid.undo():
+		feedback.emit("undo")
+		changed.emit()
+
+func tap(index: int) -> void:
+	if busy or paused or grid.level.is_empty() or grid.status() != "playing": return
+	if index < 0 or index >= grid.level.nodes.size(): return
+	if grid.level.nodes[index].type != "source":
+		if grid.rotate(index):
+			feedback.emit("rotate")
+			changed.emit()
+		else:
+			feedback.emit("inspect")
+		return
+	var result: Dictionary = grid.launch(index)
+	if not result.accepted: return
+	busy = true
+	var ticket: int = epoch
+	# Visuals read immutable snapshots; the model already knows the final result.
+	feedback.emit("launch")
+	changed.emit()
+	for frame in result.frames:
+		if ticket != epoch: return
+		reaction_frame.emit(frame)
+		var elapsed: float = 0.0
+		while elapsed < frame_seconds:
+			await get_tree().process_frame
+			if ticket != epoch: return
+			if not paused: elapsed += get_process_delta_time()
+	busy = false
+	changed.emit()
+	var status: String = grid.status()
+	if status == "won":
+		var stars: int = 3 if grid.used <= int(grid.level.get("par_launches", 1)) else 2
+		progress.complete(current + 1, stars)
+		feedback.emit("win")
+		finished.emit(true, stars)
+	elif status == "lost":
+		feedback.emit("lose")
+		finished.emit(false, 0)
+
+func next_level() -> void:
+	select_level((current + 1) % levels.size())
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_PAUSED:
+		paused = true
+		changed.emit()

@@ -1,0 +1,65 @@
+{
+  "id": 9,
+  "name": "Настрой развилку",
+  "hint": "Поверните развилку и стрелку до запуска. Undo отменяет действие.",
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        0,
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "normal"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "blocker"
+    }
+  ]
+}

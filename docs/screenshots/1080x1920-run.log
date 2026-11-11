@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+libxkbcommon.so.0: cannot open shared object file: No such file or directory
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+CAPTURE 1080x1920 menu: (1080, 1920)
+CAPTURE 1080x1920 gameplay: (1080, 1920)
+CAPTURE 1080x1920 pause: (1080, 1920)
+CAPTURE 1080x1920 levels: (1080, 1920)
+CAPTURE 1080x1920 loss: (1080, 1920)
+PLAYED 1080x1920 level 01: 1 actions
+PLAYED 1080x1920 level 02: 1 actions
+PLAYED 1080x1920 level 03: 4 actions
+PLAYED 1080x1920 level 04: 1 actions
+PLAYED 1080x1920 level 05: 4 actions
+PLAYED 1080x1920 level 06: 2 actions
+PLAYED 1080x1920 level 07: 1 actions
+PLAYED 1080x1920 level 08: 2 actions
+PLAYED 1080x1920 level 09: 4 actions
+PLAYED 1080x1920 level 10: 6 actions
+CAPTURE 1080x1920 victory: (1080, 1920)
+CAPTURE 1080x1920 reaction-paused: (1080, 1920)
+VISUAL ACCEPTANCE 1080x1920: 0 failures

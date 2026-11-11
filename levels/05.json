@@ -1,0 +1,58 @@
+{
+  "id": 5,
+  "name": "Обход",
+  "hint": "Крест блокирует энергию. Поверните стрелку, чтобы обойти его сверху.",
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "blocker"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "normal"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "target"
+    }
+  ]
+}
