@@ -117,3 +117,9 @@ CPU-замер:1000полных правильно настроенных поб
 ### Локальный APK
 
 `/workspaces/Mobilegame/build/android/chain-react-debug-arm64.apk`, **28392278 байт**, SHA256 `7d23dfa0b8e60c3651070f5c6af9f79d8936994b84de744a5f668b57fc22be03`. Проверены ARM64,packageID,debugподпись,portrait,min24/target36,отсутствиеpermissions,все50JSON совпадают с исходниками; packaged-resource smoke открывает меню с50уровнями. [Отчёт](android-v3-artifact.json). Workflow включает level-audit.json в скачиваемый артефакт. CI-хеш будет отличаться от локального из-за debug-ключа.
+
+### CI0.3.0 — скачиваемый итог
+
+[Run43037655960](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960) на коммите `a6188b3` завершился **success**. Повторены528утверждений GDScript,8Python-тестов и полные50аудитов/48 242симуляции. Экспорт/verifier/upload прошли. [Прямой artifact](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960/artifacts/13864186042), хранение14дней.
+
+ZIP скачан обратно: размер APK **28 392 278 байт**, SHA256 `0a1bafbc8534eb3a1f271623e2cb16eeb9601045a15cfab87ab8ef594a2707ec` совпал с [CI-отчётом](android-v3-ci-artifact.json); вложенный level-audit.json содержит50complete/validрезультатов. Проверки на физическом телефоне0.3.0 пока нет.

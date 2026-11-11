@@ -4,6 +4,8 @@
 
 ![Компактный игровой экран](docs/screenshots/v3-720x1280-game.png)
 
+**[Скачать debug APK0.3.0 и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960/artifacts/13864186042)** — вход в GitHub, хранение14дней.
+
 ## Запуск
 
 Godot **4.7.2 Standard**, без .NET. Открыть `project.godot`, нажать F5, либо:
