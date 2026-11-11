@@ -1,0 +1,109 @@
+{
+  "id": 38,
+  "name": "Цель за спиной",
+  "hint": "Поверните разветвитель обратно к началу — там начинается обход.",
+  "objective": "Зарядите батарею с двух сторон и вернитесь к обеим целям.",
+  "width": 5,
+  "height": 4,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 4,
+  "nodes": [
+    {
+      "x": 1,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        2,
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "blocker"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        3,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 7
+    }
+  ]
+}

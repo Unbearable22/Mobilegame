@@ -1,0 +1,101 @@
+{
+  "id": 22,
+  "name": "Встречная волна",
+  "hint": "Обе стороны петли должны добраться до накопителя.",
+  "objective": "Зарядить батарею двумя ветвями одного запуска.",
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        0,
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "minimum_rotated_nodes": 3
+}

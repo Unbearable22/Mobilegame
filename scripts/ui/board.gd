@@ -10,6 +10,7 @@ var state: Dictionary = {}
 var edges: Array = []
 var lit: Array = []
 var locked: bool = false
+var rotation_available: bool = true
 var animation: float = 1.0
 var tween: Tween
 var tap_tween: Tween
@@ -138,13 +139,17 @@ func _draw_node(index: int, cell: float) -> void:
 					draw_line(tip - d.rotated(0.65) * r * 0.25, tip, color, 4, true)
 					draw_line(tip - d.rotated(-0.65) * r * 0.25, tip, color, 4, true)
 				draw_colored_polygon(PackedVector2Array([p + Vector2(-r * 0.25, -r * 0.45), p + Vector2(r * 0.45, 0), p + Vector2(-r * 0.25, r * 0.45)]), color)
-			"normal": draw_circle(p, r * 0.22, color)
+			"normal":
+				draw_circle(p,r*0.22,color)
+				for d in Model.DIRECTIONS:
+					draw_line(p+Vector2(d)*r*0.60,p+Vector2(d)*r*0.82,color,3,true)
 			"blocker":
 				for sign_x in [-1, 1]: draw_line(p + Vector2(-r * 0.35, -r * 0.35 * sign_x), p + Vector2(r * 0.35, r * 0.35 * sign_x), color, 6, true)
 			"battery":
 				for k in range(2):
 					var rect := Rect2(p + Vector2(-r * 0.43 + k * r * 0.5, -r * 0.4), Vector2(r * 0.35, r * 0.8))
-					draw_rect(rect, color if int(state.charges[index]) > k else Color("31415a"))
+					draw_rect(rect, color, false, 3)
+					if int(state.charges[index]) > k: draw_rect(rect.grow(-4),color)
 			"directional", "splitter":
 				for direction in n.dirs:
 					var d: Vector2 = Vector2(Model.DIRECTIONS[(int(direction) + int(state.rotations[index])) % 4])
@@ -153,7 +158,13 @@ func _draw_node(index: int, cell: float) -> void:
 					draw_line(end, end - d.rotated(0.65) * r * 0.35, color, 5, true)
 					draw_line(end, end - d.rotated(-0.65) * r * 0.35, color, 5, true)
 	if n.get("rotatable", false):
-		draw_arc(p, r * 1.23, -0.8, 0.4, 16, Color(color, 0.9 if not locked else 0.3), 4, true)
+		if rotation_available and not locked:
+			draw_arc(p,r*1.23,-0.8,0.4,16,color,4,true)
+		else:
+			var lock_pos: Vector2 = p + Vector2(r*0.85,r*0.85)
+			draw_rect(Rect2(lock_pos-Vector2(9,0),Vector2(18,14)),color,false,3)
+			draw_arc(lock_pos+Vector2(0,0),7,PI,TAU,12,color,3,true)
+
 
 func flash_tap(index: int) -> void:
 	if tap_tween: tap_tween.kill()

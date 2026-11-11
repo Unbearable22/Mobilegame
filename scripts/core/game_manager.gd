@@ -33,6 +33,7 @@ func _ready() -> void:
 
 func select_level(index: int) -> void:
 	if levels.is_empty(): return
+	if not progress.chapter_unlocked(preload("res://scripts/core/chapter_catalog.gd").chapter_for_level(index + 1)): return
 	epoch += 1
 	busy = false
 	paused = false

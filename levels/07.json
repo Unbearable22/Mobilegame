@@ -1,69 +1,77 @@
 {
-  "id": 7,
-  "name": "Синхронность",
+  "author_solution": [
+    {
+      "index": 0,
+      "type": "launch"
+    }
+  ],
+  "height": 5.0,
   "hint": "Две ветви могут зарядить батарею за один запуск.",
-  "width": 5,
-  "height": 5,
-  "launches": 1,
+  "id": 7.0,
+  "launches": 1.0,
+  "minimum_rotated_nodes": 0,
+  "name": "Синхронность",
   "nodes": [
     {
-      "x": 2,
-      "y": 4,
+      "dirs": [
+        0.0
+      ],
       "type": "source",
-      "dirs": [
-        0
-      ]
+      "x": 2.0,
+      "y": 4.0
     },
     {
-      "x": 2,
-      "y": 3,
+      "dirs": [
+        1.0,
+        3.0
+      ],
       "type": "splitter",
-      "dirs": [
-        1,
-        3
-      ]
+      "x": 2.0,
+      "y": 3.0
     },
     {
-      "x": 1,
-      "y": 3,
+      "dirs": [
+        0.0
+      ],
       "type": "directional",
-      "dirs": [
-        0
-      ]
+      "x": 1.0,
+      "y": 3.0
     },
     {
-      "x": 3,
-      "y": 3,
+      "dirs": [
+        0.0
+      ],
       "type": "directional",
-      "dirs": [
-        0
-      ]
+      "x": 3.0,
+      "y": 3.0
     },
     {
-      "x": 1,
-      "y": 2,
+      "dirs": [
+        1.0
+      ],
       "type": "directional",
-      "dirs": [
-        1
-      ]
+      "x": 1.0,
+      "y": 2.0
     },
     {
-      "x": 3,
-      "y": 2,
+      "dirs": [
+        3.0
+      ],
       "type": "directional",
-      "dirs": [
-        3
-      ]
+      "x": 3.0,
+      "y": 2.0
     },
     {
-      "x": 2,
-      "y": 2,
-      "type": "battery"
+      "type": "battery",
+      "x": 2.0,
+      "y": 2.0
     },
     {
-      "x": 2,
-      "y": 1,
-      "type": "target"
+      "type": "target",
+      "x": 2.0,
+      "y": 1.0
     }
-  ]
+  ],
+  "objective": "Две ветви могут зарядить батарею за один запуск.",
+  "width": 5.0
 }

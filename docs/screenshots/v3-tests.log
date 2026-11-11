@@ -1,0 +1,15 @@
+Ran 5 tests in 0.000s
+OK
+Ran 3 tests in 0.014s
+OK
+Core: 21 passed, 0 failed
+Levels: 159 passed, 0 failed
+Save: 9 passed, 0 failed
+UI: 198 passed, 0 failed
+Input: 4 passed, 0 failed
+Acceptance: 14 passed, 0 failed
+Native touch: 54 passed, 0 failed
+Settings: 16 passed, 0 failed
+Chapters: 9 passed, 0 failed
+Guide/UI chapters: 44 passed, 0 failed
+Level audit: 50 levels, 48242 simulations, 0 failures

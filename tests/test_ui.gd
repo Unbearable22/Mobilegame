@@ -24,7 +24,7 @@ func run() -> void:
 	await process_frame
 	var game: Node = ui.game
 	game.frame_seconds = 0.001
-	check(game.levels.size() == 10, "UI loads ten levels")
+	check(game.levels.size() == 50, "UI loads fifty levels")
 	ui.buttons["levels"].pressed.emit()
 	check(ui.overlay.visible, "level selector button opens")
 	ui.close_overlay()
@@ -35,7 +35,7 @@ func run() -> void:
 	check(game.grid.used == 0, "paused taps ignored")
 	ui.close_overlay()
 	check(not game.paused, "resume unpauses")
-	for id in range(10):
+	for id in range(50):
 		game.select_level(id)
 		var solution: Dictionary = Validator.new().solve(game.grid.level)
 		for action in solution.actions:

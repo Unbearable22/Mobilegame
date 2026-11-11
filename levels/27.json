@@ -1,0 +1,135 @@
+{
+  "id": 27,
+  "name": "Параллельная загрузка",
+  "hint": "Общая развилка посылает вклад в оба накопителя; отдельные цели требуют обоих источников.",
+  "objective": "Два источника совместно заряжают пару батарей и открывают свои цели.",
+  "width": 5,
+  "height": 5,
+  "launches": 2,
+  "par_launches": 2,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0,
+        3
+      ]
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        0,
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 4
+    }
+  ],
+  "minimum_rotated_nodes": 3
+}

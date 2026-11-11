@@ -21,3 +21,11 @@ OpenGL Compatibility, Xvfb / Mesa llvmpipe; не макеты и не увели
 - 1440x3200: [menu](settings-1440x3200-menu.png), [panel](settings-1440x3200-panel.png), [game](settings-1440x3200-game.png), [rotation](settings-1440x3200-rotation.png)
 
 Снято обычным Godot через Xvfb. Настройки открываются и переключаются native Input-событиями, поворот — одним native касанием. Это не тест физического Android.
+
+## Актуальный интерфейс 0.3.0
+
+- **720x1280**: [меню](v3-720x1280-menu.png), [поле](v3-720x1280-game.png), [справочник](v3-720x1280-guide.png), [закрытые главы](v3-720x1280-chapters-locked.png), [прогресс глав](v3-720x1280-chapters-complete.png), [уровни V](v3-720x1280-levels-v.png), [настройки](v3-720x1280-settings.png), [победа](v3-720x1280-victory.png), [поражение](v3-720x1280-loss.png)
+- **1080x1920**: [меню](v3-1080x1920-menu.png), [поле](v3-1080x1920-game.png), [справочник](v3-1080x1920-guide.png), [закрытые главы](v3-1080x1920-chapters-locked.png), [прогресс глав](v3-1080x1920-chapters-complete.png), [уровни V](v3-1080x1920-levels-v.png), [настройки](v3-1080x1920-settings.png), [победа](v3-1080x1920-victory.png), [поражение](v3-1080x1920-loss.png)
+- **1440x3200**: [меню](v3-1440x3200-menu.png), [поле](v3-1440x3200-game.png), [справочник](v3-1440x3200-guide.png), [закрытые главы](v3-1440x3200-chapters-locked.png), [прогресс глав](v3-1440x3200-chapters-complete.png), [уровни V](v3-1440x3200-levels-v.png), [настройки](v3-1440x3200-settings.png), [победа](v3-1440x3200-victory.png), [поражение](v3-1440x3200-loss.png)
+
+Снимки текущей версии сняты Godot/Xvfb, не макеты. Завершённая кампания показана на QA-фикстуре сохранения; обычная новая игра открывает только главуI. Кнопки Info/Settings и узел проверены nativeInput, размеры PNG совпадают с окнами. Физический Android0.3.0 пока не использовался.

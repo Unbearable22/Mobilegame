@@ -1,5 +1,6 @@
 class_name LevelValidator
 extends RefCounted
+const Catalog = preload("res://scripts/core/chapter_catalog.gd")
 const Model = preload("res://scripts/core/reaction_engine.gd")
 const MAX_STATES: int = 200000
 
@@ -9,13 +10,20 @@ func validate(data: Dictionary) -> Dictionary:
 	for field in ["name", "hint"]:
 		if not data[field] is String or data[field].strip_edges().is_empty():
 			return _invalid("Invalid " + field)
-	if not _integer(data.id) or data.id < 1 or data.id > 10: return _invalid("Invalid id")
+	if not _integer(data.id) or data.id < 1 or data.id > Catalog.LEVEL_COUNT: return _invalid("Invalid id")
 	for field in ["width", "height", "launches"]:
 		if not _integer(data[field]) or data[field] < 1 or data[field] > 8:
 			return _invalid("Invalid " + field)
 	if not data.nodes is Array or data.nodes.is_empty(): return _invalid("Empty nodes")
 	if data.has("par_launches") and (not _integer(data.par_launches) or data.par_launches < 1 or data.par_launches > data.launches):
 		return _invalid("Invalid par_launches")
+	if int(data.id) > 10:
+		if not data.get("objective") is String or data.objective.strip_edges().is_empty(): return _invalid("Missing design objective")
+		if not data.get("author_solution") is Array or data.author_solution.is_empty(): return _invalid("Missing author solution")
+		if not _integer(data.get("minimum_rotated_nodes", -1)) or data.minimum_rotated_nodes < 0: return _invalid("Invalid rotation design bound")
+		for action in data.author_solution:
+			if not action is Dictionary or not action.get("type") in ["rotate","launch"] or not _integer(action.get("index",-1)) or action.index < 0 or action.index >= data.nodes.size():
+				return _invalid("Invalid author action")
 	var cells: Dictionary = {}
 	var sources: int = 0
 	var targets: int = 0

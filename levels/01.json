@@ -1,23 +1,31 @@
 {
-  "id": 1,
-  "name": "Первый импульс",
+  "author_solution": [
+    {
+      "index": 0,
+      "type": "launch"
+    }
+  ],
+  "height": 5.0,
   "hint": "Нажмите на источник ▶. Зажгите все цели ◇.",
-  "width": 5,
-  "height": 5,
-  "launches": 1,
+  "id": 1.0,
+  "launches": 1.0,
+  "minimum_rotated_nodes": 0,
+  "name": "Первый импульс",
   "nodes": [
     {
-      "x": 1,
-      "y": 2,
-      "type": "source",
       "dirs": [
-        1
-      ]
+        1.0
+      ],
+      "type": "source",
+      "x": 1.0,
+      "y": 2.0
     },
     {
-      "x": 2,
-      "y": 2,
-      "type": "target"
+      "type": "target",
+      "x": 2.0,
+      "y": 2.0
     }
-  ]
+  ],
+  "objective": "Нажмите на источник ▶. Зажгите все цели ◇.",
+  "width": 5.0
 }

@@ -1,65 +1,85 @@
 {
-  "id": 9,
-  "name": "Настрой развилку",
+  "author_solution": [
+    {
+      "index": 1,
+      "type": "rotate"
+    },
+    {
+      "index": 2,
+      "type": "rotate"
+    },
+    {
+      "index": 2,
+      "type": "rotate"
+    },
+    {
+      "index": 0,
+      "type": "launch"
+    }
+  ],
+  "height": 5.0,
   "hint": "Поверните развилку и стрелку до запуска. Undo отменяет действие.",
-  "width": 5,
-  "height": 5,
-  "launches": 1,
+  "id": 9.0,
+  "launches": 1.0,
+  "minimum_rotated_nodes": 2,
+  "name": "Настрой развилку",
   "nodes": [
     {
-      "x": 2,
-      "y": 4,
+      "dirs": [
+        0.0
+      ],
       "type": "source",
-      "dirs": [
-        0
-      ]
+      "x": 2.0,
+      "y": 4.0
     },
     {
-      "x": 2,
-      "y": 3,
+      "dirs": [
+        0.0,
+        2.0
+      ],
+      "rotatable": true,
       "type": "splitter",
+      "x": 2.0,
+      "y": 3.0
+    },
+    {
       "dirs": [
-        0,
-        2
+        2.0
       ],
-      "rotatable": true
+      "rotatable": true,
+      "type": "directional",
+      "x": 1.0,
+      "y": 3.0
     },
     {
-      "x": 1,
-      "y": 3,
-      "type": "directional",
+      "type": "target",
+      "x": 1.0,
+      "y": 2.0
+    },
+    {
       "dirs": [
-        2
+        0.0
       ],
-      "rotatable": true
-    },
-    {
-      "x": 1,
-      "y": 2,
-      "type": "target"
-    },
-    {
-      "x": 3,
-      "y": 3,
       "type": "directional",
-      "dirs": [
-        0
-      ]
+      "x": 3.0,
+      "y": 3.0
     },
     {
-      "x": 3,
-      "y": 2,
-      "type": "normal"
+      "type": "normal",
+      "x": 3.0,
+      "y": 2.0
     },
     {
-      "x": 4,
-      "y": 2,
-      "type": "target"
+      "type": "target",
+      "x": 4.0,
+      "y": 2.0
     },
     {
-      "x": 2,
-      "y": 2,
-      "type": "blocker"
+      "type": "blocker",
+      "x": 2.0,
+      "y": 2.0
     }
-  ]
+  ],
+  "objective": "Поверните развилку и стрелку до запуска. Undo отменяет действие.",
+  "width": 5.0
 }

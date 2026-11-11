@@ -1,37 +1,57 @@
 {
-  "id": 3,
-  "name": "Верное направление",
+  "author_solution": [
+    {
+      "index": 1,
+      "type": "rotate"
+    },
+    {
+      "index": 1,
+      "type": "rotate"
+    },
+    {
+      "index": 1,
+      "type": "rotate"
+    },
+    {
+      "index": 0,
+      "type": "launch"
+    }
+  ],
+  "height": 5.0,
   "hint": "Нажмите на стрелку, чтобы повернуть её вверх. Затем запустите источник.",
-  "width": 5,
-  "height": 5,
-  "launches": 1,
+  "id": 3.0,
+  "launches": 1.0,
+  "minimum_rotated_nodes": 1,
+  "name": "Верное направление",
   "nodes": [
     {
-      "x": 1,
-      "y": 3,
-      "type": "source",
       "dirs": [
-        0
-      ]
-    },
-    {
-      "x": 1,
-      "y": 2,
-      "type": "directional",
-      "dirs": [
-        1
+        0.0
       ],
-      "rotatable": true
+      "type": "source",
+      "x": 1.0,
+      "y": 3.0
     },
     {
-      "x": 1,
-      "y": 1,
-      "type": "normal"
+      "dirs": [
+        1.0
+      ],
+      "rotatable": true,
+      "type": "directional",
+      "x": 1.0,
+      "y": 2.0
     },
     {
-      "x": 2,
-      "y": 1,
-      "type": "target"
+      "type": "normal",
+      "x": 1.0,
+      "y": 1.0
+    },
+    {
+      "type": "target",
+      "x": 2.0,
+      "y": 1.0
     }
-  ]
+  ],
+  "objective": "Нажмите на стрелку, чтобы повернуть её вверх. Затем запустите источник.",
+  "width": 5.0
 }

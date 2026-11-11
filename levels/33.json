@@ -1,0 +1,98 @@
+{
+  "id": 33,
+  "name": "Встречные старты",
+  "hint": "Один источник даёт лишь половину заряда. Настройка общая для обоих запусков.",
+  "objective": "Соедините два запуска в одной батарее и зажгите обе цели.",
+  "width": 5,
+  "height": 5,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 2,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "blocker"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "launch",
+      "index": 2
+    },
+    {
+      "type": "launch",
+      "index": 8
+    }
+  ]
+}

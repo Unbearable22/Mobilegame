@@ -63,7 +63,9 @@ def main():
     env.update(GODOT_ANDROID_KEYSTORE_DEBUG_PATH=str(key), GODOT_ANDROID_KEYSTORE_DEBUG_USER="androiddebugkey",
                GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD="android")
     run(["python3", "tests/test_android_tools.py"], env)
+    run(["python3", "tests/test_level_design.py"], env)
     run(["bash", "tools/check.sh"], env)
+    shutil.copy2(ROOT / "build/level-audit.json", output.parent / "level-audit.json")
     run([godot, "--headless", "--path", ".", "--export-debug", "Android", output], env)
     run(["python3", "tools/verify_apk.py", output, "--sdk", sdk, "--java", java, "--godot", godot], env)
     print(f"Debug APK: {output} ({output.stat().st_size} bytes)")

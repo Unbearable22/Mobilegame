@@ -1,0 +1,101 @@
+{
+  "id": 15,
+  "name": "Три окна",
+  "hint": "У развилки три выхода; направление пропуска тоже имеет значение.",
+  "objective": "Подать один импульс в три выхода центральной развилки.",
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        3,
+        0,
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "blocker"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "minimum_rotated_nodes": 4
+}

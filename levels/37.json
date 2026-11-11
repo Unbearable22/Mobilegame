@@ -1,0 +1,124 @@
+{
+  "id": 37,
+  "name": "Позднее эхо",
+  "hint": "Короткая ветвь только ждёт. Длинная должна вернуться ко второму контакту.",
+  "objective": "Сведите короткую и длинную ветви в батарее за один запуск.",
+  "width": 5,
+  "height": 4,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 5,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "battery"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "blocker"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        3,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 9
+    },
+    {
+      "type": "rotate",
+      "index": 10
+    },
+    {
+      "type": "launch",
+      "index": 7
+    }
+  ]
+}

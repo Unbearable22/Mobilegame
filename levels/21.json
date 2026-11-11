@@ -1,0 +1,95 @@
+{
+  "id": 21,
+  "name": "Два вклада",
+  "hint": "Подготовьте обе стрелки: каждый источник нужен своей боковой цели.",
+  "objective": "Два разных источника заряжают общую батарею и свои цели.",
+  "width": 5,
+  "height": 5,
+  "launches": 2,
+  "par_launches": 2,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        1,
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        3,
+        2
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 1
+    }
+  ],
+  "minimum_rotated_nodes": 2
+}

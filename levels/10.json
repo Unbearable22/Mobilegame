@@ -1,94 +1,122 @@
 {
-  "id": 10,
-  "name": "Полная цепь",
+  "author_solution": [
+    {
+      "index": 1,
+      "type": "rotate"
+    },
+    {
+      "index": 2,
+      "type": "rotate"
+    },
+    {
+      "index": 2,
+      "type": "rotate"
+    },
+    {
+      "index": 3,
+      "type": "rotate"
+    },
+    {
+      "index": 3,
+      "type": "rotate"
+    },
+    {
+      "index": 0,
+      "type": "launch"
+    }
+  ],
+  "height": 5.0,
   "hint": "Всего один запуск. Две ветви должны зарядить батарею одновременно. Настройте стрелки до запуска.",
-  "width": 5,
-  "height": 5,
-  "launches": 1,
+  "id": 10.0,
+  "launches": 1.0,
+  "minimum_rotated_nodes": 3,
+  "name": "Полная цепь",
   "nodes": [
     {
-      "x": 2,
-      "y": 4,
+      "dirs": [
+        0.0
+      ],
       "type": "source",
-      "dirs": [
-        0
-      ]
+      "x": 2.0,
+      "y": 4.0
     },
     {
-      "x": 2,
-      "y": 3,
+      "dirs": [
+        0.0,
+        2.0
+      ],
+      "rotatable": true,
       "type": "splitter",
+      "x": 2.0,
+      "y": 3.0
+    },
+    {
       "dirs": [
-        0,
-        2
+        2.0
       ],
-      "rotatable": true
+      "rotatable": true,
+      "type": "directional",
+      "x": 1.0,
+      "y": 3.0
     },
     {
-      "x": 1,
-      "y": 3,
-      "type": "directional",
       "dirs": [
-        2
+        2.0
       ],
-      "rotatable": true
+      "rotatable": true,
+      "type": "directional",
+      "x": 3.0,
+      "y": 3.0
     },
     {
-      "x": 3,
-      "y": 3,
-      "type": "directional",
+      "type": "normal",
+      "x": 1.0,
+      "y": 2.0
+    },
+    {
+      "type": "normal",
+      "x": 3.0,
+      "y": 2.0
+    },
+    {
+      "type": "target",
+      "x": 0.0,
+      "y": 2.0
+    },
+    {
+      "type": "target",
+      "x": 4.0,
+      "y": 2.0
+    },
+    {
+      "type": "battery",
+      "x": 2.0,
+      "y": 2.0
+    },
+    {
       "dirs": [
-        2
+        0.0
       ],
-      "rotatable": true
-    },
-    {
-      "x": 1,
-      "y": 2,
-      "type": "normal"
-    },
-    {
-      "x": 3,
-      "y": 2,
-      "type": "normal"
-    },
-    {
-      "x": 0,
-      "y": 2,
-      "type": "target"
-    },
-    {
-      "x": 4,
-      "y": 2,
-      "type": "target"
-    },
-    {
-      "x": 2,
-      "y": 2,
-      "type": "battery"
-    },
-    {
-      "x": 2,
-      "y": 1,
       "type": "directional",
-      "dirs": [
-        0
-      ]
+      "x": 2.0,
+      "y": 1.0
     },
     {
-      "x": 2,
-      "y": 0,
-      "type": "target"
+      "type": "target",
+      "x": 2.0,
+      "y": 0.0
     },
     {
-      "x": 0,
-      "y": 3,
-      "type": "blocker"
+      "type": "blocker",
+      "x": 0.0,
+      "y": 3.0
     },
     {
-      "x": 4,
-      "y": 3,
-      "type": "blocker"
+      "type": "blocker",
+      "x": 4.0,
+      "y": 3.0
     }
-  ]
+  ],
+  "objective": "Всего один запуск. Две ветви должны зарядить батарею одновременно. Настройте стрелки до запуска.",
+  "width": 5.0
 }

@@ -1,0 +1,118 @@
+{
+  "id": 44,
+  "name": "Вложенный заряд",
+  "hint": "Каждый новый этап оживает на следующем запуске. Настройте выход до начала.",
+  "objective": "Проведите заряд через две батареи с поворотом между ними.",
+  "width": 5,
+  "height": 5,
+  "launches": 3,
+  "par_launches": 3,
+  "minimum_rotated_nodes": 3,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "splitter",
+      "dirs": [
+        3,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "blocker"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "normal"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "battery"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 11
+    },
+    {
+      "type": "launch",
+      "index": 10
+    },
+    {
+      "type": "launch",
+      "index": 10
+    },
+    {
+      "type": "launch",
+      "index": 10
+    }
+  ]
+}

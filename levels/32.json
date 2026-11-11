@@ -1,0 +1,124 @@
+{
+  "id": 32,
+  "name": "В обход стены",
+  "hint": "Верхний и нижний пути возвращаются к батарее с разных сторон.",
+  "objective": "Обойдите стену сверху и снизу одним запуском.",
+  "width": 5,
+  "height": 3,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 5,
+  "nodes": [
+    {
+      "x": 1,
+      "y": 0,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "blocker"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "battery"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 0
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 10
+    },
+    {
+      "type": "launch",
+      "index": 3
+    }
+  ]
+}

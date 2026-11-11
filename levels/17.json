@@ -1,0 +1,123 @@
+{
+  "id": 17,
+  "name": "Двойной поворот",
+  "hint": "Средняя цель зависит от верхнего угла, правая — от нижнего.",
+  "objective": "Провести две ветви через разные углы без потери средней цели.",
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 0,
+      "type": "source",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "type": "splitter",
+      "dirs": [
+        0,
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        0,
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "minimum_rotated_nodes": 3
+}

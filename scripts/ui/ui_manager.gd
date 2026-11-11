@@ -3,6 +3,9 @@ extends Control
 const Game = preload("res://scripts/core/game_manager.gd")
 const Board = preload("res://scripts/ui/board.gd")
 const CYAN: Color = Color("4de6f5")
+const Catalog = preload("res://scripts/core/chapter_catalog.gd")
+const Icons = preload("res://scripts/ui/icon_library.gd")
+const Guide = preload("res://scripts/ui/node_guide.gd")
 const MUTED: Color = Color("92a7c2")
 @export var save_path: String = "user://progress.json"
 var game: Node
@@ -26,6 +29,13 @@ var settings_return_screen: String = "game"
 var settings_closing: bool = false
 var modal_tween: Tween
 var gear: Button
+var info: Button
+var selected_chapter: int = 1
+var levels_parent: String = "game"
+var guide_page: int = 0
+var guide_parent: String = "game"
+var guide_preview: Control
+var notice_tween: Tween
 @export var start_in_menu: bool = true
 
 func _ready() -> void:
@@ -91,6 +101,17 @@ func _row() -> HBoxContainer:
 	row.add_theme_constant_override("separation", 16)
 	return row
 
+func _icon_button(symbol: String, label: String, action: Callable, key: String = "") -> Button:
+	var button: Button = _button("", action, key)
+	button.icon = Icons.icon(symbol)
+	button.expand_icon = true
+	button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	button.add_theme_constant_override("icon_max_width", 64)
+	button.custom_minimum_size = Vector2(144,144)
+	button.tooltip_text = label
+	button.set_meta("semantic_label", label)
+	return button
+
 func _build_screen() -> void:
 	var background := ColorRect.new()
 	background.color = Color("080f20")
@@ -101,51 +122,43 @@ func _build_screen() -> void:
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(margin)
 	var column := VBoxContainer.new()
-	column.add_theme_constant_override("separation", 18)
+	column.add_theme_constant_override("separation", 16)
 	margin.add_child(column)
-	var brand := _row()
-	brand.add_child(_label("◈  CHAIN REACT!", 46, CYAN))
-	var space := Control.new()
-	space.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	brand.add_child(space)
-	brand.custom_minimum_size.y = 144
-	var gear_space := Control.new()
-	gear_space.custom_minimum_size.x = 144
-	stars_label = _label("", 32, Color("b5f3a0"))
-	brand.add_child(stars_label)
-	brand.add_child(gear_space)
-	column.add_child(brand)
-	phase_label = _label("ONE TAP PUZZLE   /   01—10", 26, MUTED)
-	column.add_child(phase_label)
-	title_label = _label("", 56)
+	var header := _row()
+	header.custom_minimum_size.y = 144
+	phase_label = _label("", 44)
+	phase_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(phase_label)
+	stars_label = _label("", 34, Color("b5f3a0"))
+	header.add_child(stars_label)
+	var reserved := Control.new()
+	reserved.custom_minimum_size.x = 312
+	header.add_child(reserved)
+	column.add_child(header)
+	title_label = _label("", 36, MUTED)
+	title_label.hide()
 	column.add_child(title_label)
 	var stats := _row()
-	count_label = _label("", 34, CYAN)
+	count_label = _label("", 42, CYAN)
 	count_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	stats.add_child(count_label)
-	targets_label = _label("", 34, Color("b5f3a0"))
+	targets_label = _label("", 42, Color("b5f3a0"))
 	stats.add_child(targets_label)
 	column.add_child(stats)
 	board = Board.new()
-	board.custom_minimum_size = Vector2(0, 550)
+	board.custom_minimum_size = Vector2(0,550)
 	board.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	column.add_child(board)
-	hint_label = _label("", 42, MUTED)
+	hint_label = _label("", 36, MUTED)
 	hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	hint_label.custom_minimum_size.y = 144
+	hint_label.hide()
 	column.add_child(hint_label)
-	var legend := _label("▶ запуск    • передача    ◇ цель\nСтрелки с дугой можно повернуть до запуска", 32, MUTED)
-	legend.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	column.add_child(legend)
 	var actions := _row()
-	actions.add_child(_button("Отмена", func(): game.undo(), "undo"))
-	actions.add_child(_button("Заново", func(): close_overlay(); game.restart(), "restart"))
-	actions.add_child(_button("Пауза", show_pause, "pause"))
+	actions.add_child(_icon_button("undo", "Отменить действие", func(): game.undo(), "undo"))
+	actions.add_child(_icon_button("restart", "Начать заново", func(): close_overlay(); game.restart(), "restart"))
+	actions.add_child(_icon_button("pause", "Пауза", show_pause, "pause"))
+	actions.add_child(_icon_button("chapters", "Главы", show_chapters, "levels"))
 	column.add_child(actions)
-	var footer := _row()
-	footer.add_child(_button("Уровни", show_levels, "levels"))
-
-	column.add_child(footer)
 
 func _safe_area() -> void:
 	var left: int = 48
@@ -168,6 +181,11 @@ func _safe_area() -> void:
 		gear.offset_right = -right
 		gear.offset_top = top
 		gear.offset_bottom = top + 144
+	if info:
+		info.offset_left = -right - 300
+		info.offset_right = -right - 156
+		info.offset_top = top
+		info.offset_bottom = top + 144
 
 func refresh() -> void:
 	if not game.error_message.is_empty():
@@ -177,8 +195,10 @@ func refresh() -> void:
 	if game.grid.level.is_empty(): return
 	var level: Dictionary = game.grid.level
 	title_label.text = level.name
-	phase_label.text = "УРОВЕНЬ %02d / 10     ·     %s" % [game.current + 1, "ЦЕПНАЯ РЕАКЦИЯ" if game.busy else "СПЛАНИРУЙТЕ СВОЙ ХОД"]
-	count_label.text = "▶  Запуски: %d / %d" % [int(level.launches) - game.grid.used, int(level.launches)]
+	var chapter: int = Catalog.chapter_for_level(game.current + 1)
+	phase_label.text = "%s · %02d / 10" % [Catalog.CHAPTERS[chapter-1].number,game.current % 10 + 1]
+	phase_label.add_theme_color_override("font_color", Color(Catalog.CHAPTERS[chapter-1].color))
+	count_label.text = "▶ %d / %d" % [int(level.launches)-game.grid.used,int(level.launches)]
 	var total: int = 0
 	var active: int = 0
 	for i in range(level.nodes.size()):
@@ -187,16 +207,12 @@ func refresh() -> void:
 			if (board.state if game.busy and not board.state.is_empty() else game.grid.state).active[i]: active += 1
 	targets_label.text = "◇  %d / %d" % [active, total]
 	stars_label.text = "★ %d" % game.progress.total_stars()
-	hint_label.text = level.hint
-	if game.grid.used > 0 and not game.busy and level.nodes.any(func(n: Dictionary): return n.get("rotatable", false)):
-		hint_label.text = "Повороты доступны только до первого запуска. Нажмите Restart или Undo, чтобы изменить решение."
-	if game.progress.last_error != OK:
-		hint_label.text = "Не удалось сохранить прогресс. Проверьте доступное место."
-	elif not game.progress.save.warning.is_empty():
-		hint_label.text = game.progress.save.warning
+	if game.progress.last_error != OK: _notice("Не удалось сохранить прогресс.")
+	elif not game.progress.save.warning.is_empty(): _notice(game.progress.save.warning)
 	buttons.undo.disabled = game.busy or game.grid.history.is_empty() or game.paused
 
 	if not game.busy:
+		board.rotation_available = game.grid.used == 0
 		board.show_state(level, game.grid.state, game.paused)
 	else:
 		board.locked = true
@@ -208,15 +224,7 @@ func _tap_node(index: int) -> void:
 	var rejection: String = game.action_rejection(index)
 	game.tap(index)
 	_trace({"stage": "action", "index": index, "type": kind, "rotation_allowed": rejection.is_empty() and kind != "source", "before": before, "after": _directions(index), "reason": rejection if not rejection.is_empty() else "accepted"})
-	if not rejection.is_empty(): hint_label.text = rejection
-	if kind not in ["source", "directional", "splitter"]:
-		var descriptions: Dictionary = {
-			"normal": "Передатчик: отправляет энергию четырём соседям.",
-			"battery": "Батарея: нужны два импульса. Заряд сохраняется между запусками.",
-			"blocker": "Блок: поглощает импульсы.",
-			"target": "Цель: должна получить хотя бы один импульс."
-		}
-		hint_label.text = descriptions.get(kind, "")
+	if not rejection.is_empty(): _notice(rejection)
 
 func _build_overlay() -> void:
 	overlay = ColorRect.new()
@@ -247,6 +255,7 @@ func _build_overlay() -> void:
 
 func _open_modal(title: String) -> void:
 	gear.hide()
+	info.hide()
 	if modal_tween: modal_tween.kill()
 	modal.modulate.a = 1.0
 	for button in buttons.values(): button.focus_mode = Control.FOCUS_NONE
@@ -262,6 +271,7 @@ func close_overlay() -> void:
 	for button in buttons.values(): button.focus_mode = Control.FOCUS_ALL
 	screen = "game"
 	gear.show()
+	info.show()
 	margin.show()
 	if board.tween: board.tween.play()
 	overlay.hide()
@@ -276,36 +286,78 @@ func show_pause() -> void:
 	if board.tween: board.tween.pause()
 	_open_modal("Пауза")
 	modal.add_child(_label("Ваша цепь подождёт.", 32, MUTED))
-	var resume := _button("Продолжить", func():
+	var resume := _icon_button("play", "Продолжить", func():
 		if board.tween: board.tween.play()
 		close_overlay())
 	modal.add_child(resume)
-	modal.add_child(_button("Начать заново", func(): close_overlay(); game.restart()))
-	modal.add_child(_button("Настройки", show_settings))
-	modal.add_child(_button("Главное меню", show_main_menu))
+	modal.add_child(_icon_button("restart", "Начать заново", func(): close_overlay(); game.restart()))
+	modal.add_child(_icon_button("settings", "Настройки", show_settings))
+	modal.add_child(_icon_button("home", "Главное меню", show_main_menu))
 	resume.grab_focus()
 
-func show_levels() -> void:
-	if screen != "levels": return_screen = screen
-	screen = "levels"
-	if board.tween: board.tween.pause()
-	game.paused = true
-	board.locked = true
-	_open_modal("Выберите уровень")
-	var grid := GridContainer.new()
-	grid.columns = 5
-	grid.add_theme_constant_override("h_separation", 12)
-	grid.add_theme_constant_override("v_separation", 12)
-	modal.add_child(grid)
-	for i in range(game.levels.size()):
-		var stars: int = game.progress.data.completed.get(str(i + 1), 0)
-		var label: String = "%02d\n%s" % [i + 1, "★".repeat(stars) if stars > 0 else "—"]
-		var button := _button(label, func(): close_overlay(); game.select_level(i))
-		button.custom_minimum_size = Vector2(144, 144)
-		grid.add_child(button)
-	var back := _button("Вернуться", back_overlay)
+func show_chapters() -> void:
+	if screen != "chapters": return_screen = screen
+	screen = "chapters"
+	_pause_for_panel()
+	_open_modal("Главы")
+	for index in range(5):
+		var chapter: Dictionary = Catalog.CHAPTERS[index]
+		var progress: Dictionary = game.progress.chapter_progress(index+1)
+		var text: String = "%s · %s\n%d / 10   ·   ★ %d / 30" % [chapter.number,chapter.name,progress.completed,progress.stars]
+		var button: Button = _button(text, func(): selected_chapter = index+1; show_levels())
+		button.disabled = not progress.unlocked
+		if not progress.unlocked:
+			button.text += "   ·   Закрыта"
+			button.tooltip_text = "Пройдите предыдущую главу"
+		else: button.add_theme_color_override("font_color",Color(chapter.color))
+		modal.add_child(button)
+	var back: Button = _icon_button("back", "Назад", back_overlay)
 	modal.add_child(back)
 	back.grab_focus()
+
+func show_levels() -> void:
+	if screen == "chapters": levels_parent = "chapters"
+	elif screen != "levels": levels_parent = screen
+	if screen != "levels" and screen != "chapters":
+		return_screen = screen
+		selected_chapter = Catalog.chapter_for_level(game.current+1)
+	if not game.progress.chapter_unlocked(selected_chapter): return
+	screen = "levels"
+	_pause_for_panel()
+	var chapter: Dictionary = Catalog.CHAPTERS[selected_chapter-1]
+	_open_modal(chapter.number + " · " + chapter.name)
+	var grid := GridContainer.new()
+	grid.columns = 5
+	grid.add_theme_constant_override("h_separation",12)
+	grid.add_theme_constant_override("v_separation",12)
+	modal.add_child(grid)
+	for local_id in range(10):
+		var index: int = (selected_chapter-1)*10+local_id
+		var stars: int = int(game.progress.data.completed.get(str(index+1),0))
+		var label: String = "%02d\n%s" % [index+1,"★".repeat(stars) if stars else "—"]
+		var button: Button = _button(label,func(): close_overlay(); game.select_level(index))
+		button.custom_minimum_size = Vector2(144,144)
+		button.tooltip_text = "%s · ★★★: ≤%d запусков" % [game.levels[index].name,int(game.levels[index].get("par_launches",1))]
+		grid.add_child(button)
+	var norm := _label("★★★: норма запусков",38,MUTED)
+	modal.add_child(norm)
+	# A permanent accessible summary; no level-specific solution hints.
+	var norms: PackedStringArray = []
+	for local_id in range(10):
+		var index: int = (selected_chapter-1)*10+local_id
+		norms.append("%02d: %d" % [index+1,int(game.levels[index].get("par_launches",1))])
+	var summary := _label("   ".join(norms),42,MUTED)
+	summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	modal.add_child(summary)
+	modal.add_child(_icon_button("chapters","Главы",func(): screen = "chapters"; show_chapters()))
+	var back: Button = _icon_button("back","Назад",back_overlay)
+	modal.add_child(back)
+	back.grab_focus()
+
+func _pause_for_panel() -> void:
+	game.paused = true
+	board.locked = true
+	if board.tween: board.tween.pause()
 
 func show_result(won: bool, stars: int) -> void:
 	screen = "won" if won else "lost"
@@ -315,15 +367,23 @@ func show_result(won: bool, stars: int) -> void:
 	text.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	modal.add_child(text)
 	if won:
-		var next := _button("Следующий уровень" if game.current < 9 else "Пройдено! В начало", func(): close_overlay(); game.next_level())
+		var next_index: int = (game.current+1) % game.levels.size()
+		var can_next: bool = game.progress.chapter_unlocked(Catalog.chapter_for_level(next_index+1))
+		var next: Button
+		if can_next:
+			next = _icon_button("next", "Следующий уровень" if game.current < 49 else "В начало", func(): close_overlay(); game.next_level())
+		else:
+			text.text += "\nЗавершите остальные уровни главы"
+			text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			next = _icon_button("chapters","Завершить главу",show_chapters)
 		modal.add_child(next)
 		next.grab_focus()
 	else:
-		var undo := _button("Отменить запуск", func(): close_overlay(); game.undo())
+		var undo := _icon_button("undo", "Отменить запуск", func(): close_overlay(); game.undo())
 		modal.add_child(undo)
 		undo.grab_focus()
-	modal.add_child(_button("Заново", func(): close_overlay(); game.restart()))
-	modal.add_child(_button("Уровни", show_levels))
+	modal.add_child(_icon_button("restart", "Начать заново", func(): close_overlay(); game.restart()))
+	modal.add_child(_icon_button("chapters", "Главы", show_chapters))
 	stars_label.text = "★ %d" % game.progress.total_stars()
 	modal.modulate.a = 0.0
 	modal_tween = create_tween()
@@ -369,6 +429,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_PAUSED and game and screen == "settings" and settings_return_screen == "game":
 		settings_return_screen = "pause"
+	if what == NOTIFICATION_APPLICATION_PAUSED and game and screen == "guide" and guide_parent == "game": guide_parent = "pause"
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST and game:
 		if overlay.visible: back_overlay()
 		else: show_pause()
@@ -385,15 +446,21 @@ func show_main_menu() -> void:
 	modal.add_child(subtitle)
 	var play := _button("Продолжить · %02d" % (game.current + 1), close_overlay)
 	modal.add_child(play)
-	modal.add_child(_button("Выбрать уровень", show_levels))
+	modal.add_child(_button("Главы", show_chapters))
 	gear.show()
 	gear.focus_mode = Control.FOCUS_ALL
+	info.show()
+	info.focus_mode = Control.FOCUS_ALL
 	play.grab_focus()
 
 func back_overlay() -> void:
 	if screen == "settings":
 		close_settings()
+	elif screen == "guide":
+		_restore_panel_parent(guide_parent)
 	elif screen == "levels":
+		_restore_panel_parent(levels_parent)
+	elif screen == "chapters":
 		match return_screen:
 			"menu": show_main_menu()
 			"won": show_result(true, result_stars)
@@ -417,16 +484,14 @@ func _show_reaction_frame(frame: Dictionary) -> void:
 	targets_label.text = "◇  %d / %d" % [active, total]
 
 func _build_gear() -> void:
-	gear = _button("", show_settings, "settings")
-	gear.icon = preload("res://assets/gear.svg")
-	gear.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	gear.expand_icon = true
-	gear.add_theme_constant_override("icon_max_width", 64)
-	gear.tooltip_text = "Настройки"
-	gear.custom_minimum_size = Vector2(144, 144)
+	gear = _icon_button("settings","Настройки",show_settings,"settings")
 	gear.anchor_left = 1.0
 	gear.anchor_right = 1.0
 	add_child(gear)
+	info = _icon_button("info","Справочник",show_information,"info")
+	info.anchor_left = 1.0
+	info.anchor_right = 1.0
+	add_child(info)
 
 func show_settings() -> void:
 	if screen == "settings": return
@@ -462,7 +527,7 @@ func show_settings() -> void:
 		modal.add_child(diagnostic)
 	var about := _label("ОБ ИГРЕ\nChain React! · " + str(ProjectSettings.get_setting("application/config/version", "0.2.0")), 36, MUTED)
 	modal.add_child(about)
-	modal.add_child(_button("Закрыть", close_settings))
+	modal.add_child(_icon_button("back", "Закрыть настройки", close_settings))
 	modal.modulate.a = 0.0
 	modal_tween = create_tween()
 	modal_tween.tween_property(modal, "modulate:a", 1.0, 0.16)
@@ -478,19 +543,60 @@ func close_settings() -> void:
 
 func _restore_settings_parent() -> void:
 	settings_closing = false
-	match settings_return_screen:
+	_restore_panel_parent(settings_return_screen)
+
+func _restore_panel_parent(parent: String) -> void:
+	match parent:
 		"menu": show_main_menu()
 		"pause": show_pause()
-		"won": show_result(true, result_stars)
-		"lost": show_result(false, 0)
-		"levels":
-			screen = "levels"
-			show_levels()
+		"won": show_result(true,result_stars)
+		"lost": show_result(false,0)
+		"chapters": screen = "chapters"; show_chapters()
+		"levels": screen = "levels"; show_levels()
 		_:
 			modal.modulate.a = 1.0
 			close_overlay()
-			gear.grab_focus()
 	if gear.visible: gear.grab_focus()
+
+func show_information() -> void:
+	if screen != "guide":
+		guide_parent = screen
+		guide_page = 0
+	screen = "guide"
+	_pause_for_panel()
+	_open_modal("Справочник · %d / %d" % [guide_page+1,Guide.CARDS.size()])
+	var card: Dictionary = Guide.CARDS[guide_page]
+	modal.add_child(_label(card.title,40,CYAN))
+	guide_preview = Board.new()
+	guide_preview.custom_minimum_size = Vector2(240,240)
+	guide_preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	modal.add_child(guide_preview)
+	var node: Dictionary = {"x":0,"y":0,"type":card.type,"dirs":[1,3] if card.type == "splitter" else [1],"rotatable":card.type in ["directional","splitter"]}
+	var preview_level: Dictionary = {"width":1,"height":1,"nodes":[node]}
+	guide_preview.show_state(preview_level,preload("res://scripts/core/reaction_engine.gd").initial_state(preview_level),false)
+	var text := _label(card.text,38,MUTED)
+	text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	text.custom_minimum_size.y = 280
+	modal.add_child(text)
+	var row := _row()
+	var previous: Button = _icon_button("back","Предыдущая страница",func(): guide_page -= 1; show_information())
+	previous.disabled = guide_page == 0
+	row.add_child(previous)
+	var next: Button = _icon_button("next","Следующая страница",func(): guide_page += 1; show_information())
+	next.disabled = guide_page == Guide.CARDS.size()-1
+	row.add_child(next)
+	modal.add_child(row)
+	var close: Button = _icon_button("close","Закрыть справочник",back_overlay)
+	modal.add_child(close)
+	close.grab_focus()
+
+func _notice(message: String) -> void:
+	hint_label.text = message
+	hint_label.show()
+	if notice_tween: notice_tween.kill()
+	notice_tween = create_tween()
+	notice_tween.tween_interval(3.0)
+	notice_tween.tween_callback(func(): hint_label.hide())
 
 func _directions(index: int) -> Array:
 	var output: Array = []
@@ -509,4 +615,7 @@ func _input(event: InputEvent) -> void:
 func _pointer_observed(point: Vector2, index: int, device: int) -> void:
 	var reason: String = game.action_rejection(index)
 	_trace({"stage": "board-gui", "local_position": str(point), "viewport_position": str(board.get_global_transform_with_canvas() * point), "board_rect": str(board.get_global_rect()), "cell": board.geometry().cell, "index": index, "device": device, "locked": board.locked, "reason": reason})
-	if board.locked and not reason.is_empty(): hint_label.text = reason
+	if board.locked and not reason.is_empty(): _notice(reason)
+
+func _exit_tree() -> void:
+	Icons.cache.clear()

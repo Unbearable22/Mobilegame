@@ -1,0 +1,142 @@
+{
+  "id": 40,
+  "name": "Парадокс центра",
+  "hint": "Центр просит два попадания. Внешнее кольцо важнее прямой линии.",
+  "objective": "Обведите стену нижней дугой и соедините её с верхней ветвью.",
+  "width": 5,
+  "height": 4,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 5,
+  "nodes": [
+    {
+      "x": 1,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "splitter",
+      "dirs": [
+        2,
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "battery"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "blocker"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "rotate",
+      "index": 9
+    },
+    {
+      "type": "rotate",
+      "index": 11
+    },
+    {
+      "type": "launch",
+      "index": 6
+    }
+  ]
+}

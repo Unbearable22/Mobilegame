@@ -1,0 +1,110 @@
+{
+  "id": 41,
+  "name": "Первая сингулярность",
+  "hint": "Батарея у старта открывает вторую. Три запуска — один заранее собранный маршрут.",
+  "objective": "Пройдите две последовательные батареи и зажгите обе конечные ветви.",
+  "width": 5,
+  "height": 4,
+  "launches": 3,
+  "par_launches": 3,
+  "minimum_rotated_nodes": 3,
+  "nodes": [
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "blocker"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        3,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "normal"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 7
+    },
+    {
+      "type": "launch",
+      "index": 7
+    },
+    {
+      "type": "launch",
+      "index": 7
+    }
+  ]
+}

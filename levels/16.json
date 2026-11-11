@@ -1,0 +1,118 @@
+{
+  "id": 16,
+  "name": "Переплетение",
+  "hint": "Верхняя дуга возвращается к общей линии, нижняя забирает боковую цель.",
+  "objective": "Соединить две ветви в общей точке и сохранить боковую цель.",
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "splitter",
+      "dirs": [
+        0,
+        2
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        0,
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "blocker"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "minimum_rotated_nodes": 4
+}

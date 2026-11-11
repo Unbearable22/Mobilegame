@@ -1,0 +1,77 @@
+{
+  "id": 11,
+  "name": "Боковой карман",
+  "hint": "Сначала найдите общий поворот, затем разведите два выхода.",
+  "objective": "Разделить импульс после поворота и зажечь две цели.",
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        3,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "blocker"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "minimum_rotated_nodes": 2
+}
