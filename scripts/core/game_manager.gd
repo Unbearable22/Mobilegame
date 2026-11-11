@@ -10,6 +10,7 @@ signal feedback(kind: String)
 var levels: Array = []
 var grid: RefCounted = Grid.new()
 var progress: RefCounted
+var settings: RefCounted
 var current: int = 0
 var busy: bool = false
 var paused: bool = false
@@ -19,6 +20,7 @@ var error_message: String = ""
 
 func _init(save_path: String = "user://progress.json") -> void:
 	progress = Progress.new(preload("res://scripts/core/save_manager.gd").new(save_path))
+	settings = preload("res://scripts/core/settings_manager.gd").new(progress)
 
 func _ready() -> void:
 	var loader := Loader.new()
@@ -92,3 +94,13 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_PAUSED:
 		paused = true
 		changed.emit()
+
+func action_rejection(index: int) -> String:
+	if paused: return "Игра на паузе."
+	if busy: return "Дождитесь завершения цепной реакции."
+	if index < 0 or index >= grid.level.nodes.size(): return "Касание вне узлов."
+	if grid.level.nodes[index].type != "source":
+		if not grid.level.nodes[index].get("rotatable", false): return "Этот узел не поворачивается."
+		if grid.used > 0: return "Повороты доступны только до первого запуска. Нажмите Restart или Undo, чтобы изменить решение."
+	if grid.status() != "playing": return "Уровень завершён. Выберите следующий уровень, Restart или Undo."
+	return ""

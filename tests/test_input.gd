@@ -17,24 +17,6 @@ func run() -> void:
 	await process_frame
 	ui.game.select_level(2)
 	check(not quit_on_go_back, "Android Back must not automatically quit")
-	var touch := InputEventScreenTouch.new()
-	touch.pressed = true
-	touch.position = ui.board.center(1)
-	ui.board._gui_input(touch)
-	check(ui.game.grid.state.rotations[1] == 1, "touch rotates once")
-	var dispatched := InputEventScreenTouch.new()
-	dispatched.pressed = true
-	dispatched.index = 1
-	dispatched.position = ui.board.global_position + ui.board.center(1)
-	root.push_input(dispatched, true)
-	await process_frame
-	check(ui.game.grid.state.rotations[1] == 2, "viewport dispatch reaches board")
-	var mouse := InputEventMouseButton.new()
-	mouse.pressed = true
-	mouse.button_index = MOUSE_BUTTON_LEFT
-	mouse.position = ui.board.center(1)
-	ui.board._gui_input(mouse)
-	check(ui.game.grid.state.rotations[1] == 2, "emulated mouse not double applied")
 	ui.game.select_level(0)
 	ui.game.frame_seconds = 0.3
 	ui.game.tap(0)

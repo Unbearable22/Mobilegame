@@ -22,6 +22,10 @@ var sounds: Dictionary = {}
 var screen: String = "game"
 var return_screen: String = "game"
 var result_stars: int = 0
+var settings_return_screen: String = "game"
+var settings_closing: bool = false
+var modal_tween: Tween
+var gear: Button
 @export var start_in_menu: bool = true
 
 func _ready() -> void:
@@ -30,12 +34,15 @@ func _ready() -> void:
 	_build_screen()
 	_build_overlay()
 	_build_audio()
+	_build_gear()
 	game = Game.new(save_path)
 	game.changed.connect(refresh)
 	game.reaction_frame.connect(_show_reaction_frame)
 	game.finished.connect(show_result)
 	game.feedback.connect(_on_feedback)
 	board.node_pressed.connect(_tap_node)
+	board.pointer_observed.connect(_pointer_observed)
+	game.settings.changed.connect(_settings_changed)
 	add_child(game)
 	get_viewport().size_changed.connect(_safe_area)
 	_safe_area()
@@ -101,8 +108,12 @@ func _build_screen() -> void:
 	var space := Control.new()
 	space.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	brand.add_child(space)
+	brand.custom_minimum_size.y = 144
+	var gear_space := Control.new()
+	gear_space.custom_minimum_size.x = 144
 	stars_label = _label("", 32, Color("b5f3a0"))
 	brand.add_child(stars_label)
+	brand.add_child(gear_space)
 	column.add_child(brand)
 	phase_label = _label("ONE TAP PUZZLE   /   01—10", 26, MUTED)
 	column.add_child(phase_label)
@@ -133,7 +144,7 @@ func _build_screen() -> void:
 	column.add_child(actions)
 	var footer := _row()
 	footer.add_child(_button("Уровни", show_levels, "levels"))
-	footer.add_child(_button("Звук: вкл", toggle_sound, "sound"))
+
 	column.add_child(footer)
 
 func _safe_area() -> void:
@@ -152,6 +163,11 @@ func _safe_area() -> void:
 			bottom += int((window.y - safe.end.y) * logical.y / window.y)
 	for pair in [["left", left], ["right", right], ["top", top], ["bottom", bottom]]:
 		margin.add_theme_constant_override("margin_" + pair[0], pair[1])
+	if gear:
+		gear.offset_left = -right - 144
+		gear.offset_right = -right
+		gear.offset_top = top
+		gear.offset_bottom = top + 144
 
 func refresh() -> void:
 	if not game.error_message.is_empty():
@@ -172,12 +188,14 @@ func refresh() -> void:
 	targets_label.text = "◇  %d / %d" % [active, total]
 	stars_label.text = "★ %d" % game.progress.total_stars()
 	hint_label.text = level.hint
+	if game.grid.used > 0 and not game.busy and level.nodes.any(func(n: Dictionary): return n.get("rotatable", false)):
+		hint_label.text = "Повороты доступны только до первого запуска. Нажмите Restart или Undo, чтобы изменить решение."
 	if game.progress.last_error != OK:
 		hint_label.text = "Не удалось сохранить прогресс. Проверьте доступное место."
 	elif not game.progress.save.warning.is_empty():
 		hint_label.text = game.progress.save.warning
 	buttons.undo.disabled = game.busy or game.grid.history.is_empty() or game.paused
-	buttons.sound.text = "Звук: " + ("вкл" if game.progress.data.sound else "выкл")
+
 	if not game.busy:
 		board.show_state(level, game.grid.state, game.paused)
 	else:
@@ -186,7 +204,11 @@ func refresh() -> void:
 
 func _tap_node(index: int) -> void:
 	var kind: String = game.grid.level.nodes[index].type
+	var before: Array = _directions(index)
+	var rejection: String = game.action_rejection(index)
 	game.tap(index)
+	_trace({"stage": "action", "index": index, "type": kind, "rotation_allowed": rejection.is_empty() and kind != "source", "before": before, "after": _directions(index), "reason": rejection if not rejection.is_empty() else "accepted"})
+	if not rejection.is_empty(): hint_label.text = rejection
 	if kind not in ["source", "directional", "splitter"]:
 		var descriptions: Dictionary = {
 			"normal": "Передатчик: отправляет энергию четырём соседям.",
@@ -224,6 +246,9 @@ func _build_overlay() -> void:
 	overlay.hide()
 
 func _open_modal(title: String) -> void:
+	gear.hide()
+	if modal_tween: modal_tween.kill()
+	modal.modulate.a = 1.0
 	for button in buttons.values(): button.focus_mode = Control.FOCUS_NONE
 	for child in modal.get_children():
 		modal.remove_child(child)
@@ -236,6 +261,7 @@ func _open_modal(title: String) -> void:
 func close_overlay() -> void:
 	for button in buttons.values(): button.focus_mode = Control.FOCUS_ALL
 	screen = "game"
+	gear.show()
 	margin.show()
 	if board.tween: board.tween.play()
 	overlay.hide()
@@ -255,7 +281,7 @@ func show_pause() -> void:
 		close_overlay())
 	modal.add_child(resume)
 	modal.add_child(_button("Начать заново", func(): close_overlay(); game.restart()))
-	modal.add_child(_button("Звук: " + ("вкл" if game.progress.data.sound else "выкл"), func(): toggle_sound(); show_pause()))
+	modal.add_child(_button("Настройки", show_settings))
 	modal.add_child(_button("Главное меню", show_main_menu))
 	resume.grab_focus()
 
@@ -300,12 +326,16 @@ func show_result(won: bool, stars: int) -> void:
 	modal.add_child(_button("Уровни", show_levels))
 	stars_label.text = "★ %d" % game.progress.total_stars()
 	modal.modulate.a = 0.0
-	create_tween().tween_property(modal, "modulate:a", 1.0, 0.22)
+	modal_tween = create_tween()
+	modal_tween.tween_property(modal, "modulate:a", 1.0, 0.22)
 
 func toggle_sound() -> void:
-	game.progress.set_sound(not game.progress.data.sound)
+	game.settings.set_sound(not game.settings.sound_enabled())
+	if game.settings.sound_enabled(): _on_feedback("rotate")
+
+func _settings_changed(key: String) -> void:
+	if key == "sound" and not game.settings.sound_enabled(): sound_player.stop()
 	refresh()
-	_on_feedback("rotate")
 
 func _build_audio() -> void:
 	sound_player = AudioStreamPlayer.new()
@@ -326,7 +356,7 @@ func _build_audio() -> void:
 		sounds[pair[0]] = wave
 
 func _on_feedback(kind: String) -> void:
-	if game.progress.data.sound and sounds.has(kind):
+	if game.settings.sound_enabled() and sounds.has(kind):
 		sound_player.stream = sounds[kind]
 		sound_player.play()
 
@@ -337,6 +367,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_PAUSED and game and screen == "settings" and settings_return_screen == "game":
+		settings_return_screen = "pause"
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST and game:
 		if overlay.visible: back_overlay()
 		else: show_pause()
@@ -354,11 +386,14 @@ func show_main_menu() -> void:
 	var play := _button("Продолжить · %02d" % (game.current + 1), close_overlay)
 	modal.add_child(play)
 	modal.add_child(_button("Выбрать уровень", show_levels))
-	modal.add_child(_button("Звук: " + ("вкл" if game.progress.data.sound else "выкл"), func(): toggle_sound(); show_main_menu()))
+	gear.show()
+	gear.focus_mode = Control.FOCUS_ALL
 	play.grab_focus()
 
 func back_overlay() -> void:
-	if screen == "levels":
+	if screen == "settings":
+		close_settings()
+	elif screen == "levels":
 		match return_screen:
 			"menu": show_main_menu()
 			"won": show_result(true, result_stars)
@@ -380,3 +415,98 @@ func _show_reaction_frame(frame: Dictionary) -> void:
 			total += 1
 			if frame.state.active[i]: active += 1
 	targets_label.text = "◇  %d / %d" % [active, total]
+
+func _build_gear() -> void:
+	gear = _button("", show_settings, "settings")
+	gear.icon = preload("res://assets/gear.svg")
+	gear.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	gear.expand_icon = true
+	gear.add_theme_constant_override("icon_max_width", 64)
+	gear.tooltip_text = "Настройки"
+	gear.custom_minimum_size = Vector2(144, 144)
+	gear.anchor_left = 1.0
+	gear.anchor_right = 1.0
+	add_child(gear)
+
+func show_settings() -> void:
+	if screen == "settings": return
+	settings_return_screen = screen
+	screen = "settings"
+	settings_closing = false
+	game.paused = true
+	board.locked = true
+	if board.tween: board.tween.pause()
+	_open_modal("Настройки")
+	var emblem := TextureRect.new()
+	emblem.texture = preload("res://assets/gear.svg")
+	emblem.custom_minimum_size = Vector2(64, 64)
+	emblem.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	emblem.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	modal.add_child(emblem)
+	var effects := CheckButton.new()
+	effects.text = "Звуковые эффекты: " + ("Вкл" if game.settings.sound_enabled() else "Выкл")
+	effects.custom_minimum_size = Vector2(0, 144)
+	effects.button_pressed = game.settings.sound_enabled()
+	effects.toggled.connect(func(enabled: bool):
+		game.settings.set_sound(enabled)
+		effects.text = "Звуковые эффекты: " + ("Вкл" if enabled else "Выкл"))
+	modal.add_child(effects)
+	if OS.is_debug_build():
+		var diagnostic := CheckButton.new()
+		diagnostic.text = "Диагностика: " + ("Вкл" if game.settings.touch_diagnostics_enabled else "Выкл")
+		diagnostic.custom_minimum_size.y = 144
+		diagnostic.button_pressed = game.settings.touch_diagnostics_enabled
+		diagnostic.toggled.connect(func(enabled: bool):
+			game.settings.set_touch_diagnostics(enabled)
+			diagnostic.text = "Диагностика: " + ("Вкл" if enabled else "Выкл"))
+		modal.add_child(diagnostic)
+	var about := _label("ОБ ИГРЕ\nChain React! · " + str(ProjectSettings.get_setting("application/config/version", "0.2.0")), 36, MUTED)
+	modal.add_child(about)
+	modal.add_child(_button("Закрыть", close_settings))
+	modal.modulate.a = 0.0
+	modal_tween = create_tween()
+	modal_tween.tween_property(modal, "modulate:a", 1.0, 0.16)
+	effects.grab_focus()
+
+func close_settings() -> void:
+	if settings_closing or screen != "settings": return
+	settings_closing = true
+	if modal_tween: modal_tween.kill()
+	modal_tween = create_tween()
+	modal_tween.tween_property(modal, "modulate:a", 0.0, 0.12)
+	modal_tween.tween_callback(_restore_settings_parent)
+
+func _restore_settings_parent() -> void:
+	settings_closing = false
+	match settings_return_screen:
+		"menu": show_main_menu()
+		"pause": show_pause()
+		"won": show_result(true, result_stars)
+		"lost": show_result(false, 0)
+		"levels":
+			screen = "levels"
+			show_levels()
+		_:
+			modal.modulate.a = 1.0
+			close_overlay()
+			gear.grab_focus()
+	if gear.visible: gear.grab_focus()
+
+func _directions(index: int) -> Array:
+	var output: Array = []
+	for d in game.grid.level.nodes[index].get("dirs", []):
+		output.append((int(d) + int(game.grid.state.rotations[index])) % 4)
+	return output
+
+func _trace(data: Dictionary) -> void:
+	if OS.is_debug_build() and game.settings.touch_diagnostics_enabled:
+		print("[TouchDebug] " + JSON.stringify(data))
+
+func _input(event: InputEvent) -> void:
+	if game and event is InputEventScreenTouch and event.pressed:
+		_trace({"stage": "native-touch", "position": str(event.position), "finger": event.index, "screen": screen})
+
+func _pointer_observed(point: Vector2, index: int, device: int) -> void:
+	var reason: String = game.action_rejection(index)
+	_trace({"stage": "board-gui", "local_position": str(point), "viewport_position": str(board.get_global_transform_with_canvas() * point), "board_rect": str(board.get_global_rect()), "cell": board.geometry().cell, "index": index, "device": device, "locked": board.locked, "reason": reason})
+	if board.locked and not reason.is_empty(): hint_label.text = reason

@@ -53,7 +53,7 @@ func run() -> void:
 	check(ui.result_stars == 3, "required two-launch solution earns three stars")
 	check(ui.buttons.restart.focus_mode == Control.FOCUS_NONE, "modal traps focus away from background")
 	ui.close_overlay()
-	check(ui.buttons.sound.custom_minimum_size.y >= 144, "48dp target at 360 logical phone width")
+	check(ui.buttons.settings.custom_minimum_size.y >= 144, "48dp target at 360 logical phone width")
 	ui.game.select_level(9)
 	ui.game.tap(0)
 	while ui.game.busy: await process_frame

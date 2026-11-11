@@ -1,5 +1,6 @@
 extends Control
 signal node_pressed(index: int)
+signal pointer_observed(point: Vector2, index: int, device: int)
 const Model = preload("res://scripts/core/reaction_engine.gd")
 const CYAN: Color = Color("4de6f5")
 const PURPLE: Color = Color("aa8bfa")
@@ -57,22 +58,22 @@ func center(index: int) -> Vector2:
 	return g.origin + Vector2(n.x + 0.5, n.y + 0.5) * g.cell
 
 func _gui_input(event: InputEvent) -> void:
-	if locked or level.is_empty(): return
-	# Mouse-to-touch emulation uses the touch branch; mouse events only without emulation.
-	var point: Vector2
-	if event is InputEventScreenTouch and event.pressed:
-		point = event.position
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if Input.is_emulating_touch_from_mouse(): return
-		point = event.position
-	else: return
+	if level.is_empty(): return
+	# One canonical GUI action path. Godot synthesizes mouse from native touch.
+	# Never decide event origin from the global mouse-to-touch preference.
+	if not event is InputEventMouseButton or not event.pressed or event.button_index != MOUSE_BUTTON_LEFT:
+		return
+	var point: Vector2 = event.position
 	var g: Dictionary = geometry()
 	for i in range(level.nodes.size()):
 		if point.distance_to(center(i)) < g.cell * 0.43:
+			pointer_observed.emit(point, i, event.device)
+			if locked: return
 			flash_tap(i)
 			node_pressed.emit(i)
 			accept_event()
 			return
+	pointer_observed.emit(point, -1, event.device)
 
 func _draw() -> void:
 	if level.is_empty(): return

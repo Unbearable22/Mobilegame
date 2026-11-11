@@ -1,0 +1,10 @@
+Ran 5 tests in 0.000s
+OK
+Core: 21 passed, 0 failed
+Levels: 39 passed, 0 failed
+Save: 9 passed, 0 failed
+UI: 48 passed, 0 failed
+Input: 4 passed, 0 failed
+Acceptance: 14 passed, 0 failed
+Native touch: 54 passed, 0 failed
+Settings: 16 passed, 0 failed

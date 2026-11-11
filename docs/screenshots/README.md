@@ -13,3 +13,11 @@ OpenGL Compatibility, Xvfb / Mesa llvmpipe; не макеты и не увели
 | Цепная реакция | [PNG](720x1280-reaction-paused.png) | [PNG](1080x1920-reaction-paused.png) | [PNG](1440x3200-reaction-paused.png) |
 
 В логах — результаты прохождения и проверок границ. Съёмка использует отдельные файлы сохранений. Физический Android DPI, вырезы, мультитач на устройстве и нагрев этим способом не проверяются.
+
+## Настройки и touch 0.2.0
+
+- 720x1280: [menu](settings-720x1280-menu.png), [panel](settings-720x1280-panel.png), [game](settings-720x1280-game.png), [rotation](settings-720x1280-rotation.png)
+- 1080x1920: [menu](settings-1080x1920-menu.png), [panel](settings-1080x1920-panel.png), [game](settings-1080x1920-game.png), [rotation](settings-1080x1920-rotation.png)
+- 1440x3200: [menu](settings-1440x3200-menu.png), [panel](settings-1440x3200-panel.png), [game](settings-1440x3200-game.png), [rotation](settings-1440x3200-rotation.png)
+
+Снято обычным Godot через Xvfb. Настройки открываются и переключаются native Input-событиями, поворот — одним native касанием. Это не тест физического Android.

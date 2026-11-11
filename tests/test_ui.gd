@@ -68,7 +68,7 @@ func run() -> void:
 		await process_frame
 		var view: Rect2 = ui.get_viewport_rect()
 		check(view.encloses(ui.board.get_global_rect()), "board inside viewport at %s" % viewport_size)
-		check(view.encloses(ui.buttons["sound"].get_global_rect()), "toolbar inside viewport at %s" % viewport_size)
+		check(view.encloses(ui.buttons["settings"].get_global_rect()), "toolbar inside viewport at %s" % viewport_size)
 	ui.sound_player.stop()
 	ui.queue_free()
 	await create_timer(0.3).timeout
