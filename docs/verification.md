@@ -67,3 +67,9 @@ Linux x86_64, Godot **4.7.2.stable.official.ed1daf0bf**. Полный скрип
 Этот хеш относится к **локальной** сборке. GitHub Actions создаёт собственную debug-подпись и отчёт; его хеш отличается. [Воспроизведение и CI](android-build.md), [чек-лист Android](android-device-checklist.md). Временные downloads находятся вне Git; системные инструменты не заменялись.
 
 Физическое устройство не подключалось. До подтверждения готовности к телефону остаются установка APK, touch/Back, сворачивание, safe area, сохранения после остановки, FPS/нагрев. Для Play Store отдельно нужны Gradle/AAB, release identity и материалы. Реклама и аналитика не добавлялись.
+
+## GitHub Actions — подтверждённый артефакт
+
+[Run 43018581923](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923) на коммите `b1011a6` завершён **success**: toolchain, тесты, export, verifier и upload прошли. [Скачать ZIP с APK](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923/artifacts/13853971657) (вход в GitHub, хранение 14 дней). ZIP скачан обратно, размер/хеш APK сверены с [CI-отчётом](android-ci-artifact.json). Это независимая чистая CI-сборка со своей debug-подписью.
+
+Первый CI запуск остановился на удалённом legacy SDK-пакете `tools` из defaults стороннего action; явно задан `packages: platform-tools`, повторный запуск успешен.

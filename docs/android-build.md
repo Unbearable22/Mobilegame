@@ -33,3 +33,5 @@ python3 tools/build_android.py \
 Исправлены обнаруженные проблемы: build/tooling и тестовые JSON исключены из экспорта; проверяются точные значения debug/portrait, а не наличие атрибута; выбранная JDK передаётся также через PATH; проверяются реальные launcher mipmaps вместо случайной notification PNG. Добавлены отрицательные тесты для неверных манифестов.
 
 [Чек-лист телефона](android-device-checklist.md). Физический Android не использовался. FPS/нагрев, аппаратный Back, вырезы и жизненный цикл требуют ручной проверки.
+
+Проверенный [успешный запуск CI](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923) · [скачать APK и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923/artifacts/13853971657). Файл внутри: `chain-react-debug-arm64.apk`. Характеристики CI-файла: [android-ci-artifact.json](android-ci-artifact.json). Артефакт доступен 14 дней, затем пересоберите workflow.
