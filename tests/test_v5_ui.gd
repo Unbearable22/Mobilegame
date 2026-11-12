@@ -42,8 +42,8 @@ func run() -> void:
 	check(ui.modal.get_child_count()==3,"minimal selector only title grid chapter-back")
 	check(not labels(ui.modal).to_lower().contains("запуск") and not labels(ui.modal).contains("par_launches"),"no norms or mechanics in selector")
 	var grid: GridContainer = ui.modal.get_child(1)
-	check(grid.get_child_count()==10 and grid.columns==5,"compact ten-level grid")
-	for i in range(10):
+	check(grid.get_child_count()==25 and grid.columns==5,"compact25levelgrid")
+	for i in range(25):
 		var button: Button = grid.get_child(i)
 		check(button.text=="%02d"%(i+1) and button.tooltip_text.is_empty(),"level button number only and no norm tooltip")
 		check(button.custom_minimum_size.x>=144 and button.custom_minimum_size.y>=144,"finger sized level button")

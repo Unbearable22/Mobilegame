@@ -1,0 +1,23 @@
+{
+	"checks": 442,
+	"environment": {
+		"renderer": "llvmpipe (LLVM 20.1.2, 256 bits)",
+		"resolution": "1440x3200",
+		"scope": "Linux llvmpipe desktop debug; no phone/GPU/thermal claims"
+	},
+	"failures": 0,
+	"menu-full": {
+		"cosmetic_redraws": 60,
+		"frames": 60,
+		"mean_draw_calls": 138.566666666667,
+		"mean_process_ms": 731.3776,
+		"wall_ms": 42932.527
+	},
+	"menu-reduced": {
+		"cosmetic_redraws": 0,
+		"frames": 60,
+		"mean_draw_calls": 89.0,
+		"mean_process_ms": 838.268116666667,
+		"wall_ms": 49314.41
+	}
+}

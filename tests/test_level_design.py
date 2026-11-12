@@ -19,9 +19,9 @@ def signature(data):
     return min(variants)
 
 class DesignTests(unittest.TestCase):
-    def test_fifty_distinct_authored_boards(self):
+    def test_hundred_distinct_authored_boards(self):
         seen = {}
-        for id in range(1,51):
+        for id in range(1,101):
             data = json.loads((ROOT/f'levels/{id:02}.json').read_text())
             self.assertTrue(data['objective'].strip())
             self.assertTrue(data['author_solution'])

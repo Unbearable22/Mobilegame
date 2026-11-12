@@ -1,0 +1,127 @@
+{
+  "suites": [
+    {
+      "suite": "Core",
+      "passed": 21,
+      "failed": 0
+    },
+    {
+      "suite": "Levels",
+      "passed": 309,
+      "failed": 0
+    },
+    {
+      "suite": "Save",
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "suite": "UI",
+      "passed": 198,
+      "failed": 0
+    },
+    {
+      "suite": "Input",
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "suite": "Acceptance",
+      "passed": 16,
+      "failed": 0
+    },
+    {
+      "suite": "Native touch",
+      "passed": 54,
+      "failed": 0
+    },
+    {
+      "suite": "Settings",
+      "passed": 16,
+      "failed": 0
+    },
+    {
+      "suite": "Chapters",
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "suite": "Guide/UI chapters",
+      "passed": 56,
+      "failed": 0
+    },
+    {
+      "suite": "Main menu",
+      "passed": 26,
+      "failed": 0
+    },
+    {
+      "suite": "Level regressions",
+      "passed": 300,
+      "failed": 0
+    },
+    {
+      "suite": "Retention",
+      "passed": 49,
+      "failed": 0
+    },
+    {
+      "suite": "Statistics",
+      "passed": 23,
+      "failed": 0
+    },
+    {
+      "suite": "Board effects",
+      "passed": 23,
+      "failed": 0
+    },
+    {
+      "suite": "V5 UI",
+      "passed": 130,
+      "failed": 0
+    },
+    {
+      "suite": "Reward effects",
+      "passed": 6,
+      "failed": 0
+    },
+    {
+      "suite": "V6 progress",
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "suite": "V6 daily/reactor",
+      "passed": 24,
+      "failed": 0
+    },
+    {
+      "suite": "Expanded engine",
+      "passed": 305,
+      "failed": 0
+    },
+    {
+      "suite": "V6 visuals",
+      "passed": 74,
+      "failed": 0
+    },
+    {
+      "suite": "V6 real campaign",
+      "passed": 607,
+      "failed": 0
+    },
+    {
+      "suite": "V6 UI",
+      "passed": 26,
+      "failed": 0
+    }
+  ],
+  "assertions": 2294,
+  "errors": 0,
+  "full_headless_exit": 0,
+  "python_tests": 19,
+  "python_skips": 0,
+  "rendered_ui_checks_per_resolution": 442,
+  "rendered_theme_checks_per_resolution": 76,
+  "scope": "Desktop Godot; no physical Android validation"
+}

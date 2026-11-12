@@ -27,11 +27,11 @@ static func sanitize(raw: Variant) -> Dictionary:
 	var clean: Dictionary = {"levels":{}, "last_played_level":0}
 	if not raw is Dictionary: return clean
 	var last: Variant = raw.get("last_played_level",0)
-	if number(last) and last == floor(last) and last <= 50: clean.last_played_level = int(last)
+	if number(last) and last == floor(last) and last <= 100: clean.last_played_level = int(last)
 	if not raw.get("levels") is Dictionary: return clean
 	for key in raw.levels:
 		var id: String = str(key)
-		if not id.is_valid_int() or str(int(id)) != id or int(id) < 1 or int(id) > 50 or not raw.levels[key] is Dictionary: continue
+		if not id.is_valid_int() or str(int(id)) != id or int(id) < 1 or int(id) > 100 or not raw.levels[key] is Dictionary: continue
 		var source: Dictionary = raw.levels[key]
 		var row: Dictionary = empty_level()
 		for counter in COUNTERS:
@@ -53,7 +53,7 @@ func _row() -> Dictionary:
 	if not data.levels.has(key): data.levels[key] = empty_level()
 	return data.levels[key]
 func action(kind: String) -> void:
-	if level_id < 1 or level_id > 50: return
+	if level_id < 1 or level_id > 100: return
 	if not started:
 		started = true
 		active = true
@@ -65,7 +65,7 @@ func _increment(field: String) -> void:
 	row[field] = mini(int(row[field])+1, MAX_COUNTER)
 	dirty = true
 func restart() -> void:
-	if level_id >= 1 and level_id <= 50: _increment("restarts")
+	if level_id >= 1 and level_id <= 100: _increment("restarts")
 func undo() -> void:
 	if started:
 		active = true

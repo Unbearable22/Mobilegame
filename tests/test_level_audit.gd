@@ -17,4 +17,4 @@ func _initialize() -> void:
 	var file := FileAccess.open("res://build/level-audit.json",FileAccess.WRITE)
 	if file: file.store_string(JSON.stringify(reports,"\t"))
 	print("Level audit: %d levels, %d simulations, %d failures" % [reports.size(),total,failed])
-	quit(1 if failed or reports.size()!=50 else 0)
+	quit(1 if failed or reports.size()!=100 else 0)

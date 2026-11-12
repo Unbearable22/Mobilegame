@@ -35,7 +35,7 @@ func run() -> void:
 	game.progress.data.unlocked_chapters = [1, 2, 3, 4, 5]
 	game.reaction_frame.connect(func(frame: Dictionary): frames.append(frame.duplicate(true)))
 	game.finished.connect(func(won: bool, stars: int): results.append([won, stars]))
-	check(game.levels.size() == 50, "campaign remains fifty levels")
+	check(game.levels.size() == 100, "campaign admits100levels")
 	for id in [19, 49]:
 		await check_level(id)
 	game.queue_free()
@@ -136,7 +136,7 @@ func check_launch(id: int, number: int) -> void:
 		check(active_targets == ([2, 9, 10] if number == 1 else [2, 5, 9, 10]), "19 independent source branch and shared targets")
 		check(new_target_order == ([[2], [9, 10]] if number == 1 else [[5]]), "19 target order per launch")
 		var shared_edges: Array = frames[-1].edges
-		check(shared_edges == [{"from": 8, "to": 9}, {"from": 8, "to": 10}], "19 shared splitter sends up and down in both launches")
+		check(shared_edges == [{"from": 8, "to": 9,"direction":0}, {"from": 8, "to": 10,"direction":2}], "19 shared splitter sends up and down in both launches")
 	else:
 		var charges: Array = game.grid.state.charges
 		check([charges[6], charges[9]] == [[1, 0], [2, 1], [2, 2]][number - 1], "49 batteries charge in launch order")

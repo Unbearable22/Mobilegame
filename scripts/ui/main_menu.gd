@@ -3,6 +3,8 @@ extends Control
 signal continued
 signal chapters_requested
 signal achievements_requested
+signal reactor_requested
+signal daily_requested
 signal themes_requested
 const Reaction = preload("res://scripts/ui/menu_reaction.gd")
 const Catalog = preload("res://scripts/core/chapter_catalog.gd")
@@ -15,6 +17,8 @@ var continue_button: Button
 var chapters_button: Button
 var achievements_button: Button
 var themes_button: Button
+var reactor_button: Button
+var daily_button: Button
 var chapter_label: Label
 var status_label: Label
 var progress_label: Label
@@ -59,7 +63,7 @@ func _ready() -> void:
 	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	column.add_child(subtitle)
 	reaction = Reaction.new()
-	reaction.custom_minimum_size.y = 420
+	reaction.custom_minimum_size.y = 250
 	reaction.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	column.add_child(reaction)
 	continue_button = _action("Продолжить", "play",true)
@@ -80,6 +84,18 @@ func _ready() -> void:
 		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		collection.add_child(button)
 	column.add_child(collection)
+	var repeat_row:=HBoxContainer.new()
+	repeat_row.add_theme_constant_override("separation",16)
+	reactor_button=_action("Реактор","circuit",false)
+	daily_button=_action("Задача дня","spark",false)
+	for button in [reactor_button,daily_button]:
+		button.custom_minimum_size.y=120
+		button.add_theme_font_size_override("font_size",32)
+		button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		repeat_row.add_child(button)
+	reactor_button.pressed.connect(func(): reactor_requested.emit())
+	daily_button.pressed.connect(func(): daily_requested.emit())
+	column.add_child(repeat_row)
 	var panel := PanelContainer.new()
 	progress_panel=panel
 	var box := StyleBoxFlat.new()
@@ -111,7 +127,7 @@ func _ready() -> void:
 	stars_label = _label("",34,Color("c5b3ff"))
 	row.add_child(stars_label)
 	progress_bar = ProgressBar.new()
-	progress_bar.max_value = 50
+	progress_bar.max_value = Catalog.LEVEL_COUNT
 	progress_bar.show_percentage = false
 	progress_bar.custom_minimum_size.y = 10
 	for part in ["background","fill"]:
@@ -158,9 +174,9 @@ func update_progress(data: Dictionary,total_stars: int) -> void:
 	var chapter: Dictionary = Catalog.CHAPTERS[Catalog.chapter_for_level(int(data.last_level))-1]
 	chapter_label.text = "%s · %s" % [chapter.number,chapter.name]
 	chapter_label.add_theme_color_override("font_color",Color(chapter.color))
-	status_label.text = "Кампания завершена" if completed == 50 else "КАМПАНИЯ"
-	progress_label.text = "%d / 50" % completed
-	stars_label.text = "%d / 150" % total_stars
+	status_label.text = "Все доступные уровни пройдены" if completed == Catalog.LEVEL_COUNT else "КАМПАНИЯ"
+	progress_label.text = "%d / %d" % [completed,Catalog.LEVEL_COUNT]
+	stars_label.text = "%d / %d" % [total_stars,Catalog.LEVEL_COUNT*3]
 	progress_bar.value = completed
 	continue_button.tooltip_text = "Продолжить уровень %02d" % int(data.last_level)
 func apply_insets(left: int,top: int,right: int,bottom: int) -> void:
@@ -197,7 +213,7 @@ func configure_visuals(palette: Dictionary,reduced: bool) -> void:
 	panel_style.border_color=palette.border
 	progress_panel.add_theme_stylebox_override("panel",panel_style)
 	reaction.configure_visuals(palette,reduced)
-	for button in [continue_button,chapters_button,achievements_button,themes_button]:
+	for button in [continue_button,chapters_button,achievements_button,themes_button,reactor_button,daily_button]:
 		for state in ["normal","hover","pressed","focus","disabled"]:
 			var style: StyleBoxFlat = button.get_theme_stylebox(state).duplicate()
 			style.bg_color = palette.surface.lightened(.08 if state=="pressed" else 0)

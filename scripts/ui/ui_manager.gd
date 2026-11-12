@@ -197,10 +197,12 @@ func _build_main_menu() -> void:
 	main_menu.chapters_requested.connect(show_chapters)
 	main_menu.achievements_requested.connect(show_achievements)
 	main_menu.themes_requested.connect(show_themes)
+	main_menu.reactor_requested.connect(show_reactor)
+	main_menu.daily_requested.connect(show_daily)
 
 func _continue_from_menu() -> void:
 	var selected: int = int(game.progress.data.last_level)-1
-	if selected != game.current: game.select_level(selected)
+	if selected != game.current or not game.daily_date.is_empty(): game.select_level(selected)
 	close_overlay()
 
 func _safe_area() -> void:
@@ -246,7 +248,7 @@ func refresh() -> void:
 	var level: Dictionary = game.grid.level
 	title_label.text = level.name
 	var chapter: int = Catalog.chapter_for_level(game.current + 1)
-	phase_label.text = "%s · %02d / 10" % [Catalog.CHAPTERS[chapter-1].number,game.current % 10 + 1]
+	phase_label.text = ("День · "+game.daily_date) if not game.daily_date.is_empty() else "%s · %02d / 25" % [Catalog.CHAPTERS[chapter-1].number,game.current % 25 + 1]
 	phase_label.add_theme_color_override("font_color", Color(Catalog.CHAPTERS[chapter-1].color))
 	count_label.text = "▶ %d / %d" % [int(level.launches)-game.grid.used,int(level.launches)]
 	var total: int = 0
@@ -359,10 +361,10 @@ func show_chapters() -> void:
 	screen = "chapters"
 	_pause_for_panel()
 	_open_modal("Главы")
-	for index in range(5):
+	for index in range(Catalog.AVAILABLE_CHAPTERS):
 		var chapter: Dictionary = Catalog.CHAPTERS[index]
 		var progress: Dictionary = game.progress.chapter_progress(index+1)
-		var text: String = "%s · %s\n%d / 10   ·   ★ %d / 30" % [chapter.number,chapter.name,progress.completed,progress.stars]
+		var text: String = "%s · %s\n%d / 25   ·   ★ %d / 75" % [chapter.number,chapter.name,progress.completed,progress.stars]
 		var button: Button = _button(text, func(): selected_chapter = index+1; show_levels())
 		button.disabled = not progress.unlocked
 		if not progress.unlocked:
@@ -370,6 +372,9 @@ func show_chapters() -> void:
 			button.tooltip_text = "Пройдите предыдущую главу"
 		else: button.add_theme_color_override("font_color",Color(chapter.color))
 		modal.add_child(button)
+	var planned: Button=_button("V–XX · В разработке",func(): pass)
+	planned.disabled=true
+	modal.add_child(planned)
 	var back: Button = _icon_button("back", "Назад", back_overlay)
 	modal.add_child(back)
 	back.grab_focus()
@@ -388,8 +393,8 @@ func show_levels() -> void:
 	grid.add_theme_constant_override("h_separation",12)
 	grid.add_theme_constant_override("v_separation",12)
 	modal.add_child(grid)
-	for local_id in range(10):
-		var index: int = (selected_chapter-1)*10+local_id
+	for local_id in range(25):
+		var index: int = (selected_chapter-1)*25+local_id
 		var stars: int = int(game.progress.data.completed.get(str(index+1),0))
 		var locked: bool = not game.progress.chapter_unlocked(selected_chapter)
 		var button: Button = _button("%02d"%(index+1),func(): close_overlay(); game.select_level(index))
@@ -447,8 +452,10 @@ func show_result(won: bool, stars: int) -> void:
 		var next_index: int = (game.current+1) % game.levels.size()
 		var can_next: bool = game.progress.chapter_unlocked(Catalog.chapter_for_level(next_index+1))
 		var next: Button
-		if can_next:
-			next = _icon_button("next", "Следующий уровень" if game.current < 49 else "В начало", func(): close_overlay(); game.next_level())
+		if not game.daily_date.is_empty():
+			next=_icon_button("home","Задача дня выполнена",show_main_menu)
+		elif can_next:
+			next = _icon_button("next", "Следующий уровень" if game.current < game.levels.size()-1 else "В начало", func(): close_overlay(); game.next_level())
 		else:
 			text.suffix = "\nЗавершите остальные уровни главы"
 			text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -511,7 +518,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_APPLICATION_FOCUS_OUT] and game and screen in ["achievements","themes","statistics","statistics_export"] and retention_parent=="game": retention_parent="pause"
+	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_APPLICATION_FOCUS_OUT] and game and screen in ["achievements","themes","statistics","statistics_export","reactor","daily"] and retention_parent=="game": retention_parent="pause"
 	if main_menu and what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_APPLICATION_FOCUS_OUT]: main_menu.set_suspended(true)
 	if main_menu and what in [NOTIFICATION_APPLICATION_RESUMED,NOTIFICATION_APPLICATION_FOCUS_IN]: main_menu.set_suspended(false)
 	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_APPLICATION_FOCUS_OUT] and game and settings_return_screen == "game" and (screen == "settings" or (screen in ["statistics","statistics_export"] and retention_parent=="settings")):
@@ -540,7 +547,7 @@ func back_overlay() -> void:
 		close_settings()
 	elif screen == "guide":
 		_restore_panel_parent(guide_parent)
-	elif screen in ["achievements","themes","statistics"]:
+	elif screen in ["achievements","themes","statistics","reactor","daily"]:
 		_restore_panel_parent(retention_parent)
 	elif screen == "statistics_export":
 		screen="statistics"
@@ -653,6 +660,8 @@ func _restore_panel_parent(parent: String) -> void:
 		"achievements": screen="achievements"; show_achievements()
 		"themes": screen="themes"; show_themes()
 		"statistics": screen="statistics"; show_statistics()
+		"reactor": screen="reactor"; show_reactor()
+		"daily": screen="daily"; show_daily()
 		"settings": show_settings(true)
 		_:
 			modal.modulate.a = 1.0
@@ -672,8 +681,7 @@ func show_information() -> void:
 	guide_preview.custom_minimum_size = Vector2(240,240)
 	guide_preview.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	modal.add_child(guide_preview)
-	var node: Dictionary = {"x":0,"y":0,"type":card.type,"dirs":[1,3] if card.type == "splitter" else [1],"rotatable":card.type in ["directional","splitter"]}
-	var preview_level: Dictionary = {"width":1,"height":1,"nodes":[node]}
+	var preview_level: Dictionary = Guide.preview_level(str(card.type))
 	guide_preview.configure_visuals(palette,game.settings.reduced_effects_enabled())
 	guide_preview.show_state(preview_level,preload("res://scripts/core/reaction_engine.gd").initial_state(preview_level),false)
 	var text := _label(card.text,38,MUTED)
@@ -733,6 +741,7 @@ func _apply_visuals() -> void:
 	modal_panel.add_theme_stylebox_override("panel",modal_style)
 	_build_theme()
 	board.configure_visuals(palette,game.settings.reduced_effects_enabled())
+	board.configure_cosmetics(game.progress.data.reactor.pulse_style)
 	main_menu.configure_visuals(palette,game.settings.reduced_effects_enabled())
 	if is_instance_valid(guide_preview): guide_preview.configure_visuals(palette,game.settings.reduced_effects_enabled())
 	var updated: int=3+int(is_instance_valid(guide_preview))+_apply_label_palette(self)
@@ -857,3 +866,35 @@ func _show_achievement_toast() -> void:
 	achievement_tween.tween_interval(2.8)
 	if not game.settings.reduced_effects_enabled(): achievement_tween.tween_property(achievement_toast,"modulate:a",0.0,.25)
 	achievement_tween.tween_callback(func(): achievement_toast.hide())
+
+func show_reactor() -> void:
+	_retention_screen("reactor","Ядро Реактора")
+	var Reactor=preload("res://scripts/core/reactor_catalog.gd")
+	var view=preload("res://scripts/ui/reactor_view.gd").new(palette,game.progress.data)
+	retention_view.add_child(view)
+	retention_view.add_child(retention_view.label("I–IV · 100 доступных задач\nV–XX · будущие секторы",30,"muted"))
+	var sectors: Array=Reactor.sectors(game.progress.data)
+	retention_view.add_child(retention_view.label("I–II · коллекция тем\nIII · двойной импульс\nIV · призматическое ядро",30))
+	var pulse: Button=retention_view.action("Импульс: "+("Двойной" if game.progress.data.reactor.pulse_style=="braided" else "Стандартный"),func():
+		var value: String="standard" if game.progress.data.reactor.pulse_style=="braided" else "braided"
+		if Reactor.select(game.progress,"pulse_style",value): _apply_visuals(); show_reactor())
+	pulse.disabled=not 3 in sectors
+	retention_view.add_child(pulse)
+	var style: Button=retention_view.action("Ядро: "+("Призма" if game.progress.data.reactor.reactor_style=="prismatic" else "Орбита"),func():
+		var value: String="orbital" if game.progress.data.reactor.reactor_style=="prismatic" else "prismatic"
+		if Reactor.select(game.progress,"reactor_style",value): show_reactor())
+	style.disabled=not 4 in sectors
+	retention_view.add_child(style)
+	_retention_back()
+func show_daily() -> void:
+	_retention_screen("daily","Задача дня")
+	var Daily=preload("res://scripts/core/daily_catalog.gd")
+	var date: String=Time.get_date_string_from_system(false)
+	var id: int=Daily.level_for_date(date)
+	retention_view.add_child(retention_view.label(date,40,"accent"))
+	retention_view.add_child(retention_view.label("Одна авторская задача в день.\nОфлайн, без серии обязательных входов.",32))
+	var result: Dictionary=game.progress.data.daily.get(date,{})
+	retention_view.add_child(retention_view.label("Сегодня: "+("★".repeat(result.stars) if not result.is_empty() else "ещё не решена"),34,"secondary"))
+	retention_view.add_child(retention_view.action("Продолжить" if game.progress.data.daily_runs.has(date) else "Играть",func():
+		if game.start_daily(date): close_overlay()))
+	_retention_back()

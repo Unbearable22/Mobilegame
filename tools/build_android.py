@@ -132,6 +132,7 @@ def build(args, ephemeral_directory):
     run(['python3', 'tests/test_level_design.py'], env)
     run(['bash', 'tools/check.sh'], env)
     shutil.copy2(ROOT / 'build/level-audit.json', output.parent / 'level-audit.json')
+    shutil.copy2(ROOT / 'build/v6-redundancy.json', output.parent / 'v6-redundancy.json')
     shutil.copy2(ROOT / 'docs/v4-level-diagnostics.json', output.parent / 'v4-level-diagnostics.json')
     run([godot, '--headless', '--path', '.', '--export-debug', 'Android', output], env)
     run(['python3', 'tools/verify_apk.py', output, '--sdk', sdk, '--java', java, '--godot', godot,

@@ -89,7 +89,7 @@ func build_achievements(rows: Array,page: int) -> void:
 func build_themes(data: Dictionary,selected: String) -> void:
 	for entry in Themes.THEMES:
 		var unlocked: bool = Themes.unlocked(entry.id,data)
-		var condition: String = "Выбрана" if entry.id==selected else ("Доступна" if unlocked else ("За всю кампанию" if entry.chapter==5 else "За главу "+["","I","II","III"][entry.chapter]))
+		var condition: String = "Выбрана" if entry.id==selected else ("Доступна" if unlocked else ("За уровни 1–50" if entry.chapter==5 else "За уровни "+["","1–10","11–20","21–30"][entry.chapter]))
 		var button := action(entry.name+"\n"+condition,func(): theme_requested.emit(entry.id))
 		button.disabled = not unlocked
 		button.gui_input.connect(func(event: InputEvent):

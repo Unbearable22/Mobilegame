@@ -1,3 +1,23 @@
+# v0.6 acceptance screenshots
+
+Real Godot OpenGL framebuffer captures, Linux llvmpipe; physical Android was not used. The same screens exist at 720×1280, 1080×1920 and 1440×3200.
+
+| Screen | 1080×1920 |
+|---|---|
+| Menu | [Screenshot](v6-1080x1920-menu-fresh.png) |
+| 25-level grid | [Screenshot](v6-1080x1920-levels-iv.png) |
+| Reactor fresh | [Screenshot](v6-1080x1920-reactor-fresh.png) |
+| Reactor earned cosmetics | [Screenshot](v6-1080x1920-reactor-prismatic.png) |
+| Daily | [Screenshot](v6-1080x1920-daily.png) |
+| Reflector | [Screenshot](v6-1080x1920-level-51.png) |
+| Portal | [Screenshot](v6-1080x1920-level-57.png) |
+| AND | [Screenshot](v6-1080x1920-level-63.png) |
+| Delay | [Screenshot](v6-1080x1920-level-69.png) |
+| Final level | [Screenshot](v6-1080x1920-level-100.png) |
+| Victory | [Screenshot](v6-1080x1920-final-victory.png) |
+
+Five-theme game/menu checks also produce `v6theme-{resolution}-{game|menu}-{theme}.png`, with framebuffer color and frozen-image negative-control assertions. Exact check counts and desktop render metrics are in the matching `*-report.json` files.
+
 # v0.5.1 rendered theme acceptance
 
 Real Godot OpenGL framebuffer captures, Linux llvmpipe; not physical Android.

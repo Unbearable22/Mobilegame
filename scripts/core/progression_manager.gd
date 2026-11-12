@@ -33,11 +33,11 @@ func total_stars() -> int:
 	return total
 
 func chapter_unlocked(chapter: int) -> bool:
-	return chapter in data.unlocked_chapters
+	return Catalog.available(chapter) and chapter in data.unlocked_chapters
 func chapter_progress(chapter: int) -> Dictionary:
 	var won: int = 0
 	var stars: int = 0
-	for id in range((chapter-1)*10+1,chapter*10+1):
+	for id in range((chapter-1)*25+1,chapter*25+1):
 		if data.completed.has(str(id)):
 			won += 1
 			stars += int(data.completed[str(id)])

@@ -1,0 +1,33 @@
+{
+	"scope": "Desktop headless Godot debug CPU; not Android FPS/thermals",
+	"sequences": [
+		{
+			"id": 50,
+			"mean_sequence_ms": 0.58648,
+			"nodes": 17,
+			"p95_sequence_ms": 0.958,
+			"runs": 100
+		},
+		{
+			"id": 68,
+			"mean_sequence_ms": 0.24836,
+			"nodes": 7,
+			"p95_sequence_ms": 0.264,
+			"runs": 100
+		},
+		{
+			"id": 88,
+			"mean_sequence_ms": 0.54106,
+			"nodes": 20,
+			"p95_sequence_ms": 0.807,
+			"runs": 100
+		},
+		{
+			"id": 100,
+			"mean_sequence_ms": 0.95666,
+			"nodes": 21,
+			"p95_sequence_ms": 1.628,
+			"runs": 100
+		}
+	]
+}

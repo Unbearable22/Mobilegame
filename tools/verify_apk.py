@@ -49,7 +49,7 @@ def verify(apk, sdk, java, godot, expected_certificate=None, signing_mode='unver
         names = archive.namelist()
         libraries = [name for name in names if name.startswith("lib/") and name.endswith(".so")]
         assert libraries and all(name.startswith("lib/arm64-v8a/") for name in libraries), "Unexpected ABI"
-        for number in range(1, 51):
+        for number in range(1, 101):
             name = f"assets/levels/{number:02d}.json"
             data = json.loads(archive.read(name))
             assert data["id"] == number and data["nodes"], f"Bad level {name}"
@@ -77,7 +77,7 @@ def verify(apk, sdk, java, godot, expected_certificate=None, signing_mode='unver
     report = {"apk": apk.name, "bytes": apk.stat().st_size, "sha256": digest,
               "package_id": "org.chainreact.onetappuzzle", "abis": ["arm64-v8a"],
               "target_sdk": 36, "min_sdk": 24, "orientation": "portrait", "debuggable": True,
-              "levels": 50, "permissions": used_permissions, "signature_verified": True,
+              "levels": 100, "permissions": used_permissions, "signature_verified": True,
               "certificate_sha256": certificate, "signing_mode": signing_mode,
               "signing_persistent": signing_mode == "persistent-debug",
               "zipalign_16k_verified": True, "packaged_resource_smoke": True, "physical_device_tested": False}

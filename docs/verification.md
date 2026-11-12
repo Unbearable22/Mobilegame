@@ -204,3 +204,23 @@ APK реально скачан обратно: **28 438 529байт**, SHA256 `
 - Real Godot framebuffer captures: all five themes on menu/game, native touch, pixel-region checks and frozen-render negative control at 720×1280,1080×1920,1440×3200. Initial regression test failed before the fixes. See `docs/v51-theme-investigation.md` and `docs/screenshots/v51-*-report.json` for exact latest check counts.
 - Physical Android v0.5.1 has not been tested here. The original device-only no-color-change symptom remains unconfirmed; debug traces are provided for localization. Confirmed fixed defects were shared backgrounds/surfaces and hardcoded palette consumers.
 - Stable CI signing is explicitly blocked on owner Actions Secrets setup (HTTP403 from integration). Ordinary CI now fails closed; explicit manual ephemeral test signing is labeled nonpersistent. No private keys are committed.
+
+## v0.6 candidate — 2026-11-12
+
+Implementation: [foundation and limits](v6-foundation.md), [formal ten-mechanic specification](v6-mechanics-spec.md), [authored51–75](v6-levels-51-75.md), [authored76–100](v6-levels-76-100.md), [independent review](v6-developer-review.md).
+
+Executed candidate checks:
+
+- All100 author witnesses through real GameManager, three stars, Undo/replay and Restart: **607 passed**, including200 terminal win events and Daily/campaign separation.
+- Complete original-board orientation/source enumeration: **100 levels,55,034 simulations,0 failures**. New levels require declared interactions on every winning trace. Legacy1–50 JSON files remain byte-for-byte unchanged.
+- Tracked witness ablation: **438 ordinary-node/source/portal-pair mutations,0 redundant witness details**. Level51blocker3 is an explicitly documented teaching decoy.
+- Expanded engine: **305 passed**, including legacy50 differential comparisons against the frozen v0.5 engine, all mirror directions, simultaneous portals/AND, delay ticks, malformed state, event4097 and tick128 transactional rollback.
+- Save migration: **9 passed**. Daily/Reactor: **24 passed**, including interrupted-run reconstruction, content snapshot/checksum, cache isolation, best-result persistence and future-reward rejection. UI flow: **26 passed**.
+- New visual unit suite: **74 headless checks** and **122 real-render checks** (25glyph renders across five themes plus pulse differences and semantic states).
+- Actual Godot/native-touch screenshot script: **442 checks at each of720×1280,1080×1920,1440×3200**, including menu/Reactor/Daily,25-level grid, seven new authored wins, guide, final victory, bounds/text/touch checks. Five-theme regional-pixel script: **76 checks per resolution**, including cold scene recreation and frozen-image negative control. This is Linux native-event injection, not a physical Android touchscreen test.
+- Python manifest/signing/diversity: **19 passed,0 skips** with actual Android signer. Keystore preflight and two independently signed APK fixtures use environment password sources.
+- The first full candidate run caught stale tests for the new100 totals and added direction metadata. Expected chapter/count/edge assertions were updated while preserving the actual behavioral checks, then the full suite was rerun. Final full-suite log/summary is recorded with the APK report.
+
+Desktop debug CPU benchmark (100 winning sequences each) is in `v6-engine-benchmark.json`: p95 approximately0.96ms(level50),0.26ms(68),0.81ms(88),1.63ms(100) in that sample. Render capture metrics used Mesa llvmpipe with concurrent test contention and do not establish Android FPS/GPU/thermals. Reduced menu effects issued zero repeated cosmetic redraws; sampled draw calls dropped from about139to89.
+
+Owner actions still required: configure the four signing Secrets using `android-signing.md`; the integration receives HTTP403 for Secrets and workflow dispatch. Normal CI fails closed and its latest failure is not described as a successful APK build. Local persistent-key builds and GitHub Releases are the available distribution route. Physical Android, clipboard-on-Android, long-session FPS/heat and human difficulty/fun confirmation remain pending.

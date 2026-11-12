@@ -1,4 +1,22 @@
-> v0.5.1 theme stabilization is being verified before v0.6 expansion. [Theme investigation](docs/v51-theme-investigation.md), [rendered screenshots](docs/screenshots/README.md), [stable signing setup](docs/android-signing.md). Physical confirmation of the new version is pending.
+# Chain React! v0.6.0
+
+100 авторских уровней, четыре главы по 25 задач и четыре новые механики: Reflector, Portal, AND и Delay. Старые уровни1–50 сохранены. Реактор показывает четыре доступных сектора из20; Daily работает офлайн и восстанавливает принятую последовательность действий.
+
+Темы используют общую палитру и проверяются по пикселям реального Godot-рендера. Прогресс схем1–3 мигрирует с резервной копией. Нет рекламы, покупок, сетевой аналитики или новых разрешений.
+
+- [APK v0.5.1 debug ARM64](https://github.com/Unbearable22/Mobilegame/releases/tag/v0.5.1-debug) — отдельный контрольный этап тем.
+- APK v0.6.0: финальная сборка и проверка выполняются; актуальные факты будут записаны в Android build report.
+- [Проверки](docs/verification.md), [скриншоты](docs/screenshots/README.md), [независимое ревью](docs/v6-developer-review.md).
+- [Архитектура и ограничения](docs/v6-foundation.md), [правила механик](docs/v6-mechanics-spec.md), [качество уровней](docs/v6-quality-report.json).
+- [Стабильная подпись](docs/android-signing.md), [перенос полного прогресса](docs/android-progress-transfer.md), [проверка на смартфоне](docs/android-device-checklist.md).
+
+Проверки: `GODOT_BIN=/path/to/godot bash tools/check.sh`, затем `python3 -m unittest discover -s tests -p 'test_*.py'`. Godot4.7.2, Android ARM64, package`org.chainreact.onetappuzzle`, Compatibility, portrait, SDK24–36.
+
+Физическая проверка новых версий ожидает подтверждения пользователя. Текущая интеграция получает HTTP403 для Secrets и dispatch Actions: CI требует настройки владельцем и без ключа прекращает сборку. Локальный APK использует постоянный debug-ключ вне Git; файл ключа не входит в репозиторий или артефакты.
+
+---
+
+## История v0.5
 
 # Chain React! — One Tap Puzzle · 0.5.0
 

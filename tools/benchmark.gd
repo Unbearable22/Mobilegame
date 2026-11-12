@@ -1,18 +1,23 @@
 extends SceneTree
-const Loader = preload("res://scripts/core/level_loader.gd")
-const Model = preload("res://scripts/core/reaction_engine.gd")
-func _initialize() -> void:
-	var level: Dictionary = Loader.new().load_all()[49]
-	var configured: Dictionary = Model.initial_state(level)
-	var sources: Array = []
-	for action in level.author_solution:
-		if action.type == "rotate": configured.rotations[int(action.index)] = (int(configured.rotations[int(action.index)])+1)%4
-		else: sources.append(int(action.index))
-	var engine := Model.new()
-	var start: int = Time.get_ticks_usec()
-	for i in range(1000):
-		var state: Dictionary = configured.duplicate(true)
-		for source in sources: state = engine.simulate(level,state,source).state
-	var elapsed: int = Time.get_ticks_usec()-start
-	print("CPU level50 configured winning sequence (%d launches),1000 runs: %.3f ms, %.3f ms/sequence" % [sources.size(),elapsed/1000.0,elapsed/1000000.0])
-	quit()
+const Loader=preload("res://scripts/core/level_loader.gd")
+const Grid=preload("res://scripts/core/grid_manager.gd")
+func _initialize()->void:
+	var levels:Array=Loader.new().load_all()
+	var rows:Array=[]
+	for id in [50,68,88,100]:
+		var level:Dictionary=levels[id-1]
+		var samples:Array=[]
+		for iteration in range(100):
+			var grid=Grid.new();grid.load_level(level)
+			var began:int=Time.get_ticks_usec()
+			for action in level.author_solution:
+				if action.type=="rotate":grid.rotate(int(action.index))
+				else:grid.launch(int(action.index))
+			samples.append((Time.get_ticks_usec()-began)/1000.0)
+		samples.sort()
+		var sum:float=0
+		for value in samples:sum+=value
+		rows.append({"id":id,"runs":100,"mean_sequence_ms":sum/100,"p95_sequence_ms":samples[94],"nodes":level.nodes.size()})
+	var file:=FileAccess.open("res://docs/v6-engine-benchmark.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"scope":"Desktop headless Godot debug CPU; not Android FPS/thermals","sequences":rows},"\t")+"\n")
+	print(JSON.stringify(rows));quit()

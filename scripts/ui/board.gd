@@ -8,12 +8,19 @@ const GREEN: Color = Color("a5f3a3")
 var DEFAULT_PALETTE: Dictionary = preload("res://scripts/core/theme_catalog.gd").palette("neon")
 var palette: Dictionary = DEFAULT_PALETTE
 var reduced_effects: bool = false
+var pulse_style: String = "standard"
 # Charge increases can occur without an activation in frame.nodes.
 var charge_feedback: Dictionary = {}
 var level: Dictionary = {}
 var state: Dictionary = {}
 var edges: Array = []
 var lit: Array = []
+# Semantic tick feedback survives reduced effects; it never drives simulation.
+var and_inputs: Dictionary = {}
+var delay_waits: Dictionary = {}
+var portal_labels: Dictionary = {}
+var released_nodes: Array = []
+var reaction_tick: int = -1
 var locked: bool = false
 var rotation_available: bool = true
 var animation: float = 1.0
@@ -39,6 +46,10 @@ func configure_visuals(colors: Dictionary, reduced: bool) -> void:
 		_clear_effects()
 	queue_redraw()
 
+func configure_cosmetics(style: String) -> void:
+	pulse_style = style if style in ["standard","braided"] else "standard"
+	queue_redraw()
+
 func _clear_effects() -> void:
 	if tween:
 		tween.kill()
@@ -56,11 +67,41 @@ func show_state(data: Dictionary, snapshot: Dictionary, is_locked: bool) -> void
 	level = data.duplicate(true)
 	state = snapshot.duplicate(true)
 	locked = is_locked
+	and_inputs = {}
+	delay_waits = {}
+	released_nodes = []
+	reaction_tick = -1
+	portal_labels = {}
+	var pair_ids: Array = []
+	for definition in level.nodes:
+		if definition.type == "portal" and not definition.get("pair_id", "") in pair_ids: pair_ids.append(definition.get("pair_id", ""))
+	pair_ids.sort()
+	for i in range(pair_ids.size()): portal_labels[pair_ids[i]] = "P%d" % (i+1)
 	edges = []
 	lit = []
 	queue_redraw()
 
 func show_frame(frame: Dictionary) -> void:
+	if level.is_empty(): return
+	var next_tick: int = int(frame.get("tick",reaction_tick+1))
+	if next_tick == 0:
+		delay_waits = {}
+	var elapsed: int = maxi(0,next_tick-reaction_tick) if reaction_tick >= 0 else 0
+	for index in delay_waits.keys(): delay_waits[index] = maxi(0,int(delay_waits[index])-elapsed)
+	reaction_tick = next_tick
+	and_inputs = {}
+	var neighbors: Dictionary = {}
+	for edge in frame.edges:
+		if edge.get("kind","") == "portal": continue
+		var target: int = int(edge.to)
+		if level.nodes[target].type == "and_gate":
+			if not neighbors.has(target): neighbors[target] = []
+			if not edge.from in neighbors[target]: neighbors[target].append(edge.from)
+	for index in neighbors: and_inputs[index] = mini(2,neighbors[index].size())
+	for index in frame.nodes:
+		if level.nodes[index].type == "delay": delay_waits[index] = int(level.nodes[index].get("delay_ticks",1))
+	released_nodes = frame.get("released",[]).duplicate()
+	for index in released_nodes: delay_waits.erase(index)
 	charge_feedback = {}
 	if not reduced_effects:
 		for index in range(level.nodes.size()):
@@ -138,11 +179,15 @@ func _draw() -> void:
 	for edge in edges:
 		var a: Vector2 = center(edge.from)
 		var b: Vector2 = center(edge.to)
-		_draw_pulse(a, b)
+		if edge.get("kind", "") == "portal": _draw_portal_pulse(a,b)
+		else: _draw_pulse(a, b)
 	for i in range(level.nodes.size()):
 		_draw_node(i, cell)
 
 func _draw_pulse(a: Vector2, b: Vector2) -> void:
+	if pulse_style == "braided":
+		_draw_braided_pulse(a,b)
+		return
 	if reduced_effects:
 		draw_line(a, b, Color(palette.accent, 0.9), 7, true)
 		return
@@ -167,6 +212,9 @@ func _draw_node(index: int, cell: float) -> void:
 		draw_arc(p, r * (1.1 + (1.0 - tap_glow) * 0.5), 0, TAU, 48, Color(palette.accent, tap_glow), 5, true)
 	var color: Color = palette.target if n.type == "target" else (palette.battery if n.type == "battery" else (palette.secondary if n.type == "splitter" else (palette.active_node if active or n.type=="source" else palette.inactive_node)))
 	if n.type == "blocker": color = palette.muted
+	elif n.type in ["reflector","portal"]: color = palette.secondary
+	elif n.type == "and_gate": color = palette.target
+	elif n.type == "delay": color = palette.battery
 	if active:
 		draw_circle(p, r * 1.32, Color(color, 0.09))
 		draw_circle(p, r * 1.12, Color(color, 0.13))
@@ -187,8 +235,51 @@ func _draw_node(index: int, cell: float) -> void:
 			draw_line(p + Vector2(-r * 0.05, r * 0.3), p + Vector2(r * 0.45, -r * 0.3), color, 6, true)
 		else: draw_circle(p, r * 0.22, color)
 	else:
-		draw_arc(p, r, 0, TAU, 48, Color(color, 1.0 if active or n.type == "source" else 0.6), 4, true)
+		if not n.type in ["reflector","portal","and_gate","delay"]:
+			draw_arc(p, r, 0, TAU, 48, Color(color, 1.0 if active or n.type == "source" else 0.6), 4, true)
 		match n.type:
+			"reflector":
+				var boundary := PackedVector2Array([p+Vector2(0,-r),p+Vector2(r,0),p+Vector2(0,r),p+Vector2(-r,0),p+Vector2(0,-r)])
+				draw_polyline(boundary,color,3,true)
+				var slope: float = -1.0 if int(state.rotations[index])%2 == 0 else 1.0
+				draw_line(p+Vector2(-r*0.47,-r*0.47*slope),p+Vector2(r*0.47,r*0.47*slope),color,6,true)
+				# Small parallel backing line makes the mirror distinct from an arrow.
+				draw_line(p+Vector2(-r*0.40,-r*0.40*slope)+Vector2(0,r*0.14),p+Vector2(r*0.40,r*0.40*slope)+Vector2(0,r*0.14),Color(color,0.35),2,true)
+			"portal":
+				for factor in [1.0,0.72]:
+					var oval := PackedVector2Array()
+					for k in range(33):
+						var angle: float = TAU*k/32.0
+						oval.append(p+Vector2(cos(angle)*r*0.72*factor,sin(angle)*r*factor))
+					draw_polyline(oval,color,3,true)
+				_draw_center_text(p+Vector2(0,r*0.17),str(portal_labels.get(n.get("pair_id",""),"P?")),maxi(10,int(r*0.5)),palette.text)
+				_draw_exits(p,r,n.get("dirs",[]),0,color)
+			"and_gate":
+				var curve := PackedVector2Array([p+Vector2(-r*0.65,-r*0.80),p+Vector2(-r*0.15,-r*0.80)])
+				for k in range(25):
+					var angle: float = -PI*0.5+PI*k/24.0
+					curve.append(p+Vector2(-r*0.15+cos(angle)*r*0.8,sin(angle)*r*0.8))
+				curve.append(p+Vector2(-r*0.65,r*0.8))
+				curve.append(p+Vector2(-r*0.65,-r*0.8))
+				draw_polyline(curve,color,4,true)
+				_draw_center_text(p+Vector2(-r*0.1,r*0.24),"&",maxi(12,int(r*0.85)),color)
+				for k in range(2):
+					var pip: Vector2 = p+Vector2(-r*0.91,(-0.35 if k == 0 else 0.35)*r)
+					draw_circle(pip,r*0.12,color if int(and_inputs.get(index,0)) > k else palette.surface)
+					draw_arc(pip,r*0.12,0,TAU,12,color,2,true)
+				_draw_exits(p,r,n.get("dirs",[]),int(state.rotations[index]),color)
+			"delay":
+				draw_arc(p+Vector2(0,r*0.04),r*0.83,0,TAU,40,color,4,true)
+				draw_rect(Rect2(p+Vector2(-r*0.18,-r),Vector2(r*0.36,r*0.14)),color)
+				var clock_center: Vector2 = p+Vector2(0,-r*0.16)
+				draw_line(clock_center,clock_center+Vector2(0,-r*0.34),color,3,true)
+				var remaining: int = int(delay_waits.get(index,-1))
+				var hand: Vector2 = Vector2.RIGHT.rotated(-PI*0.5+TAU*float(maxi(0,remaining))/float(maxi(1,int(n.get("delay_ticks",1)))))
+				draw_line(clock_center,clock_center+hand*r*0.27,color,3,true)
+				var label: String = str(remaining) if remaining >= 0 else "+%d" % int(n.get("delay_ticks",1))
+				_draw_center_text(p+Vector2(0,r*0.58),label,maxi(11,int(r*0.55)),palette.text if remaining >= 0 else color)
+				if index in released_nodes: draw_arc(p,r*1.05,0,TAU,32,palette.energy,3,true)
+				_draw_exits(p,r,n.get("dirs",[]),int(state.rotations[index]),color)
 			"source":
 				for direction in n.dirs:
 					var d: Vector2 = Vector2(Model.DIRECTIONS[int(direction)])
@@ -232,3 +323,49 @@ func flash_tap(index: int) -> void:
 	tap_glow = 1.0
 	tap_tween = create_tween()
 	tap_tween.tween_method(func(value: float): tap_glow = value; queue_redraw(), 1.0, 0.0, 0.28)
+
+
+func _draw_center_text(baseline: Vector2, text: String, font_size: int, color: Color) -> void:
+	var font: Font = ThemeDB.fallback_font
+	var width: float = font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size).x
+	draw_string(font,baseline-Vector2(width*0.5,0),text,HORIZONTAL_ALIGNMENT_LEFT,-1,font_size,color)
+
+func _draw_exits(p: Vector2, r: float, dirs: Array, rotation: int, color: Color) -> void:
+	for direction in dirs:
+		var d: Vector2 = Vector2(Model.DIRECTIONS[(int(direction)+rotation)%4])
+		var tip: Vector2 = p+d*r*1.32
+		draw_line(p+d*r*0.98,tip,color,3,true)
+		draw_line(tip,tip-d.rotated(0.65)*r*0.22,color,3,true)
+		draw_line(tip,tip-d.rotated(-0.65)*r*0.22,color,3,true)
+
+func _portal_point(a: Vector2, b: Vector2, t: float) -> Vector2:
+	var g: Dictionary = geometry()
+	var delta: Vector2 = b-a
+	var control: Vector2 = (a+b)*0.5+delta.normalized().rotated(PI*0.5)*minf(delta.length()*0.18,float(g.cell)*0.65)
+	var margin: Vector2 = Vector2.ONE*float(g.cell)*0.12
+	control = control.clamp(g.origin+margin,g.origin+g.extent-margin)
+	return a*(1.0-t)*(1.0-t)+control*2.0*(1.0-t)*t+b*t*t
+
+func _draw_portal_pulse(a: Vector2, b: Vector2) -> void:
+	# Fixed segment budget, no particles or process callback, even for far endpoints.
+	for k in range(16):
+		var start: float = float(k)/16.0
+		var end: float = (float(k)+0.55)/16.0
+		draw_line(_portal_point(a,b,start),_portal_point(a,b,end),Color(palette.secondary,0.85),4,true)
+	if not reduced_effects:
+		var head: Vector2 = _portal_point(a,b,animation)
+		draw_circle(head,7,palette.energy)
+
+
+func _draw_braided_pulse(a: Vector2, b: Vector2) -> void:
+	var side: Vector2 = (b-a).normalized().rotated(PI*0.5)*4.0
+	var extent: float = 1.0 if reduced_effects else animation
+	# Two six-segment strands; same fixed cost in every theme and no extra tween.
+	for strand in range(2):
+		var sign_value: float = -1.0 if strand == 0 else 1.0
+		var points := PackedVector2Array()
+		for k in range(7):
+			var t: float = extent*float(k)/6.0
+			points.append(a.lerp(b,t)+side*sign_value*sin(t*TAU+PI*0.25))
+		draw_polyline(points,palette.accent if strand == 0 else palette.secondary,3,true)
+	if not reduced_effects: draw_circle(a.lerp(b,animation),5,palette.energy)

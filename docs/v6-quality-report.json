@@ -1,0 +1,4413 @@
+{
+  "scope": "authored content quality gates; human playtesting pending",
+  "engine_sha256": "50d9b3f1a34ff1496b5266b2b976ad56ee917c32f03e777fce50421b7b87961b",
+  "levels": [
+    {
+      "author_won": true,
+      "calls": 1,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 1,
+      "minimum_launches": 1,
+      "minimum_rotated": 0,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "ac3c2344ec5d70bdf0df5ce5aeeeacaa9f923e031443f180cd534f130226f207"
+    },
+    {
+      "author_won": true,
+      "calls": 1,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 2,
+      "minimum_launches": 1,
+      "minimum_rotated": 0,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "44f33862f78af4ef0db72e289b3d7e9a6c302ab1dd552d464abc188576b81f4a"
+    },
+    {
+      "author_won": true,
+      "calls": 4,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 3,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "d33945d5505630c0b72ada98b75b953e0caed2a996a22504d6c3d1270f0e7aff"
+    },
+    {
+      "author_won": true,
+      "calls": 1,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 4,
+      "minimum_launches": 1,
+      "minimum_rotated": 0,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "50a682add0f68bfc203c0a81a55f8c3ed858cb56819cd21013d04b1cfd91dea5"
+    },
+    {
+      "author_won": true,
+      "calls": 4,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 5,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "a20ec55f2e6da0e3d2a8be0bda137db7538b8f1a7dfb0e86a912ae50baa07a4a"
+    },
+    {
+      "author_won": true,
+      "calls": 2,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 6,
+      "minimum_launches": 2,
+      "minimum_rotated": 0,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "338995d6a682a479bd03b0bbfb1edf9d9dc57ea25be2ea3f2055c4f539d60280"
+    },
+    {
+      "author_won": true,
+      "calls": 1,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 7,
+      "minimum_launches": 1,
+      "minimum_rotated": 0,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "1bdba9883ebfb72ff3fe7a0c9101813cfb6ccf3c86047fa956053ec5a8e3b237"
+    },
+    {
+      "author_won": true,
+      "calls": 6,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 8,
+      "minimum_launches": 2,
+      "minimum_rotated": 0,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "0cc76097233afc30e7ab5245d6d71156bd7d9817ef28978bc70ccefb31406aa6"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 9,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "3cb874db43fbf587d6494d7e3aa268bc0c80b9515c140b3720e35682ef70bdff"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 10,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "758d1902a24b88cece1c87473ff1486f1ead6915188c475c791927080de12486"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 11,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "92c2596b70c64d47db45cf6ba3c149f177089f2b058c90ea184ce38c4fb32f45"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 12,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "3972250c558bdcc23786cb26b3ffe55514c9314df757f4384c63f2bcf460d2a0"
+    },
+    {
+      "author_won": true,
+      "calls": 96,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 13,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "478a091dbd184a65ba45b8d6fc7426eb32c3951b5f20fd95b6e5ab4d93ad5b1c"
+    },
+    {
+      "author_won": true,
+      "calls": 256,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 14,
+      "minimum_launches": 1,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "c30cac040e930a198ba7c9ec71771558ef62092ba8da8efc62c6006bf0bdfd74"
+    },
+    {
+      "author_won": true,
+      "calls": 256,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 15,
+      "minimum_launches": 1,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "d17064e4946ce4e64124aa4bec458f2265d92c82c75b1eec85eb4ad394892caf"
+    },
+    {
+      "author_won": true,
+      "calls": 256,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 16,
+      "minimum_launches": 1,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "c8df031717abede9762395cc47bbc5b17e5f69c452df000e1312398536e30cf4"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 17,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "cf9e69efe35b4bdba64e7d4e027c94b0137ad13e366bf44d06606f79fc815a81"
+    },
+    {
+      "author_won": true,
+      "calls": 256,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 18,
+      "minimum_launches": 1,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "9cedd664a79cf31b5ad33609cdf4dd85e78358213ae64a6a86df25c5ee4481eb"
+    },
+    {
+      "author_won": true,
+      "calls": 384,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 19,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "1a4a022b9be9bf11dacda716b9beebf970becd19b8d6f25336253b2c8761a6e6"
+    },
+    {
+      "author_won": true,
+      "calls": 1024,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 20,
+      "minimum_launches": 1,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "89d03748d491cc6d95f60c61287dd48f28db43d6522a348f08a363566d6b8025"
+    },
+    {
+      "author_won": true,
+      "calls": 96,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 21,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "8aef176a2896e0e46eb926d497b4b34e32e76d7ca7e3714ff6ed262cdd710c9f"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 22,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "296250a9d9ab7aa26f4d02af565ba7a284e426905bc65472154162b5ab8e0a2c"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 23,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "13c3b6013997ec66791e4bdc47c8058f76e36791d8063107fd222e0133c9ec2c"
+    },
+    {
+      "author_won": true,
+      "calls": 128,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 24,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "eab5a6a79cf1a03f6bd0acbaa323cae4e4f9a640de9a85ca8e5732d54113f350"
+    },
+    {
+      "author_won": true,
+      "calls": 192,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 25,
+      "minimum_launches": 3,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "2c9bca731494a4e00c308f49a34f36ba9a6abbc85006733944ef00dcc60317bd"
+    },
+    {
+      "author_won": true,
+      "calls": 96,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 26,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "25928056f49799590326822455c04ad3492f1c8f9b22ddd5c86d2c28d30b8eb0"
+    },
+    {
+      "author_won": true,
+      "calls": 384,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 27,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "b9b324ab59a1b6909ee91ee336bf507410c697d0d41fa3788defcf3c3df2229a"
+    },
+    {
+      "author_won": true,
+      "calls": 384,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 28,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "3fab6676618ae9c06f50c244db938d3f1bccf9242833e2c62246b6c4545f5ce3"
+    },
+    {
+      "author_won": true,
+      "calls": 224,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 29,
+      "minimum_launches": 3,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 6,
+      "wrong_order": false,
+      "source_sha256": "516bf1ca89529d8b3c8bdaa3f3df715022d11c212f16bde6d38ea279dd2a352b"
+    },
+    {
+      "author_won": true,
+      "calls": 1536,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 30,
+      "minimum_launches": 2,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "56bb8b343ac168e609b872db1072b856ce37a29d220670010ead5ff3d918a56c"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 31,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "830da5557c2479a7e4a8eb37ec3bf79615bbc367e3ac41948546670cbbd37051"
+    },
+    {
+      "author_won": true,
+      "calls": 1024,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 32,
+      "minimum_launches": 1,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "7647c81d3b43ec67692470ee0ba36f4ff60b54495f697667f01a01ecde6f522b"
+    },
+    {
+      "author_won": true,
+      "calls": 384,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 33,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 10,
+      "wrong_order": false,
+      "source_sha256": "3ee04b17173b2ea844fd31fa327be712aa536986119945e089b3d425c2066772"
+    },
+    {
+      "author_won": true,
+      "calls": 128,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 34,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "95b10212fa9aef8330efb92172e52d63f7ddc06fb0c52ce2f5be9e48be5ca6be"
+    },
+    {
+      "author_won": true,
+      "calls": 128,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 35,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "b7b4faf2c5d3df8a9d06eed0e0286a0800aef62bf9e9e8e912c61ce5cd1e7a04"
+    },
+    {
+      "author_won": true,
+      "calls": 1536,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 36,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 5,
+      "wrong_order": false,
+      "source_sha256": "6030e49016b0131e15ba28e7f1d31f91cfa7b981a0dba15d3bce6fda8f94f390"
+    },
+    {
+      "author_won": true,
+      "calls": 1024,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 37,
+      "minimum_launches": 1,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "b36c3764f6e4cc4ffadcee44a92e6b4542115aa9a70f636f6b09280c6d8628f7"
+    },
+    {
+      "author_won": true,
+      "calls": 256,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 38,
+      "minimum_launches": 1,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "d51819e8163aaf398405d3ec01c3c36b2626e16232aa265b362d20c7a592df89"
+    },
+    {
+      "author_won": true,
+      "calls": 3072,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 39,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 28,
+      "wrong_order": false,
+      "source_sha256": "a6973255f4b430c6183e72bf3f746680e804ee607345e8a35128066526521f94"
+    },
+    {
+      "author_won": true,
+      "calls": 1024,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 40,
+      "minimum_launches": 1,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 6,
+      "wrong_order": false,
+      "source_sha256": "ed8070c7e125b70351227bcaf2f8bf0b95807e1a393d63e48aef1de5118eda35"
+    },
+    {
+      "author_won": true,
+      "calls": 192,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 41,
+      "minimum_launches": 3,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "67f849d77f4f515d981ea9893a9d2b4210a52f4e7f6f271de7408268ba21cd35"
+    },
+    {
+      "author_won": true,
+      "calls": 6144,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 42,
+      "minimum_launches": 2,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 8,
+      "wrong_order": false,
+      "source_sha256": "8aa759b5b81e218a624a36d6f12c01859ceb44980082fb8abd41b0adef1aedf6"
+    },
+    {
+      "author_won": true,
+      "calls": 2048,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 43,
+      "minimum_launches": 2,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "01c565ba60f7b5e2c5c06635f39c17c32b1b98fc6e06aecb21748129941e7215"
+    },
+    {
+      "author_won": true,
+      "calls": 192,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 44,
+      "minimum_launches": 3,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "0a9ec2e8d98899be027caf891196c79fa9cde2ec6b58705e616fb6302a46dbb3"
+    },
+    {
+      "author_won": true,
+      "calls": 2048,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 45,
+      "minimum_launches": 2,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "17a371d6af98f65f439d74ad86f14cb12bdf6c591c386341d1f01228eb27d903"
+    },
+    {
+      "author_won": true,
+      "calls": 3582,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 46,
+      "minimum_launches": 2,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 3,
+      "wrong_order": false,
+      "source_sha256": "0026c26536d7e53aecaa4884353e057d2098bf33fb8079cc0a41c4af56704b05"
+    },
+    {
+      "author_won": true,
+      "calls": 2048,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 47,
+      "minimum_launches": 2,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "d4f4a1c6e6da8effa258df621a4e24deda034ecaf1fecf7fdc4425a07a0d86b2"
+    },
+    {
+      "author_won": true,
+      "calls": 6144,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 48,
+      "minimum_launches": 2,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 6,
+      "wrong_order": false,
+      "source_sha256": "942f76710b5baf2bdd2c18e6b9a53b4b837e95ab2dbd863e1aa199a17617a00f"
+    },
+    {
+      "author_won": true,
+      "calls": 3072,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 49,
+      "minimum_launches": 3,
+      "minimum_rotated": 5,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "1a7145d4bb311aec6ba3f41595a0a90b844e053646062b611bbd4be9b40f25a3"
+    },
+    {
+      "author_won": true,
+      "calls": 8192,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 50,
+      "minimum_launches": 2,
+      "minimum_rotated": 6,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "36e0f52bf83812a484cbd959e5607b96b849e7c094dda9b127dbfa1f64962b7c"
+    },
+    {
+      "author_won": true,
+      "calls": 4,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 51,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "0e742da342adba9a3a9b710ede7549a549c5e57c6b1a88e211a5d27e56303325"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 52,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "fdb9ca92f08ff9732b313a5929e928941be308613b7abf4bb2ee41d0cf5d09f6"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 53,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "4af8e49b8fcaf61b108bd3e740e91681b6822a0dcd9a35afd476c10afff50407"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 54,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "a594891e1f0ac687a644c709f0df7598c929661d94b4b1dee3cd51783cfab464"
+    },
+    {
+      "author_won": true,
+      "calls": 12,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 55,
+      "minimum_launches": 3,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "4434ad9d3b15f3300291f39ab8f2fb83ad765a13e7385d1c15f37bda781ba476"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 56,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "0a9734ce4521a15e995acb152f0b9ae999e8348927ab373d47b742b2fef2aed6"
+    },
+    {
+      "author_won": true,
+      "calls": 4,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 57,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "da28ad2b705223c5b4990bee9f6f2d15305494cc37cd9d3d1f5c74da8ef472e8"
+    },
+    {
+      "author_won": true,
+      "calls": 4,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 58,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "4e1d405d17cab9a94c45ed76c284c09becc210236876d53f1d09109715b8da77"
+    },
+    {
+      "author_won": true,
+      "calls": 4,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 59,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "a399fff0feff7cd2dfd9130a9f18465a2d1d8e70af1ae787d168c350e14c9403"
+    },
+    {
+      "author_won": true,
+      "calls": 24,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 60,
+      "minimum_launches": 2,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "43be31d95e8283ed79984c7d74a99aa35682fa0fec05eba7a1d132628def0a62"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 61,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "c346ed064150f9cd34e49aaa8910aabde15562a555de897c6608b1869b05c61d"
+    },
+    {
+      "author_won": true,
+      "calls": 4,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 62,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "5e95430b83faa962a5b31dc71b7daf2d9597b108f88fed85560793ee3ee581e3"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 63,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "e35460beba81d0fed382d2374fb1fe0b8ddf287d4dc65405d094e868348a8d47"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 64,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "2d27e6a388339266412efd1c0c129178d9a990ce563f23d743b349ecb53ebfa2"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 65,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "40e802e44eee4294c47a93cb541cc5eb0c7f3c599851b7ba1c5cc16890c009ae"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 66,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "7be88dd213a9e1350702fea3b795715fade636df8ff3f1e3c13cedb7db932536"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 67,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "b3948a070d600396ad1e4e7285a5a340b56b7050ff878d21ca9b58f30b0c5b7e"
+    },
+    {
+      "author_won": true,
+      "calls": 96,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 68,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "c7e840fadb718a2022909aad4ac2dafbad2d664b9001adff85e0c0a36658142a"
+    },
+    {
+      "author_won": true,
+      "calls": 4,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 69,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "b68e193c0ffedf7fe7ba05bda4b7b61bf0efc9431f949222942e9b4834381be5"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 70,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "de7957ed4d672dd1548e832fe12308977446072eb1a43cad449bd77839f0cbd6"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 71,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "cf69a2308b9edf52a22f46b1c8d989d1192a7cc8dc6595db1e3a11955497e1f4"
+    },
+    {
+      "author_won": true,
+      "calls": 32,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 72,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "b9383020727fab3091febe0275d01f1edf45822e73f46edb7518ac7f770eb19d"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 73,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "1d5d8f3c356ee8ff10c9c69c56ef08b6b1d9a6d43a58b21bffc08b54c2426231"
+    },
+    {
+      "author_won": true,
+      "calls": 128,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 74,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "bb64ffb3d30ec505dce346be838170fe5b451777f7e86d1ec3e10d27cf731159"
+    },
+    {
+      "author_won": true,
+      "calls": 3584,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 75,
+      "minimum_launches": 3,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "4dc7f14fad84a76b9ab664cf32b35b8b1768a626f034941d76a90967226c97c6"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 76,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "bee3dbcb21552c2206b1d039bd529a2edbc081f0b2d4426bf40d327294860a42"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 77,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "3ef56223b70be78306cdeb50cc8eb6628bb20d243103eab2cc29be69cef88312"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 78,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "dec08b0d47e2fc67a2208209de88eba95551970222600a8174873bd2cde2ebdc"
+    },
+    {
+      "author_won": true,
+      "calls": 96,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 79,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 8,
+      "wrong_order": false,
+      "source_sha256": "b6a377084cc0622e1d23f9c19436eafb0af030bc803230b3e2c408744da9663d"
+    },
+    {
+      "author_won": true,
+      "calls": 128,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 80,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "60d7db1e3c47933dc34c7a7666d33a67d7c57476bce910f8c9baf75615af5da0"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 81,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "bc2a623cce48d3a8dc7dd330ec4b5f49ce8f0562b21bcad831e2991b61b706cc"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 82,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "88238f1702e2b7f2b5e176daa5d78c0301d0e3d251a863997cdac500c1ad5589"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 83,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "397280add484c112dcc81e3a8654f1a72104d26062b73436802163e5dacdc6bc"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 84,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "62359c351d57db280ef1404e3cf355794c6e6975af5ef6721e723d5cadbb646b"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 85,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "d49486f839a17d6cfa18b20523562e81aed0ab86ea8319aa7957b2f939f3465c"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 86,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "293173f455502418a5c0855743d56fa2dba548f5cf24c63d454aa99997f54cda"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 87,
+      "minimum_launches": 1,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "79675419b39237eff08617e3d1326da37f95bba675edc348b8c864c775fa421a"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 88,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "e251f416b27deeaca8f7450b02e659b2cb4d1f9c3d737aaac1cf9ab4e0495499"
+    },
+    {
+      "author_won": true,
+      "calls": 96,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 89,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 8,
+      "wrong_order": false,
+      "source_sha256": "a56a2b7a82b7afb62bf57e75bb247ed36f6017b143d9694a8e38559ec94b34db"
+    },
+    {
+      "author_won": true,
+      "calls": 32,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 90,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "dc905c5c6032674e072e44829aa73bf554227fff5a5973ba242526ee6375b04b"
+    },
+    {
+      "author_won": true,
+      "calls": 16,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 91,
+      "minimum_launches": 1,
+      "minimum_rotated": 1,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "bb934ab71cfbcb6709721058b9b43a2e3d518ee95e4e87c750f4ea82b401c33b"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 92,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 8,
+      "wrong_order": false,
+      "source_sha256": "18b6953859991927afb30383c3d10c07d4a0733f5730ec68dd4557133c32049a"
+    },
+    {
+      "author_won": true,
+      "calls": 96,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 93,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "804c3ec3585213666cccb8b6965927d4845d58358712d3e61c5ce83f1cd40f17"
+    },
+    {
+      "author_won": true,
+      "calls": 64,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 94,
+      "minimum_launches": 1,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "5770df8c519355305813fe0abc35ffe1fef253e817f417881ec0d5ba68e1e4a5"
+    },
+    {
+      "author_won": true,
+      "calls": 32,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 95,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "e7972753ea604f2ea54f291d436d4ac23ba7c4a3f14dc27e7e53293563d73f9c"
+    },
+    {
+      "author_won": true,
+      "calls": 96,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 96,
+      "minimum_launches": 2,
+      "minimum_rotated": 2,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "da68df4ee4cfe69d40c6da71a2e184d9566963e4576af8ad576f86c96be34deb"
+    },
+    {
+      "author_won": true,
+      "calls": 256,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 97,
+      "minimum_launches": 1,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 2,
+      "wrong_order": false,
+      "source_sha256": "e5511a679022f9b603b0499f4d40161ba7d45df52c9e7aa15529449c127e1420"
+    },
+    {
+      "author_won": true,
+      "calls": 128,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 98,
+      "minimum_launches": 2,
+      "minimum_rotated": 3,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "d9f6bce32e02b2a074597d54485b574b4856daf9cfc73dd59def10a9150884a2"
+    },
+    {
+      "author_won": true,
+      "calls": 508,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 99,
+      "minimum_launches": 1,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 4,
+      "wrong_order": false,
+      "source_sha256": "f0963949f3c20eaca3dce57b369befb1bf4a09606ab56ac72933d66afdadbabc"
+    },
+    {
+      "author_won": true,
+      "calls": 512,
+      "complete": true,
+      "design_bypassed": false,
+      "id": 100,
+      "minimum_launches": 2,
+      "minimum_rotated": 4,
+      "valid": true,
+      "wins": 1,
+      "wrong_order": false,
+      "source_sha256": "161a9e3dba829785bf207394939cd414dc74871c5b9e2bf9d638c01ac6f52bcd"
+    }
+  ],
+  "complete": true,
+  "total_simulations": 55034,
+  "redundancy": {
+    "checked": 438,
+    "failures": 0,
+    "intentional_teaching_decoy": {
+      "level": 51,
+      "node": 3
+    },
+    "results": [
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 51
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 51
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 52
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 52
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 52
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 52
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 52
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 53
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 53
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 53
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 53
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 54
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 54
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 54
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 54
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 54
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 55
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 55
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 55
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 55
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 56
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 57
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 57
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1,
+          2
+        ],
+        "id": 57
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 58
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 58
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1,
+          2
+        ],
+        "id": 58
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 59
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 59
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1,
+          2
+        ],
+        "id": 59
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4,
+          5
+        ],
+        "id": 59
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 60
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 60
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 60
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2,
+          4
+        ],
+        "id": 60
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 61
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 61
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 61
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 61
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4,
+          5
+        ],
+        "id": 61
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 62
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 62
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 62
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 62
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 62
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 62
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3,
+          4
+        ],
+        "id": 62
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 63
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 63
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 63
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 63
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 63
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 63
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 63
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 64
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 64
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 64
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 64
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 65
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3,
+          4
+        ],
+        "id": 66
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 67
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 67
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 67
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 67
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 67
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 67
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 67
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 68
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 68
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 68
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 68
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 68
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 69
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 69
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 70
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 70
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 70
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 70
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 70
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 70
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 71
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 71
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 71
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 71
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 71
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 71
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2,
+          3
+        ],
+        "id": 71
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 72
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 72
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 72
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 72
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 73
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 73
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 73
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 73
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 73
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 73
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 73
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 73
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3,
+          4
+        ],
+        "id": 74
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6,
+          7
+        ],
+        "id": 75
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 76
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 77
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 78
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 79
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11,
+          12
+        ],
+        "id": 80
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 81
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 82
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 82
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 82
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 82
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 82
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 82
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 82
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 82
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 83
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11,
+          12
+        ],
+        "id": 84
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 85
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 86
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 86
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 86
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 86
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 86
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 86
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6,
+          7
+        ],
+        "id": 86
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 87
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 87
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 87
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 87
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5,
+          6
+        ],
+        "id": 87
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7,
+          8
+        ],
+        "id": 87
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          14
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          15
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          16
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          17
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          18
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          19
+        ],
+        "id": 88
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 89
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 89
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 89
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 89
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 89
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 89
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8,
+          9
+        ],
+        "id": 89
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 90
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11,
+          12
+        ],
+        "id": 91
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          14,
+          15
+        ],
+        "id": 92
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 93
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 93
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 93
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 93
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 93
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 93
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 93
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10,
+          11
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12,
+          13
+        ],
+        "id": 94
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10,
+          11
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13,
+          14
+        ],
+        "id": 95
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          14
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12,
+          13
+        ],
+        "id": 96
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          14
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          16
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          19
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          17,
+          18
+        ],
+        "id": 97
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          14
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          15
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          18
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          16,
+          17
+        ],
+        "id": 98
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          18
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          19
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          16,
+          17
+        ],
+        "id": 99
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          0
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          1
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          2
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          3
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          4
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          5
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          6
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          7
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          8
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          9
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          10
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          11
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          12
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          13
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          14
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          18
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          19
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          20
+        ],
+        "id": 100
+      },
+      {
+        "author_witness_still_wins": false,
+        "blocked": [
+          16,
+          17
+        ],
+        "id": 100
+      }
+    ],
+    "scope": "blocked-node/source/pair witness replay; not re-solving modified boards"
+  }
+}

@@ -24,7 +24,7 @@ func run() -> void:
 	await process_frame
 	var game: Node = ui.game
 	game.frame_seconds = 0.001
-	check(game.levels.size() == 50, "UI loads fifty levels")
+	check(game.levels.size() == 100, "UI loads100levels")
 	ui.buttons["levels"].pressed.emit()
 	check(ui.overlay.visible, "level selector button opens")
 	ui.close_overlay()

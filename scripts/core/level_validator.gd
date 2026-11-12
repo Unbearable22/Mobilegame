@@ -24,9 +24,18 @@ func validate(data: Dictionary) -> Dictionary:
 		for action in data.author_solution:
 			if not action is Dictionary or not action.get("type") in ["rotate","launch"] or not _integer(action.get("index",-1)) or action.index < 0 or action.index >= data.nodes.size():
 				return _invalid("Invalid author action")
+	if int(data.id)>50:
+		if data.get("schema_version",0)!=2 or not data.get("design_goal") is String or not data.get("difficulty") is Dictionary: return _invalid("Missing authored design metadata")
+		if not data.get("required_nodes") is Array or not data.get("required_events") is Array: return _invalid("Missing interaction proof")
+		for index in data.required_nodes:
+			if not _integer(index) or index<0 or index>=data.nodes.size(): return _invalid("Invalid required node")
+		for event in data.required_events:
+			if not event is Dictionary or not event.get("kind") in ["reflect","portal","and","delay_release"]: return _invalid("Invalid interaction event")
 	var cells: Dictionary = {}
 	var sources: int = 0
 	var targets: int = 0
+	var pairs: Dictionary = {}
+	if data.nodes.size()>64: return _invalid("Too many nodes")
 	for n in data.nodes:
 		if not n is Dictionary: return _invalid("Node must be an object")
 		for field in ["x", "y", "type"]:
@@ -40,15 +49,24 @@ func validate(data: Dictionary) -> Dictionary:
 		if n.type == "source": sources += 1
 		if n.type == "target": targets += 1
 		if n.has("rotatable") and not n.rotatable is bool: return _invalid("Invalid rotation flag")
-		if n.get("rotatable", false) and not n.type in ["directional", "splitter"]:
-			return _invalid("Only directional and splitter may rotate")
-		if n.type in ["source", "directional", "splitter"]:
+		if n.get("rotatable", false) and not n.type in ["directional", "splitter", "reflector", "and_gate", "delay"]:
+			return _invalid("Unsupported rotatable type")
+		if n.type in ["source", "directional", "splitter", "portal", "and_gate", "delay"]:
 			if not n.get("dirs") is Array or n.dirs.is_empty(): return _invalid("Missing directions")
 			if n.type == "directional" and n.dirs.size() != 1: return _invalid("Directional needs one exit")
 			var seen: Array = []
 			for d in n.dirs:
 				if not _integer(d) or d < 0 or d > 3 or d in seen: return _invalid("Invalid direction")
 				seen.append(d)
+		if n.type=="portal":
+			if not n.get("pair_id") is String: return _invalid("Missing portal pair_id")
+			var pattern:=RegEx.new()
+			pattern.compile("^[A-Za-z0-9_-]{1,32}$")
+			if pattern.search(n.pair_id)==null: return _invalid("Invalid portal pair_id")
+			pairs[n.pair_id]=int(pairs.get(n.pair_id,0))+1
+		if n.type=="delay" and (not _integer(n.get("delay_ticks")) or n.delay_ticks<1 or n.delay_ticks>3): return _invalid("Invalid delay ticks")
+	for count in pairs.values():
+		if count!=2: return _invalid("Portal needs exactly two endpoints")
 	if sources == 0 or targets == 0: return _invalid("Source and target required")
 	return {"valid": true}
 

@@ -11,7 +11,7 @@ func check(ok: bool, label: String) -> void:
 		push_error(label)
 func _initialize() -> void:
 	var levels: Array = Loader.new().load_all()
-	check(levels.size() == 50, "fifty levels loaded")
+	check(levels.size() == 100, "hundred levels loaded")
 	for data in levels:
 		var report: Dictionary = Validator.new().validate(data)
 		check(report.valid, "schema %s: %s" % [data.id, report.get("error", "")])

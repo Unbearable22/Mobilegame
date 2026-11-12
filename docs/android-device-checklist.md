@@ -86,3 +86,15 @@
 - [ ] Настройки → Статистика → Экспорт → Copy; JSON валиден, все цифры локальные. Back и Home во вложенном экране возвращают через настройки на паузу.
 - [ ] Попытки/Restart/Undo/фактические запуски, время только в активной игре, лучшие показатели, force-stop/relaunch. Определения — retention-v5.md.
 - [ ]10минут меню/плотного поля с эффектами и без: реальные FPS, нагрев, энергопотребление, задержки касания, размер JSON. Зафиксировать модель/Android/DPI/hash.
+
+## v0.6 physical acceptance (pending user confirmation)
+
+- Back up full progress.json before replacing an APK with an incompatible old signature; statistics export is not a campaign backup. v0.5.1/local v0.6 share the new durable debug certificate.
+- Upgrade and confirm old stars, legacy achievements/themes, sound/effects, last level and formerly available levels. Old 50 wins should show two Reactor sectors and chapter III access.
+- Switch all earned themes without restarting; compare menu, controls, nodes and energy. Reopen app; collect ThemeDebug logcat if colors fail to change.
+- Play51/57/63/69, then68/75/82/88/92/94/99/100. Check portal pair labels, simultaneous AND inputs, empty delay ticks/countdown and final two-launch behavior. Level88's6×8 board deserves small-screen finger testing.
+- Undo every new type, Restart during animation, open Guide/Settings mid-reaction, Android Back, notification shade, background/return and process kill/reopen.
+- Daily: rotate/launch, kill/reopen, resume same date, Undo/Restart, finish/replay; campaign stars/last level must not change. Changing local date changes the selected challenge; this is intentional offline behavior.
+- Reactor: only four shipped sectors can light; unearned cosmetic buttons disabled; earned double pulse/prismatic style persist. Reduced effects remove motion and retain state readability.
+- Statistics JSON copy shows confirmation; paste and validate. No storage/network permissions should be requested.
+- Verify720×1280,1080×1920,1440×3200 and actual safe-area cutouts/navigation. Measure FPS/frame pacing, memory, battery and heat on the phone during repeated100-level reactions and long menu idle. Desktop llvmpipe numbers do not predict phone performance.
