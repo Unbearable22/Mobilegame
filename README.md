@@ -4,7 +4,7 @@
 
 ![Новое главное меню](docs/screenshots/v4-720x1280-menu-fresh.png)
 
-Актуальная сборка0.4.0 публикуется существующим Android workflow; проверенный артефакт будет указан после завершения CI.
+**[Скачать debug APK0.4.0 ARM64 и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43181090575/artifacts/13926795328)** — вход в GitHub, хранение14дней. APK28 404 892байта; SHA256 `f6be0b4ccdf0f98654c2264fcbb690c203270200bcd8ac24848885b1295e07fd`. [Проверенный CI-отчёт](docs/android-v4-ci-artifact.json).
 
 ## Запуск
 

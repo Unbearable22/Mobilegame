@@ -1,0 +1,190 @@
+[
+	{
+		"ablations": [
+			{
+				"author_still_wins": false,
+				"index": 0,
+				"position": [
+					0.0,
+					2.0
+				],
+				"type": "source"
+			},
+			{
+				"author_still_wins": false,
+				"index": 1,
+				"position": [
+					0.0,
+					1.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": false,
+				"index": 3,
+				"position": [
+					4.0,
+					2.0
+				],
+				"type": "source"
+			},
+			{
+				"author_still_wins": false,
+				"index": 4,
+				"position": [
+					4.0,
+					3.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": true,
+				"index": 6,
+				"position": [
+					1.0,
+					2.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": true,
+				"index": 7,
+				"position": [
+					3.0,
+					2.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": false,
+				"index": 8,
+				"position": [
+					2.0,
+					2.0
+				],
+				"type": "splitter"
+			}
+		],
+		"id": 19,
+		"sources": [
+			0,
+			3
+		]
+	},
+	{
+		"ablations": [
+			{
+				"author_still_wins": false,
+				"index": 2,
+				"position": [
+					1.0,
+					1.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": false,
+				"index": 4,
+				"position": [
+					4.0,
+					1.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": false,
+				"index": 5,
+				"position": [
+					0.0,
+					2.0
+				],
+				"type": "source"
+			},
+			{
+				"author_still_wins": false,
+				"index": 6,
+				"position": [
+					1.0,
+					2.0
+				],
+				"type": "battery"
+			},
+			{
+				"author_still_wins": false,
+				"index": 7,
+				"position": [
+					2.0,
+					2.0
+				],
+				"type": "splitter"
+			},
+			{
+				"author_still_wins": false,
+				"index": 8,
+				"position": [
+					3.0,
+					2.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": false,
+				"index": 9,
+				"position": [
+					4.0,
+					2.0
+				],
+				"type": "battery"
+			},
+			{
+				"author_still_wins": false,
+				"index": 10,
+				"position": [
+					1.0,
+					3.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": true,
+				"index": 11,
+				"position": [
+					3.0,
+					3.0
+				],
+				"type": "blocker"
+			},
+			{
+				"author_still_wins": false,
+				"index": 12,
+				"position": [
+					1.0,
+					4.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": false,
+				"index": 13,
+				"position": [
+					2.0,
+					4.0
+				],
+				"type": "directional"
+			},
+			{
+				"author_still_wins": false,
+				"index": 14,
+				"position": [
+					3.0,
+					4.0
+				],
+				"type": "normal"
+			}
+		],
+		"id": 49,
+		"sources": [
+			5
+		]
+	}
+]

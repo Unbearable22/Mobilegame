@@ -1,10 +1,11 @@
 {
 	"animated_menu": {
-		"cosmetic_draw_recording_usec_mean": 527.733333333333,
-		"draw_calls_mean": 124.025,
-		"elapsed_ms": 7406.959,
+		"cosmetic_draw_recording_usec_mean": 706.825,
+		"cosmetic_draws_during_sample": 119,
+		"draw_calls_mean": 123.908333333333,
+		"elapsed_ms": 7850.331,
 		"frames": 120,
-		"process_ms_mean": 88.6377999999999
+		"process_ms_mean": 101.755933333333
 	},
 	"environment": {
 		"renderer": "llvmpipe (LLVM 20.1.2, 256 bits)",
@@ -12,10 +13,11 @@
 		"scope": "Linux debug software renderer; not mobile FPS or thermal measurements"
 	},
 	"static_game": {
-		"cosmetic_draw_recording_usec_mean": 452.0,
+		"cosmetic_draw_recording_usec_mean": 519.0,
+		"cosmetic_draws_during_sample": 0,
 		"draw_calls_mean": 59.0,
-		"elapsed_ms": 3399.683,
+		"elapsed_ms": 3767.128,
 		"frames": 120,
-		"process_ms_mean": 62.6001666666667
+		"process_ms_mean": 65.7617333333333
 	}
 }

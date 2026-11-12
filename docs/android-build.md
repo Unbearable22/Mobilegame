@@ -36,6 +36,14 @@ python3 tools/build_android.py \
 
 [Чек-лист телефона](android-device-checklist.md). Физический Android не использовался. FPS/нагрев, аппаратный Back, вырезы и жизненный цикл требуют ручной проверки.
 
+## Последняя сборка0.4.0
+
+[Успешный CI](https://github.com/Unbearable22/Mobilegame/actions/runs/43181090575) · [скачать APK и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43181090575/artifacts/13926795328), source commit `98d63e8`. Внутри `chain-react-debug-arm64.apk`, **28 404 892байта**. SHA256 `f6be0b4ccdf0f98654c2264fcbb690c203270200bcd8ac24848885b1295e07fd`. [Проверенный отчёт](android-v4-ci-artifact.json).
+
+Повторены854утверждения GDScript,8Python-тестов и50полных аудитов/48 242симуляции. Manifest: versionName0.4.0/code4, прежний package ID, ARM64,portrait,min24/target36,нетuses-permissions. Signature v2/v3 и16KBzipalign прошли; все50JSON совпадают с исходниками, dev-файлы/ключи отсутствуют. Packaged-resource smoke создаёт новое меню и проверяет Continue; он исполняется десктопным Godot и не является тестом Android-native кода.
+
+ZIP скачан обратно и сверены фактические bytes/SHA256/audit/JSON. Локальная копия того же CI APK: `/workspaces/Mobilegame/build/android/chain-react-debug-arm64.apk`. Физическая проверка0.4.0 не выполнялась. [Сохранение прогресса при смене debug-сертификата](android-progress-transfer.md) обязательно до удаления старой установки.
+
 ## Предыдущая сборка 0.3.0
 
 [Успешный CI](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960) · [скачать APK и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960/artifacts/13864186042). Внутри `chain-react-debug-arm64.apk`, **28 392 278 байт**. SHA256 `0a1bafbc8534eb3a1f271623e2cb16eeb9601045a15cfab87ab8ef594a2707ec`. [Проверенный CI-отчёт](android-v3-ci-artifact.json).
