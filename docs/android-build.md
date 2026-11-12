@@ -36,7 +36,17 @@ python3 tools/build_android.py \
 
 [Чек-лист телефона](android-device-checklist.md). Физический Android не использовался. FPS/нагрев, аппаратный Back, вырезы и жизненный цикл требуют ручной проверки.
 
-## Последняя сборка0.4.0
+## Последняя сборка0.5.0
+
+[Успешный run](https://github.com/Unbearable22/Mobilegame/actions/runs/43204226679) · [скачать APK и отчёты](https://github.com/Unbearable22/Mobilegame/actions/runs/43204226679/artifacts/13937640075), source commit `e97aae5204fb1023c3f977c8816d4a038cf6cb23`. **28 438 529байт**. SHA256 `d5c95cbfbb8132be5f986d0d676ffc62bcf5a02430deddac6c11e704d3216c7f`. [CI-отчёт](android-v5-ci-artifact.json).
+
+В чистом CI пройдены1026утверждений GDScript,8Python-тестов,50полных аудитов/48 242симуляции, export/verifier/upload. VersionName0.5.0/code5; package ID прежний; ARM64,portrait,min24/target36,нетuses-permissions; signaturev2/v3 и16KBzipalign. Все50JSON сверены с исходниками после обратного скачивания. Resource-smoke открывает новое меню,10достижений,5тем, экспорт статистики и Continue через десктопный Godot; это не Android-native выполнение.
+
+Локальная копия скачанного CI APK: `/workspaces/Mobilegame/build/android/chain-react-debug-arm64.apk`. ВZIPвсе соответствующие manifest/signature/hash/smoke/auditотчёты; приватных ключей нет. Сертификат0.5.0 `beed4cb670a431f448a69dd2f44e297193751ec154410c56a671ad27e10803ab` отличается от прежнего CI0.4.0. Перед удалением старой установки сохранить progress.json по [инструкции переноса](android-progress-transfer.md). Миграция формата2→3 не защищает данные от Android uninstall.
+
+Пользователь физически подтвердил0.4.0. **Физическая0.5.0 не проверялась.** Нужен [обновлённый чек-лист](android-device-checklist.md): темы/достижения/effects/export/Back/migration/нагрев.
+
+## Предыдущая сборка0.4.0
 
 [Успешный CI](https://github.com/Unbearable22/Mobilegame/actions/runs/43181090575) · [скачать APK и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43181090575/artifacts/13926795328), source commit `98d63e8`. Внутри `chain-react-debug-arm64.apk`, **28 404 892байта**. SHA256 `f6be0b4ccdf0f98654c2264fcbb690c203270200bcd8ac24848885b1295e07fd`. [Проверенный отчёт](android-v4-ci-artifact.json).
 

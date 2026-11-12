@@ -1,0 +1,19 @@
+{
+  "apk": "chain-react-debug-arm64.apk",
+  "bytes": 28438529,
+  "sha256": "d5c95cbfbb8132be5f986d0d676ffc62bcf5a02430deddac6c11e704d3216c7f",
+  "package_id": "org.chainreact.onetappuzzle",
+  "abis": [
+    "arm64-v8a"
+  ],
+  "target_sdk": 36,
+  "min_sdk": 24,
+  "orientation": "portrait",
+  "debuggable": true,
+  "levels": 50,
+  "permissions": [],
+  "signature_verified": true,
+  "zipalign_16k_verified": true,
+  "packaged_resource_smoke": true,
+  "physical_device_tested": false
+}

@@ -4,7 +4,7 @@
 
 ![Новое главное меню](docs/screenshots/v5-720x1280-menu.png)
 
-APK0.5.0 будет указан после успешной реальной CI-сборки; источник — текущая ветка `feat/chain-react-mvp`.
+**[Скачать debug APK0.5.0 ARM64 и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43204226679/artifacts/13937640075)** — вход в GitHub,14дней. APK **28 438 529байт**, SHA256 `d5c95cbfbb8132be5f986d0d676ffc62bcf5a02430deddac6c11e704d3216c7f`. [Проверенный CI-отчёт](docs/android-v5-ci-artifact.json).
 
 ## Запуск
 

@@ -2,36 +2,6 @@
 
 OpenGL Compatibility, Xvfb / Mesa llvmpipe; не макеты и не увеличенные копии. Каждый PNG получен из viewport указанного размера. Победа/поражение достигнуты действиями через GameManager. Для снимка реакции таймер и Tween остановлены на паузе, диалог скрыт только в инструменте съёмки.
 
-| Экран | 720×1280 | 1080×1920 | 1440×3200 |
-|---|---|---|---|
-| Главное меню | [PNG](720x1280-menu.png) | [PNG](1080x1920-menu.png) | [PNG](1440x3200-menu.png) |
-| Поле | [PNG](720x1280-gameplay.png) | [PNG](1080x1920-gameplay.png) | [PNG](1440x3200-gameplay.png) |
-| Победа | [PNG](720x1280-victory.png) | [PNG](1080x1920-victory.png) | [PNG](1440x3200-victory.png) |
-| Поражение | [PNG](720x1280-loss.png) | [PNG](1080x1920-loss.png) | [PNG](1440x3200-loss.png) |
-| Выбор уровней | [PNG](720x1280-levels.png) | [PNG](1080x1920-levels.png) | [PNG](1440x3200-levels.png) |
-| Пауза | [PNG](720x1280-pause.png) | [PNG](1080x1920-pause.png) | [PNG](1440x3200-pause.png) |
-| Цепная реакция | [PNG](720x1280-reaction-paused.png) | [PNG](1080x1920-reaction-paused.png) | [PNG](1440x3200-reaction-paused.png) |
-
-В логах — результаты прохождения и проверок границ. Съёмка использует отдельные файлы сохранений. Физический Android DPI, вырезы, мультитач на устройстве и нагрев этим способом не проверяются.
-
-## Меню 0.4.0 (история)
-
-| Экран | 720×1280 | 1080×1920 | 1440×3200 |
-|---|---|---|---|
-| Новая игра | [PNG](v4-720x1280-menu-fresh.png) | [PNG](v4-1080x1920-menu-fresh.png) | [PNG](v4-1440x3200-menu-fresh.png) |
-| Частичный прогресс | [PNG](v4-720x1280-menu-partial.png) | [PNG](v4-1080x1920-menu-partial.png) | [PNG](v4-1440x3200-menu-partial.png) |
-| Кампания завершена | [PNG](v4-720x1280-menu-complete.png) | [PNG](v4-1080x1920-menu-complete.png) | [PNG](v4-1440x3200-menu-complete.png) |
-| Справочник | [PNG](v4-720x1280-guide.png) | [PNG](v4-1080x1920-guide.png) | [PNG](v4-1440x3200-guide.png) |
-| Настройки | [PNG](v4-720x1280-settings.png) | [PNG](v4-1080x1920-settings.png) | [PNG](v4-1440x3200-settings.png) |
-| Главы | [PNG](v4-720x1280-chapters.png) | [PNG](v4-1080x1920-chapters.png) | [PNG](v4-1440x3200-chapters.png) |
-| Игровой экран | [PNG](v4-720x1280-game.png) | [PNG](v4-1080x1920-game.png) | [PNG](v4-1440x3200-game.png) |
-| Уровень19 | [PNG](v4-720x1280-level-19.png) | [PNG](v4-1080x1920-level-19.png) | [PNG](v4-1440x3200-level-19.png) |
-| Уровень49 | [PNG](v4-720x1280-level-49.png) | [PNG](v4-1080x1920-level-49.png) | [PNG](v4-1440x3200-level-49.png) |
-
-Все27 PNG сняты работающим Godot/OpenGL через `tools/v4_capture.gd`. Проверены реальные размеры, границы элементов, минимальные сенсорные области144логических px (Continue160), native Input касания обеих CTA/Info/Settings, Back и отсутствие работы декорации в игре. Полный прогресс — изолированная QA-фикстура. Цвета и формы — собственная процедурная графика.
-
-Логи: [720](v4-720x1280-run.log), [1080](v4-1080x1920-run.log), [1440](v4-1440x3200-run.log); все exit0. [Автотесты](v4-tests.log). Замеры: [720](v4-720x1280-performance.json), [1080](v4-1080x1920-performance.json), [1440](v4-1440x3200-performance.json). Это программный Linux renderer, не FPS/нагрев Android. v0.4.0 на физическом телефоне не проверялась.
-
 ## Актуальные экраны0.5.0
 
 Godot/OpenGL, реальные PNG трёх размеров. Завершённая кампания/темы — явная QA-фикстура; обычная игра не получает их бесплатно.
@@ -63,6 +33,38 @@ Godot/OpenGL, реальные PNG трёх размеров. Завершённ
 Инструмент `tools/v5_capture.gd` проверяет реальные размеры, видимость/границы текста и кнопок, nativeInput CTA/настроек/достижений/тем/экспорта/копирования и Back. Сначала ждёт layout новых Containers, затем вычисляет позицию касания. Звёзды и заряд получены реальными действиями GameManager. Закрытая сетка — read-only QA-вызов; в обычной навигации закрытая глава отключена. Ширина/высота сенсорных кнопок минимум144логических px.
 
 Логи и Performance monitors: [720](v5-720x1280-run.log)/[JSON](v5-720x1280-performance.json), [1080](v5-1080x1920-run.log)/[JSON](v5-1080x1920-performance.json), [1440](v5-1440x3200-run.log)/[JSON](v5-1440x3200-performance.json). [Автотесты](v5-tests.log). Программный llvmpipe/Linux не заменяет физические FPS/нагрев/вырезы Android0.5.
+
+## История прототипа
+
+| Экран | 720×1280 | 1080×1920 | 1440×3200 |
+|---|---|---|---|
+| Главное меню | [PNG](720x1280-menu.png) | [PNG](1080x1920-menu.png) | [PNG](1440x3200-menu.png) |
+| Поле | [PNG](720x1280-gameplay.png) | [PNG](1080x1920-gameplay.png) | [PNG](1440x3200-gameplay.png) |
+| Победа | [PNG](720x1280-victory.png) | [PNG](1080x1920-victory.png) | [PNG](1440x3200-victory.png) |
+| Поражение | [PNG](720x1280-loss.png) | [PNG](1080x1920-loss.png) | [PNG](1440x3200-loss.png) |
+| Выбор уровней | [PNG](720x1280-levels.png) | [PNG](1080x1920-levels.png) | [PNG](1440x3200-levels.png) |
+| Пауза | [PNG](720x1280-pause.png) | [PNG](1080x1920-pause.png) | [PNG](1440x3200-pause.png) |
+| Цепная реакция | [PNG](720x1280-reaction-paused.png) | [PNG](1080x1920-reaction-paused.png) | [PNG](1440x3200-reaction-paused.png) |
+
+В логах — результаты прохождения и проверок границ. Съёмка использует отдельные файлы сохранений. Физический Android DPI, вырезы, мультитач на устройстве и нагрев этим способом не проверяются.
+
+## Меню 0.4.0 (история)
+
+| Экран | 720×1280 | 1080×1920 | 1440×3200 |
+|---|---|---|---|
+| Новая игра | [PNG](v4-720x1280-menu-fresh.png) | [PNG](v4-1080x1920-menu-fresh.png) | [PNG](v4-1440x3200-menu-fresh.png) |
+| Частичный прогресс | [PNG](v4-720x1280-menu-partial.png) | [PNG](v4-1080x1920-menu-partial.png) | [PNG](v4-1440x3200-menu-partial.png) |
+| Кампания завершена | [PNG](v4-720x1280-menu-complete.png) | [PNG](v4-1080x1920-menu-complete.png) | [PNG](v4-1440x3200-menu-complete.png) |
+| Справочник | [PNG](v4-720x1280-guide.png) | [PNG](v4-1080x1920-guide.png) | [PNG](v4-1440x3200-guide.png) |
+| Настройки | [PNG](v4-720x1280-settings.png) | [PNG](v4-1080x1920-settings.png) | [PNG](v4-1440x3200-settings.png) |
+| Главы | [PNG](v4-720x1280-chapters.png) | [PNG](v4-1080x1920-chapters.png) | [PNG](v4-1440x3200-chapters.png) |
+| Игровой экран | [PNG](v4-720x1280-game.png) | [PNG](v4-1080x1920-game.png) | [PNG](v4-1440x3200-game.png) |
+| Уровень19 | [PNG](v4-720x1280-level-19.png) | [PNG](v4-1080x1920-level-19.png) | [PNG](v4-1440x3200-level-19.png) |
+| Уровень49 | [PNG](v4-720x1280-level-49.png) | [PNG](v4-1080x1920-level-49.png) | [PNG](v4-1440x3200-level-49.png) |
+
+Все27 PNG сняты работающим Godot/OpenGL через `tools/v4_capture.gd`. Проверены реальные размеры, границы элементов, минимальные сенсорные области144логических px (Continue160), native Input касания обеих CTA/Info/Settings, Back и отсутствие работы декорации в игре. Полный прогресс — изолированная QA-фикстура. Цвета и формы — собственная процедурная графика.
+
+Логи: [720](v4-720x1280-run.log), [1080](v4-1080x1920-run.log), [1440](v4-1440x3200-run.log); все exit0. [Автотесты](v4-tests.log). Замеры: [720](v4-720x1280-performance.json), [1080](v4-1080x1920-performance.json), [1440](v4-1440x3200-performance.json). Это программный Linux renderer, не FPS/нагрев Android. v0.4.0 на физическом телефоне не проверялась.
 
 ## Настройки и touch 0.2.0
 

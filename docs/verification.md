@@ -187,3 +187,11 @@ BoardEffects дополнительно пройден в реальном OpenG
 Performance monitors по60кадрам наэкран: меню full≈130drawcalls, reduced84 во всех3размерах; при reduced0повторныхотрисовокMenuReaction после первоначального кадра. Поле не выполняет постоянный _process. Полные TIME_PROCESS/elapsed с программного llvmpipe сохранены вJSON, не выдаются за AndroidFPS/ускорениеCPU. Статический фон продолжает обычную отрисовку viewport; ноль относится к обновлению косметических команд, не к работе GPU в целом.
 
 Итоговый CI APK фиксируется ниже после реальной сборки. Рост удержания и Android FPS/нагрев не измерены; локальные агрегаты не заменяют cohort/session аналитику.
+
+### Итоговый Android CI0.5.0
+
+[Run43204226679](https://github.com/Unbearable22/Mobilegame/actions/runs/43204226679) source `e97aae5204fb1023c3f977c8816d4a038cf6cb23`: **success**, каждый шаг завершён успешно.1026GDScript/8Python/50completeаудитов/48 242симуляции повторены независимо на чистом runner. [Скачать ZIP](https://github.com/Unbearable22/Mobilegame/actions/runs/43204226679/artifacts/13937640075), срок до26ноября2026.
+
+APK реально скачан обратно: **28 438 529байт**, SHA256 `d5c95cbfbb8132be5f986d0d676ffc62bcf5a02430deddac6c11e704d3216c7f`. ZIPсодержит корректный level-audit.json;50JSON APK побайтно по JSON-значениям совпадают с текущими уровнями. Нетdocs/tests/keystore вAPK. Badging подтверждает0.5.0/code5/packageID,ARM64,portrait,min24/target36,нетpermissions;подписьv2/v3,zipalign16KB и resource-smoke пройдены. Последний открывает достижения/темы/экспорт/Continue, но исполняется desktopGodot, не Android-nativeкодом. [CI-report](android-v5-ci-artifact.json).
+
+Тот же файл находится `/workspaces/Mobilegame/build/android/chain-react-debug-arm64.apk`. Подтверждено отличие debug-сертификата от CI0.4.0; [backup/restore](android-progress-transfer.md) нужен перед удалением старой установки. Физическая0.5.0 и изменение удержания не проверялись. JSON-экспорт — sandbox+copy, без Downloads/share sheet; агрегация не является D1/D7когортным анализом.
