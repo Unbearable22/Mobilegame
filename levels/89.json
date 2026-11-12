@@ -1,0 +1,162 @@
+{
+  "id": 89,
+  "schema_version": 2,
+  "name": "Противоток",
+  "objective": "Одна пара работает в обе стороны на разных запусках: каждый источник ведёт к своей цели.",
+  "hint": "Одна пара работает в обе стороны на разных запусках: каждый источник ведёт к своей цели.",
+  "width": 7,
+  "height": 5,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 0,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "portal",
+      "pair_id": "return",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "portal",
+      "pair_id": "return",
+      "dirs": [
+        0
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 1
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 4,
+      "incoming_direction": 2,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 5,
+      "incoming_direction": 0,
+      "outgoing_direction": 3
+    },
+    {
+      "kind": "portal",
+      "pair_id": "return",
+      "from": 8,
+      "to": 9
+    },
+    {
+      "kind": "portal",
+      "pair_id": "return",
+      "from": 9,
+      "to": 8
+    }
+  ],
+  "author_node_labels": {
+    "0": "A",
+    "1": "B",
+    "2": "B1",
+    "3": "B2",
+    "4": "MA",
+    "5": "MB",
+    "6": "TA",
+    "7": "TB",
+    "8": "PA",
+    "9": "PB"
+  },
+  "design_goal": "Одна пара работает в обе стороны на разных запусках: каждый источник ведёт к своей цели.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 4,
+    "rotation_choices": 2
+  }
+}

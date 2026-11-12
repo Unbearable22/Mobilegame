@@ -1,0 +1,71 @@
+{
+  "schema_version": 2,
+  "id": 69,
+  "name": "Первое ожидание",
+  "hint": "Число на задержке — тики до выпуска. Поверните её выход к дальней цели.",
+  "objective": "Увидеть отдельные моменты активации, ожидания и выпуска задержки +1.",
+  "design_goal": "Увидеть отдельные моменты активации, ожидания и выпуска задержки +1.",
+  "difficulty": {
+    "estimate": 1,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 1,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "delay",
+      "dirs": [
+        0
+      ],
+      "rotatable": true,
+      "delay_ticks": 1
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "required_events": [
+    {
+      "kind": "delay_release",
+      "node": 2,
+      "delay_ticks": 1
+    }
+  ]
+}

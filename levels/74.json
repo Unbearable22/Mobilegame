@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "id": 74,
+  "name": "Семь шагов к запасу",
+  "hint": "Портальная ветвь ждёт +3. После встречи И заряжает финальную батарею в двух запусках.",
+  "objective": "Свести четыре новые механики в обязательном семитиковом схождении и повторить его для накопления.",
+  "design_goal": "Свести четыре новые механики в обязательном семитиковом схождении и повторить его для накопления.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 6,
+  "height": 6,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 3,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "type": "splitter",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "delay",
+      "dirs": [
+        1
+      ],
+      "rotatable": true,
+      "delay_ticks": 3
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "type": "portal",
+      "dirs": [
+        1
+      ],
+      "pair_id": "seven"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "portal",
+      "dirs": [
+        2
+      ],
+      "pair_id": "seven"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "reflector"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 10
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "required_events": [
+    {
+      "kind": "delay_release",
+      "node": 2,
+      "delay_ticks": 3
+    },
+    {
+      "kind": "portal",
+      "pair_id": "seven",
+      "from": 3,
+      "to": 4
+    },
+    {
+      "kind": "reflect",
+      "node": 6,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 10,
+      "minimum_distinct_neighbors": 2
+    }
+  ]
+}

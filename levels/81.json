@@ -1,0 +1,163 @@
+{
+  "id": 81,
+  "schema_version": 2,
+  "name": "Короткая дорога",
+  "objective": "Добавьте два такта к короткому плечу, чтобы встретить длинный обход у AND.",
+  "hint": "Добавьте два такта к короткому плечу, чтобы встретить длинный обход у AND.",
+  "width": 5,
+  "height": 4,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 1,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 10
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "required_events": [
+    {
+      "kind": "and",
+      "node": 8,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "delay_release",
+      "node": 10,
+      "delay_ticks": 2
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "U1",
+    "2": "U2",
+    "3": "R1",
+    "4": "R2",
+    "5": "R3",
+    "6": "R4",
+    "7": "R5",
+    "8": "G",
+    "9": "T",
+    "10": "D"
+  },
+  "design_goal": "Добавьте два такта к короткому плечу, чтобы встретить длинный обход у AND.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 3,
+    "rotation_choices": 2
+  }
+}

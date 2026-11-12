@@ -1,0 +1,289 @@
+{
+  "id": 97,
+  "schema_version": 2,
+  "name": "Каскад через расстояние",
+  "objective": "После первого AND задержанный сигнал встречает обход, прошедший через портал и другое ожидание.",
+  "hint": "После первого AND задержанный сигнал встречает обход, прошедший через портал и другое ожидание.",
+  "width": 7,
+  "height": 7,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 4,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 2,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "type": "portal",
+      "pair_id": "bypass",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "type": "portal",
+      "pair_id": "bypass",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "type": "delay",
+      "delay_ticks": 1,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 14
+    },
+    {
+      "type": "rotate",
+      "index": 16
+    },
+    {
+      "type": "rotate",
+      "index": 19
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 1,
+      "incoming_direction": 3,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 4,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 7,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "and",
+      "node": 14,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "delay_release",
+      "node": 16,
+      "delay_ticks": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "bypass",
+      "from": 17,
+      "to": 18
+    },
+    {
+      "kind": "delay_release",
+      "node": 19,
+      "delay_ticks": 1
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "L",
+    "2": "L1",
+    "3": "L2",
+    "4": "R",
+    "5": "R1",
+    "6": "R2",
+    "7": "G1",
+    "8": "MID",
+    "9": "LOW",
+    "10": "E1",
+    "11": "E2",
+    "12": "E3",
+    "13": "E4",
+    "14": "G2",
+    "15": "T",
+    "16": "D1",
+    "17": "Pin",
+    "18": "Pout",
+    "19": "D2"
+  },
+  "design_goal": "После первого AND задержанный сигнал встречает обход, прошедший через портал и другое ожидание.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 5,
+    "rotation_choices": 4
+  }
+}

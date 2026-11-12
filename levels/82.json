@@ -1,0 +1,176 @@
+{
+  "id": 82,
+  "schema_version": 2,
+  "name": "Не сбивайте отсчёт",
+  "objective": "Поздний обратный вход не должен перезапустить уже ожидающий Delay; активируйте обе цели.",
+  "hint": "Поздний обратный вход не должен перезапустить уже ожидающий Delay; активируйте обе цели.",
+  "width": 4,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 2,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0,
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "reflector"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "delay",
+      "delay_ticks": 1,
+      "dirs": [
+        3,
+        0
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 2,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 3,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 4,
+      "minimum_distinct_neighbors": 2,
+      "tick": 6,
+      "launch": 0
+    },
+    {
+      "kind": "delay_release",
+      "node": 7,
+      "delay_ticks": 2,
+      "tick": 4,
+      "launch": 0
+    },
+    {
+      "kind": "delay_release",
+      "node": 8,
+      "delay_ticks": 2,
+      "tick": 5,
+      "launch": 0
+    },
+    {
+      "kind": "delay_release",
+      "node": 9,
+      "delay_ticks": 1
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "F",
+    "2": "LM",
+    "3": "RM",
+    "4": "G",
+    "5": "T",
+    "6": "T2",
+    "7": "DL",
+    "8": "DR",
+    "9": "DB"
+  },
+  "design_goal": "Поздний обратный вход не должен перезапустить уже ожидающий Delay; активируйте обе цели.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 3,
+    "rotation_choices": 2
+  }
+}

@@ -1,0 +1,223 @@
+{
+  "id": 95,
+  "schema_version": 2,
+  "name": "Дальний ретранслятор",
+  "objective": "Две последовательные пары и задержка должны синхронизировать заряд батареи с местной ветвью.",
+  "hint": "Две последовательные пары и задержка должны синхронизировать заряд батареи с местной ветвью.",
+  "width": 6,
+  "height": 6,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 0,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "battery"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "type": "portal",
+      "pair_id": "far",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "type": "portal",
+      "pair_id": "far",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "portal",
+      "pair_id": "back",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "portal",
+      "pair_id": "back",
+      "dirs": [
+        1
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 6
+    },
+    {
+      "type": "rotate",
+      "index": 12
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 4,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 8,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "far",
+      "from": 10,
+      "to": 11
+    },
+    {
+      "kind": "delay_release",
+      "node": 12,
+      "delay_ticks": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "back",
+      "from": 13,
+      "to": 14
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "B",
+    "2": "L0",
+    "3": "L1",
+    "4": "L2",
+    "5": "L3",
+    "6": "L4",
+    "7": "L5",
+    "8": "G",
+    "9": "T",
+    "10": "Ain",
+    "11": "Aout",
+    "12": "D",
+    "13": "Bin",
+    "14": "Bout"
+  },
+  "design_goal": "Две последовательные пары и задержка должны синхронизировать заряд батареи с местной ветвью.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 4,
+    "rotation_choices": 2
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": 2,
+  "id": 56,
+  "name": "Один миг — два отражения",
+  "hint": "Оба боковых импульса должны прийти к неподвижному зеркалу одновременно.",
+  "objective": "Увидеть, что один одновременный пакет отражает оба входа, а не только первый.",
+  "design_goal": "Увидеть, что один одновременный пакет отражает оба входа, а не только первый.",
+  "difficulty": {
+    "estimate": 3,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 5,
+  "height": 6,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 2,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "reflector"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 8,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 8,
+      "incoming_direction": 3,
+      "outgoing_direction": 2
+    }
+  ]
+}

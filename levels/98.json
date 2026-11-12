@@ -1,0 +1,259 @@
+{
+  "id": 98,
+  "schema_version": 2,
+  "name": "Три кармана",
+  "objective": "Два запуска питают удалённую батарею и синхронный выход к двум другим целям.",
+  "hint": "Два запуска питают удалённую батарею и синхронный выход к двум другим целям.",
+  "width": 5,
+  "height": 7,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 3,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 3,
+      "y": 6,
+      "type": "source",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "type": "reflector"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "type": "splitter",
+      "dirs": [
+        1,
+        2
+      ]
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "splitter",
+      "dirs": [
+        2,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "portal",
+      "pair_id": "pockets",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "type": "portal",
+      "pair_id": "pockets",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "delay",
+      "delay_ticks": 3,
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "rotate",
+      "index": 18
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 1,
+      "incoming_direction": 3,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 2,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 6,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "pockets",
+      "from": 16,
+      "to": 17
+    },
+    {
+      "kind": "delay_release",
+      "node": 18,
+      "delay_ticks": 3
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "ML",
+    "2": "MR",
+    "3": "F",
+    "4": "B",
+    "5": "TB",
+    "6": "G",
+    "7": "OUT",
+    "8": "T1",
+    "9": "T2",
+    "10": "R1",
+    "11": "R2",
+    "12": "R3",
+    "13": "R4",
+    "14": "R5",
+    "15": "R6",
+    "16": "Pin",
+    "17": "Pout",
+    "18": "D"
+  },
+  "design_goal": "Два запуска питают удалённую батарею и синхронный выход к двум другим целям.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 5,
+    "rotation_choices": 3
+  }
+}

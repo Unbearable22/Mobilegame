@@ -1,0 +1,153 @@
+{
+  "id": 87,
+  "schema_version": 2,
+  "name": "Две удалённые руки",
+  "objective": "Две разные пары порталов должны дать AND двух настоящих соседей одновременно.",
+  "hint": "Две разные пары порталов должны дать AND двух настоящих соседей одновременно.",
+  "width": 7,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 0,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "portal",
+      "pair_id": "north",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "type": "portal",
+      "pair_id": "north",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "portal",
+      "pair_id": "east",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "type": "portal",
+      "pair_id": "east",
+      "dirs": [
+        3
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "required_events": [
+    {
+      "kind": "and",
+      "node": 3,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "north",
+      "from": 5,
+      "to": 6
+    },
+    {
+      "kind": "portal",
+      "pair_id": "east",
+      "from": 7,
+      "to": 8
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "L",
+    "2": "R",
+    "3": "G",
+    "4": "T",
+    "5": "Ain",
+    "6": "Aout",
+    "7": "Bin",
+    "8": "Bout"
+  },
+  "design_goal": "Две разные пары порталов должны дать AND двух настоящих соседей одновременно.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 3,
+    "rotation_choices": 2
+  }
+}

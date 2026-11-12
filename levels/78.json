@@ -1,0 +1,209 @@
+{
+  "id": 78,
+  "schema_version": 2,
+  "name": "Каскад согласий",
+  "objective": "Откройте первый AND, затем разделите его выход для второго.",
+  "hint": "Откройте первый AND, затем разделите его выход для второго.",
+  "width": 4,
+  "height": 6,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 2,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        2,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 1,
+      "incoming_direction": 3,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 4,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 7,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "and",
+      "node": 13,
+      "minimum_distinct_neighbors": 2
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "L0",
+    "2": "L1",
+    "3": "L2",
+    "4": "R0",
+    "5": "R1",
+    "6": "R2",
+    "7": "G1",
+    "8": "F",
+    "9": "LA",
+    "10": "LB",
+    "11": "RA",
+    "12": "RB",
+    "13": "G2",
+    "14": "T"
+  },
+  "design_goal": "Откройте первый AND, затем разделите его выход для второго.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 3,
+    "rotation_choices": 2
+  }
+}

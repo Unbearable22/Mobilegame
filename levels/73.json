@@ -1,0 +1,148 @@
+{
+  "schema_version": 2,
+  "id": 73,
+  "name": "Разные часы",
+  "hint": "Короткая ветвь ждёт +3, длинная — +1. Оба выпуска должны достичь И в одном тике.",
+  "objective": "Сопоставить две разные задержки и два разных расстояния без изменения настроек между запусками.",
+  "design_goal": "Сопоставить две разные задержки и два разных расстояния без изменения настроек между запусками.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 5,
+  "height": 6,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 3,
+  "nodes": [
+    {
+      "x": 1,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "delay",
+      "dirs": [
+        1
+      ],
+      "rotatable": true,
+      "delay_ticks": 3
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "delay",
+      "dirs": [
+        0
+      ],
+      "rotatable": true,
+      "delay_ticks": 1
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "and_gate",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "required_events": [
+    {
+      "kind": "delay_release",
+      "node": 1,
+      "delay_ticks": 3
+    },
+    {
+      "kind": "delay_release",
+      "node": 3,
+      "delay_ticks": 1
+    },
+    {
+      "kind": "and",
+      "node": 7,
+      "minimum_distinct_neighbors": 2
+    }
+  ]
+}

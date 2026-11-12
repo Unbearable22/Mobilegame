@@ -1,0 +1,185 @@
+{
+  "id": 79,
+  "schema_version": 2,
+  "name": "Без памяти",
+  "objective": "Каждый источник нужен своей цели; AND требует свежую пару в одном запуске.",
+  "hint": "Каждый источник нужен своей цели; AND требует свежую пару в одном запуске.",
+  "width": 5,
+  "height": 6,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 1,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "splitter",
+      "dirs": [
+        2,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "reflector"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 3
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 5,
+      "incoming_direction": 3,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 8,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 11,
+      "minimum_distinct_neighbors": 2
+    }
+  ],
+  "author_node_labels": {
+    "0": "A",
+    "1": "AT",
+    "2": "AI",
+    "3": "B",
+    "4": "BF",
+    "5": "BL",
+    "6": "BL1",
+    "7": "BL2",
+    "8": "BR",
+    "9": "BR1",
+    "10": "BR2",
+    "11": "G",
+    "12": "T"
+  },
+  "design_goal": "Каждый источник нужен своей цели; AND требует свежую пару в одном запуске.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 4,
+    "rotation_choices": 2
+  }
+}

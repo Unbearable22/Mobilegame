@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "id": 72,
+  "name": "Медленный запас",
+  "hint": "Один выпуск зажигает ближнюю цель, но батарее нужны два отдельных запуска.",
+  "objective": "Дать передышку после синхронизации и показать полный повтор задержки +3 в следующем запуске.",
+  "design_goal": "Дать передышку после синхронизации и показать полный повтор задержки +3 в следующем запуске.",
+  "difficulty": {
+    "estimate": 2,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 5,
+  "height": 5,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 2,
+  "nodes": [
+    {
+      "x": 1,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "delay",
+      "dirs": [
+        1,
+        2
+      ],
+      "rotatable": true,
+      "delay_ticks": 3
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "battery"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "required_events": [
+    {
+      "kind": "delay_release",
+      "node": 1,
+      "delay_ticks": 3
+    }
+  ]
+}

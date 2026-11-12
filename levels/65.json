@@ -1,0 +1,154 @@
+{
+  "schema_version": 2,
+  "id": 65,
+  "name": "Зеркальное согласие",
+  "hint": "Зеркала подают И с разных сторон. После него правильно разверните финальную развилку.",
+  "objective": "Согласовать две зеркальные ветви, затем распределить результат И между двумя целями.",
+  "design_goal": "Согласовать две зеркальные ветви, затем распределить результат И между двумя целями.",
+  "difficulty": {
+    "estimate": 3,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 5,
+  "height": 6,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 3,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "splitter",
+      "dirs": [
+        0,
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 4,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 5,
+      "incoming_direction": 0,
+      "outgoing_direction": 3
+    },
+    {
+      "kind": "and",
+      "node": 6,
+      "minimum_distinct_neighbors": 2
+    }
+  ]
+}

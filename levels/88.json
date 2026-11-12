@@ -1,0 +1,270 @@
+{
+  "id": 88,
+  "schema_version": 2,
+  "name": "Второе окно",
+  "objective": "Первый AND запускает задержку; второй встречает её с длинным обходом.",
+  "hint": "Первый AND запускает задержку; второй встречает её с длинным обходом.",
+  "width": 6,
+  "height": 8,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 3,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 3,
+      "y": 6,
+      "type": "source",
+      "dirs": [
+        3,
+        1,
+        2
+      ]
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "type": "reflector"
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 7,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 4,
+      "y": 7,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 5,
+      "y": 7,
+      "type": "directional",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 13
+    },
+    {
+      "type": "rotate",
+      "index": 19
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 1,
+      "incoming_direction": 3,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 4,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 7,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "and",
+      "node": 9,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "delay_release",
+      "node": 19,
+      "delay_ticks": 2
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "L",
+    "2": "L1",
+    "3": "L2",
+    "4": "R",
+    "5": "R1",
+    "6": "R2",
+    "7": "G1",
+    "8": "MID",
+    "9": "G2",
+    "10": "T",
+    "11": "B1",
+    "12": "B2",
+    "13": "B3",
+    "14": "B4",
+    "15": "B5",
+    "16": "B6",
+    "17": "B7",
+    "18": "B8",
+    "19": "D"
+  },
+  "design_goal": "Первый AND запускает задержку; второй встречает её с длинным обходом.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 4,
+    "rotation_choices": 3
+  }
+}

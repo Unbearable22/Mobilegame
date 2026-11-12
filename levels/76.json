@@ -1,0 +1,174 @@
+{
+  "id": 76,
+  "schema_version": 2,
+  "name": "Зеркальное согласие",
+  "objective": "Сведите две зеркальные дуги в один одновременный вход AND.",
+  "hint": "Сведите две зеркальные дуги в один одновременный вход AND.",
+  "width": 4,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 3,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 2,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 9
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 1,
+      "incoming_direction": 3,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 4,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 5,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 8,
+      "incoming_direction": 0,
+      "outgoing_direction": 3
+    },
+    {
+      "kind": "and",
+      "node": 9,
+      "minimum_distinct_neighbors": 2
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "L0",
+    "2": "L1",
+    "3": "L2",
+    "4": "L3",
+    "5": "R0",
+    "6": "R1",
+    "7": "R2",
+    "8": "R3",
+    "9": "G",
+    "10": "T"
+  },
+  "design_goal": "Сведите две зеркальные дуги в один одновременный вход AND.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 4,
+    "rotation_choices": 3
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "id": 96,
+  "schema_version": 2,
+  "name": "Обмен и запас",
+  "objective": "Первый источник заряжает дальнюю батарею двумя путями; обратный обмен завершает вторую.",
+  "hint": "Первый источник заряжает дальнюю батарею двумя путями; обратный обмен завершает вторую.",
+  "width": 7,
+  "height": 6,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 0,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        1,
+        0,
+        2
+      ]
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        3,
+        2
+      ]
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "battery"
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "battery"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "portal",
+      "pair_id": "store",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "portal",
+      "pair_id": "store",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "delay",
+      "delay_ticks": 1,
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 1
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 2,
+      "incoming_direction": 0,
+      "outgoing_direction": 3
+    },
+    {
+      "kind": "delay_release",
+      "node": 14,
+      "delay_ticks": 1
+    },
+    {
+      "kind": "portal",
+      "pair_id": "store",
+      "from": 12,
+      "to": 13
+    },
+    {
+      "kind": "portal",
+      "pair_id": "store",
+      "from": 13,
+      "to": 12
+    }
+  ],
+  "author_node_labels": {
+    "0": "A",
+    "1": "B",
+    "2": "M",
+    "3": "BB",
+    "4": "TB",
+    "5": "U0",
+    "6": "U1",
+    "7": "U2",
+    "8": "U3",
+    "9": "L",
+    "10": "BA",
+    "11": "TA",
+    "12": "PA",
+    "13": "PB",
+    "14": "D",
+    "15": "BT"
+  },
+  "design_goal": "Первый источник заряжает дальнюю батарею двумя путями; обратный обмен завершает вторую.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 4,
+    "rotation_choices": 2
+  }
+}

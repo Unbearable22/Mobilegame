@@ -1,0 +1,203 @@
+{
+  "id": 91,
+  "schema_version": 2,
+  "name": "Удалённый угол",
+  "objective": "Зеркало, портал и Delay должны доставить короткую ветвь к длинному пути у AND.",
+  "hint": "Зеркало, портал и Delay должны доставить короткую ветвь к длинному пути у AND.",
+  "width": 5,
+  "height": 7,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 1,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 0,
+      "y": 6,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "type": "reflector"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "type": "portal",
+      "pair_id": "corner",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "type": "portal",
+      "pair_id": "corner",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        2
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 1,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 2,
+      "incoming_direction": 2,
+      "outgoing_direction": 3
+    },
+    {
+      "kind": "and",
+      "node": 9,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "corner",
+      "from": 11,
+      "to": 12
+    },
+    {
+      "kind": "delay_release",
+      "node": 13,
+      "delay_ticks": 2
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "M0",
+    "2": "M1",
+    "3": "R0",
+    "4": "R1",
+    "5": "R2",
+    "6": "R3",
+    "7": "R4",
+    "8": "R5",
+    "9": "G",
+    "10": "T",
+    "11": "Pin",
+    "12": "Pout",
+    "13": "D"
+  },
+  "design_goal": "Зеркало, портал и Delay должны доставить короткую ветвь к длинному пути у AND.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 2,
+    "rotation_choices": 2
+  }
+}

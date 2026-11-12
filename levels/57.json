@@ -1,0 +1,84 @@
+{
+  "schema_version": 2,
+  "id": 57,
+  "name": "Дальний выход",
+  "hint": "Импульс выходит из второго портала по его стрелке. Настройте последний поворот.",
+  "objective": "Разделить роль входа портала и локальных выходных стрелок его партнёра.",
+  "design_goal": "Разделить роль входа портала и локальных выходных стрелок его партнёра.",
+  "difficulty": {
+    "estimate": 1,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 1,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "portal",
+      "dirs": [
+        0
+      ],
+      "pair_id": "p1"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "portal",
+      "dirs": [
+        2
+      ],
+      "pair_id": "p1"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "required_events": [
+    {
+      "kind": "portal",
+      "pair_id": "p1",
+      "from": 1,
+      "to": 2
+    }
+  ]
+}

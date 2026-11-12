@@ -1,0 +1,155 @@
+{
+  "id": 93,
+  "schema_version": 2,
+  "name": "Сначала запас",
+  "objective": "Сначала подготовьте батарею верхним источником; нижний должен дать AND полную пару.",
+  "hint": "Сначала подготовьте батарею верхним источником; нижний должен дать AND полную пару.",
+  "width": 3,
+  "height": 5,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 0,
+      "y": 2,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "reflector"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "delay",
+      "delay_ticks": 1,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "delay",
+      "delay_ticks": 1,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 2
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 3,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 5,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "delay_release",
+      "node": 7,
+      "delay_ticks": 1
+    },
+    {
+      "kind": "delay_release",
+      "node": 8,
+      "delay_ticks": 1
+    }
+  ],
+  "author_node_labels": {
+    "0": "A",
+    "1": "AT",
+    "2": "B",
+    "3": "M",
+    "4": "BAT",
+    "5": "G",
+    "6": "T",
+    "7": "DL",
+    "8": "DR"
+  },
+  "design_goal": "Сначала подготовьте батарею верхним источником; нижний должен дать AND полную пару.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 4,
+    "rotation_choices": 2
+  },
+  "required_source_order": [
+    0,
+    2
+  ]
+}

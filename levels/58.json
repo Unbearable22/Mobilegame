@@ -1,0 +1,99 @@
+{
+  "schema_version": 2,
+  "id": 58,
+  "name": "Развилка за порталом",
+  "hint": "Два выхода дальнего портала обслуживают разные цели.",
+  "objective": "Прочитать разветвление на выходном конце пары и сохранить обе ветви.",
+  "design_goal": "Прочитать разветвление на выходном конце пары и сохранить обе ветви.",
+  "difficulty": {
+    "estimate": 2,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 6,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 1,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "portal",
+      "dirs": [
+        0
+      ],
+      "pair_id": "fork"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "portal",
+      "dirs": [
+        0,
+        1
+      ],
+      "pair_id": "fork"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "target"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "required_events": [
+    {
+      "kind": "portal",
+      "pair_id": "fork",
+      "from": 1,
+      "to": 2
+    }
+  ]
+}

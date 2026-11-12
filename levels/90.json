@@ -1,0 +1,181 @@
+{
+  "id": 90,
+  "schema_version": 2,
+  "name": "Две памяти, одно окно",
+  "objective": "Зарядите две батареи за два запуска; их разные пути должны прийти к AND вместе.",
+  "hint": "Зарядите две батареи за два запуска; их разные пути должны прийти к AND вместе.",
+  "width": 4,
+  "height": 5,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 2,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "battery"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "delay",
+      "delay_ticks": 1,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "delay",
+      "delay_ticks": 1,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 2,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 3,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 5,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "delay_release",
+      "node": 7,
+      "delay_ticks": 1
+    },
+    {
+      "kind": "delay_release",
+      "node": 8,
+      "delay_ticks": 1
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "BL",
+    "2": "ML",
+    "3": "MR",
+    "4": "BR",
+    "5": "G",
+    "6": "T",
+    "7": "DL",
+    "8": "DR",
+    "9": "TL",
+    "10": "TR",
+    "11": "FOUT"
+  },
+  "design_goal": "Зарядите две батареи за два запуска; их разные пути должны прийти к AND вместе.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 4,
+    "rotation_choices": 2
+  }
+}

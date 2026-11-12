@@ -1,0 +1,334 @@
+{
+  "id": 100,
+  "schema_version": 2,
+  "name": "Зажигание реактора",
+  "objective": "Синхронизируйте первый AND, накопите заряд в двух батареях и откройте финальное окно второго AND.",
+  "hint": "Синхронизируйте первый AND, накопите заряд в двух батареях и откройте финальное окно второго AND.",
+  "width": 6,
+  "height": 7,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 4,
+  "difficulty_estimate": "final",
+  "nodes": [
+    {
+      "x": 0,
+      "y": 6,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "type": "reflector"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "type": "reflector"
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "and_gate",
+      "dirs": [
+        3,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "battery"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "battery"
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "type": "reflector"
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "type": "portal",
+      "pair_id": "core",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "portal",
+      "pair_id": "core",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 18
+    },
+    {
+      "type": "rotate",
+      "index": 19
+    },
+    {
+      "type": "rotate",
+      "index": 20
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 1,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 5,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "reflect",
+      "node": 11,
+      "incoming_direction": 1,
+      "outgoing_direction": 0
+    },
+    {
+      "kind": "and",
+      "node": 8,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "and",
+      "node": 14,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "core",
+      "from": 16,
+      "to": 17
+    },
+    {
+      "kind": "delay_release",
+      "node": 18,
+      "delay_ticks": 2
+    },
+    {
+      "kind": "delay_release",
+      "node": 19,
+      "delay_ticks": 2
+    },
+    {
+      "kind": "delay_release",
+      "node": 20,
+      "delay_ticks": 2
+    },
+    {
+      "kind": "and",
+      "node": 8,
+      "minimum_distinct_neighbors": 2,
+      "tick": 8,
+      "launch": 0
+    },
+    {
+      "kind": "and",
+      "node": 8,
+      "minimum_distinct_neighbors": 2,
+      "tick": 8,
+      "launch": 1
+    },
+    {
+      "kind": "and",
+      "node": 14,
+      "minimum_distinct_neighbors": 2,
+      "tick": 13,
+      "launch": 1
+    },
+    {
+      "kind": "delay_release",
+      "node": 20,
+      "delay_ticks": 2,
+      "tick": 12,
+      "launch": 1
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "MA",
+    "2": "A1",
+    "3": "A2",
+    "4": "L1",
+    "5": "ML",
+    "6": "L2",
+    "7": "L3",
+    "8": "G1",
+    "9": "BA",
+    "10": "BB",
+    "11": "MR",
+    "12": "R1",
+    "13": "R2",
+    "14": "G2",
+    "15": "T",
+    "16": "Pin",
+    "17": "Pout",
+    "18": "DA",
+    "19": "DL",
+    "20": "DB"
+  },
+  "design_goal": "Синхронизируйте первый AND, накопите заряд в двух батареях и откройте финальное окно второго AND.",
+  "difficulty": {
+    "estimate": 6,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 6,
+    "rotation_choices": 4
+  }
+}

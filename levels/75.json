@@ -1,0 +1,204 @@
+{
+  "schema_version": 2,
+  "id": 75,
+  "name": "Подготовить, согласовать, сохранить",
+  "hint": "Левый источник подготавливает батарею. Затем дважды запустите нижний: каждый раз весь дальний маршрут должен сработать.",
+  "objective": "Объединить порядок источников, И, перенос, отражение, задержку и два накопителя в одном компактном экзамене.",
+  "design_goal": "Объединить порядок источников, И, перенос, отражение, задержку и два накопителя в одном компактном экзамене.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 6,
+  "height": 6,
+  "launches": 3,
+  "par_launches": 3,
+  "minimum_rotated_nodes": 4,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "battery"
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "type": "source",
+      "dirs": [
+        0,
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "and_gate",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "portal",
+      "dirs": [
+        3
+      ],
+      "pair_id": "final"
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "portal",
+      "dirs": [
+        2
+      ],
+      "pair_id": "final"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "delay",
+      "dirs": [
+        1
+      ],
+      "rotatable": true,
+      "delay_ticks": 2
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "type": "battery"
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "type": "normal"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 5
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 9
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 3
+    },
+    {
+      "type": "launch",
+      "index": 3
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "required_events": [
+    {
+      "kind": "and",
+      "node": 5,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "final",
+      "from": 6,
+      "to": 7
+    },
+    {
+      "kind": "reflect",
+      "node": 8,
+      "incoming_direction": 2,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "delay_release",
+      "node": 9,
+      "delay_ticks": 2
+    }
+  ],
+  "required_source_order": [
+    0,
+    3,
+    3
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": 77,
+  "schema_version": 2,
+  "name": "Двойное согласие",
+  "objective": "Одним запуском замкните два независимых контура AND.",
+  "hint": "Одним запуском замкните два независимых контура AND.",
+  "width": 7,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 3,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "and_gate",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "type": "and_gate",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "required_events": [
+    {
+      "kind": "and",
+      "node": 6,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "and",
+      "node": 13,
+      "minimum_distinct_neighbors": 2
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "LF",
+    "2": "LA",
+    "3": "LB",
+    "4": "LC",
+    "5": "LD",
+    "6": "LG",
+    "7": "LT",
+    "8": "RF",
+    "9": "RA",
+    "10": "RB",
+    "11": "RC",
+    "12": "RD",
+    "13": "RG",
+    "14": "RT"
+  },
+  "design_goal": "Одним запуском замкните два независимых контура AND.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 3,
+    "rotation_choices": 2
+  }
+}

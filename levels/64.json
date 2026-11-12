@@ -1,0 +1,115 @@
+{
+  "schema_version": 2,
+  "id": 64,
+  "name": "Третий луч",
+  "hint": "Боковая цель нужна отдельно. Два оставшихся луча сходятся на И.",
+  "objective": "Распределить три выхода источника между немедленной целью и синхронным вентилем.",
+  "design_goal": "Распределить три выхода источника между немедленной целью и синхронным вентилем.",
+  "difficulty": {
+    "estimate": 3,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 5,
+  "height": 5,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 3,
+  "nodes": [
+    {
+      "x": 2,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        0,
+        1,
+        3
+      ]
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "directional",
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 2
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "rotate",
+      "index": 4
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "required_events": [
+    {
+      "kind": "and",
+      "node": 4,
+      "minimum_distinct_neighbors": 2
+    }
+  ]
+}

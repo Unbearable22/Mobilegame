@@ -1,0 +1,307 @@
+{
+  "id": 99,
+  "schema_version": 2,
+  "name": "Калибровка окон",
+  "objective": "Один двусторонний обмен должен открыть два разных временных окна AND.",
+  "hint": "Один двусторонний обмен должен открыть два разных временных окна AND.",
+  "width": 6,
+  "height": 7,
+  "launches": 2,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 4,
+  "difficulty_estimate": "expert",
+  "nodes": [
+    {
+      "x": 3,
+      "y": 4,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "reflector"
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "type": "reflector"
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "type": "directional",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "type": "directional",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "type": "directional",
+      "dirs": [
+        3
+      ]
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "type": "and_gate",
+      "dirs": [
+        2
+      ]
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "type": "target"
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "type": "portal",
+      "pair_id": "windows",
+      "dirs": [
+        0,
+        2
+      ]
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "portal",
+      "pair_id": "windows",
+      "dirs": [
+        0,
+        2
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        3
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "type": "delay",
+      "delay_ticks": 2,
+      "dirs": [
+        1
+      ],
+      "rotatable": true
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 7
+    },
+    {
+      "type": "rotate",
+      "index": 8
+    },
+    {
+      "type": "rotate",
+      "index": 18
+    },
+    {
+      "type": "rotate",
+      "index": 19
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 2,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 3,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 7,
+      "incoming_direction": 2,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 8,
+      "incoming_direction": 2,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "and",
+      "node": 12,
+      "minimum_distinct_neighbors": 2,
+      "tick": 7,
+      "launch": 0
+    },
+    {
+      "kind": "and",
+      "node": 13,
+      "minimum_distinct_neighbors": 2,
+      "tick": 7,
+      "launch": 0
+    },
+    {
+      "kind": "delay_release",
+      "node": 18,
+      "delay_ticks": 2
+    },
+    {
+      "kind": "delay_release",
+      "node": 19,
+      "delay_ticks": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "windows",
+      "from": 16,
+      "to": 17,
+      "tick": 2,
+      "launch": 0
+    },
+    {
+      "kind": "portal",
+      "pair_id": "windows",
+      "from": 17,
+      "to": 16,
+      "tick": 2,
+      "launch": 0
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "F",
+    "2": "UL",
+    "3": "UR",
+    "4": "U1",
+    "5": "U2",
+    "6": "U3",
+    "7": "DL",
+    "8": "DR",
+    "9": "D1",
+    "10": "D2",
+    "11": "D3",
+    "12": "GU",
+    "13": "GD",
+    "14": "TU",
+    "15": "TD",
+    "16": "PA",
+    "17": "PB",
+    "18": "DU",
+    "19": "DD"
+  },
+  "design_goal": "Один двусторонний обмен должен открыть два разных временных окна AND.",
+  "difficulty": {
+    "estimate": 5,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 5,
+    "rotation_choices": 4
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "id": 86,
+  "schema_version": 2,
+  "name": "Обмен навстречу",
+  "objective": "Подайте импульсы в оба конца одной пары в один такт: оба выхода нужны AND.",
+  "hint": "Подайте импульсы в оба конца одной пары в один такт: оба выхода нужны AND.",
+  "width": 4,
+  "height": 4,
+  "launches": 1,
+  "par_launches": 1,
+  "minimum_rotated_nodes": 2,
+  "difficulty_estimate": "advanced",
+  "nodes": [
+    {
+      "x": 2,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "type": "splitter",
+      "dirs": [
+        2,
+        0
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "reflector"
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "type": "reflector",
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "and_gate",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "splitter",
+      "dirs": [
+        3,
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "type": "portal",
+      "pair_id": "swap",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "type": "portal",
+      "pair_id": "swap",
+      "dirs": [
+        0
+      ]
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "type": "target"
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 3
+    },
+    {
+      "type": "launch",
+      "index": 0
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "required_events": [
+    {
+      "kind": "reflect",
+      "node": 2,
+      "incoming_direction": 0,
+      "outgoing_direction": 1
+    },
+    {
+      "kind": "reflect",
+      "node": 3,
+      "incoming_direction": 0,
+      "outgoing_direction": 3
+    },
+    {
+      "kind": "and",
+      "node": 4,
+      "minimum_distinct_neighbors": 2
+    },
+    {
+      "kind": "portal",
+      "pair_id": "swap",
+      "from": 6,
+      "to": 7
+    },
+    {
+      "kind": "portal",
+      "pair_id": "swap",
+      "from": 7,
+      "to": 6
+    }
+  ],
+  "author_node_labels": {
+    "0": "S",
+    "1": "F",
+    "2": "L",
+    "3": "R",
+    "4": "G",
+    "5": "T",
+    "6": "PA",
+    "7": "PB",
+    "8": "TL",
+    "9": "TR"
+  },
+  "design_goal": "Подайте импульсы в оба конца одной пары в один такт: оба выхода нужны AND.",
+  "difficulty": {
+    "estimate": 4,
+    "status": "design_hypothesis_pending_playtest",
+    "author_actions": 3,
+    "rotation_choices": 2
+  }
+}

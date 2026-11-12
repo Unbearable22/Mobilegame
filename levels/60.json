@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "id": 60,
+  "name": "Обратный маршрут",
+  "hint": "Каждый источник входит в свой конец пары. За два запуска зажгите обе цели.",
+  "objective": "Доказать двустороннюю работу пары в разных запусках без лишнего источника.",
+  "design_goal": "Доказать двустороннюю работу пары в разных запусках без лишнего источника.",
+  "difficulty": {
+    "estimate": 3,
+    "status": "design_hypothesis_pending_playtest"
+  },
+  "width": 6,
+  "height": 5,
+  "launches": 2,
+  "par_launches": 2,
+  "minimum_rotated_nodes": 1,
+  "nodes": [
+    {
+      "x": 0,
+      "y": 1,
+      "type": "source",
+      "dirs": [
+        1
+      ]
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "type": "directional",
+      "dirs": [
+        2
+      ],
+      "rotatable": true
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "type": "portal",
+      "dirs": [
+        0
+      ],
+      "pair_id": "return"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "type": "target"
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "type": "portal",
+      "dirs": [
+        2
+      ],
+      "pair_id": "return"
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "type": "target"
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "type": "source",
+      "dirs": [
+        3
+      ]
+    }
+  ],
+  "author_solution": [
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "rotate",
+      "index": 1
+    },
+    {
+      "type": "launch",
+      "index": 0
+    },
+    {
+      "type": "launch",
+      "index": 6
+    }
+  ],
+  "required_nodes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "required_events": [
+    {
+      "kind": "portal",
+      "pair_id": "return",
+      "from": 2,
+      "to": 4
+    },
+    {
+      "kind": "portal",
+      "pair_id": "return",
+      "from": 4,
+      "to": 2
+    }
+  ]
+}
