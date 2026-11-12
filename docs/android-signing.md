@@ -62,10 +62,14 @@ python3 tools/build_android.py \
 
 Alternatively set all four `CHAIN_REACT_SIGNING_KEYSTORE`, `CHAIN_REACT_SIGNING_ALIAS`, `CHAIN_REACT_SIGNING_STORE_PASSWORD`, and `CHAIN_REACT_SIGNING_KEY_PASSWORD` environment variables from secure local storage. The key must be outside the repository and owner-only. There is no implicit local default. `--allow-ephemeral-signing` explicitly opts into a temporary identity when no signing variables are set.
 
-Godot receives a placeholder password. An isolated SDK wrapper supplies the real keystore and key passwords to Android `apksigner` through its `env:` inputs, avoiding passwords in command arguments and logs. The selected private key is validated before export. The finished APK certificate is verified against that selected identity; the artifact contains only its public digest and signing mode. Upload is restricted to `build/android/`; private configuration lives outside it.
+Godot receives a placeholder password. An isolated Java SDK wrapper supplies the real password to Godot’s `keytool` preflight through `-storepass:env`; an Android SDK wrapper supplies the real keystore and key passwords to Android `apksigner` through its `env:` inputs, avoiding passwords in command arguments and logs. The selected private key is validated before export. The finished APK certificate is verified against that selected identity; the artifact contains only its public digest and signing mode. Upload is restricted to `build/android/`; private configuration lives outside it.
 
 ## Existing v0.5.0 installs
 
 The earlier workflow generated its debug identity on each fresh runner. Its private key was not retained in this repository and cannot be recovered from the APK. A new durable identity cannot be promised to update an installation signed by that old certificate. Android requires matching signing identities for an in-place update, regardless of an unchanged package ID. Back up the complete `progress.json` before reinstalling, following [Android progress transfer](android-progress-transfer.md). Statistics export is not a progress/settings backup; uninstalling removes app-local saves. Future APKs signed with the configured durable identity can retain their update identity.
 
 No release key or release signing workflow is introduced. Physical-device upgrade compatibility remains unverified until tested on a device.
+
+## Local v0.5.1 verification
+
+A real Godot 4.7.2 export from the isolated v0.5.1 source passed with JDK 17 and the durable debug identity after adding the Java SDK preflight wrapper. APK verification confirmed the unchanged package ID, ARM64, debug flag, 50 packaged levels, no requested permissions, 16 KiB alignment and packaged-resource smoke. The build log was checked programmatically for both private passwords; neither was present. APK SHA-256: `cb139f6d91a6b3f2e34b2b91d5d7d6eda91910785e5049e91dc88ae64e426415`. This establishes local export behavior; owner-managed GitHub Secrets setup remains pending.

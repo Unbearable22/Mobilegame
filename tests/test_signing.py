@@ -68,6 +68,22 @@ class SigningTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 signing.prepare_ci(env, target)
 
+    def test_godot_keytool_preflight_uses_environment_password_source(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            executable = Path(tmp) / 'keytool'
+            executable.write_text('#!/usr/bin/env python3\nimport json, sys\nprint(json.dumps(sys.argv[1:]))\n')
+            executable.chmod(0o700)
+            env = dict(os.environ, CHAIN_REACT_REAL_KEYTOOL=str(executable),
+                       CHAIN_REACT_SIGNING_STORE_PASSWORD='preflight-must-not-leak')
+            result = subprocess.run([sys.executable, str(ROOT / 'tools/setup_debug_signing.py'),
+                                     '--keytool-proxy', '-list', '-keystore', '/private/debug.keystore',
+                                     '-storepass', 'CHAIN_REACT_PASSWORD_FROM_ENV', '-alias', 'debug'],
+                                    env=env, text=True, capture_output=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertNotIn('preflight-must-not-leak', result.stdout + result.stderr)
+            self.assertEqual(json.loads(result.stdout), ['-list', '-keystore', '/private/debug.keystore',
+                             '-storepass:env', 'CHAIN_REACT_SIGNING_STORE_PASSWORD', '-alias', 'debug'])
+
     def test_proxy_passes_passwords_only_by_environment(self):
         with tempfile.TemporaryDirectory() as tmp:
             executable = Path(tmp) / 'apksigner'

@@ -45,6 +45,31 @@ def signing_sdk(sdk, work, env):
     return overlay
 
 
+def signing_java(java, work, env):
+    """Proxy Godot's native keytool preflight as well as APK signing."""
+    overlay = work / 'java'
+    overlay.mkdir(parents=True, exist_ok=True)
+    for source in java.iterdir():
+        if source.name != 'bin':
+            target = overlay / source.name
+            if not target.exists():
+                target.symlink_to(source, target_is_directory=source.is_dir())
+    binaries = overlay / 'bin'
+    binaries.mkdir(parents=True, exist_ok=True)
+    for source in (java / 'bin').iterdir():
+        if source.name != 'keytool':
+            target = binaries / source.name
+            if not target.exists():
+                target.symlink_to(source, target_is_directory=source.is_dir())
+    proxy = binaries / 'keytool'
+    proxy.write_text('#!/bin/sh\nexec ' + shlex.quote(sys.executable) + ' ' +
+                     shlex.quote(str(ROOT / 'tools/setup_debug_signing.py')) +
+                     ' --keytool-proxy "$@"\n')
+    proxy.chmod(0o700)
+    env['CHAIN_REACT_REAL_KEYTOOL'] = str(java / 'bin/keytool')
+    return overlay
+
+
 def build(args, ephemeral_directory):
     sdk, java, templates = (p.resolve() for p in (args.sdk, args.java, args.templates))
     godot = shutil.which(args.godot) or str(Path(args.godot).resolve())
@@ -91,12 +116,13 @@ def build(args, ephemeral_directory):
     if (templates / 'android_release.apk').is_file():
         shutil.copy2(templates / 'android_release.apk', dest / 'android_release.apk')
     overlay = signing_sdk(sdk, work, env)
+    java_overlay = signing_java(java, work, env)
     settings = '[gd_resource type="EditorSettings" format=3]\n\n[resource]\n'
     settings += 'export/android/android_sdk_path = ' + json.dumps(str(overlay)) + '\n'
-    settings += 'export/android/java_sdk_path = ' + json.dumps(str(java)) + '\n'
+    settings += 'export/android/java_sdk_path = ' + json.dumps(str(java_overlay)) + '\n'
     (config / 'editor_settings-4.7.tres').write_text(settings)
-    env['PATH'] = str(java / 'bin') + os.pathsep + env.get('PATH', '')
-    env.update(JAVA_HOME=str(java), ANDROID_HOME=str(overlay), ANDROID_SDK_ROOT=str(overlay),
+    env['PATH'] = str(java_overlay / 'bin') + os.pathsep + env.get('PATH', '')
+    env.update(JAVA_HOME=str(java_overlay), ANDROID_HOME=str(overlay), ANDROID_SDK_ROOT=str(overlay),
                XDG_CONFIG_HOME=str(work / 'config'), XDG_DATA_HOME=str(work / 'data'), GODOT_BIN=godot)
     env.update(GODOT_ANDROID_KEYSTORE_DEBUG_PATH=env[FIELDS[0]],
                GODOT_ANDROID_KEYSTORE_DEBUG_USER=env[FIELDS[1]],

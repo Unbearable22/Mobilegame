@@ -156,7 +156,24 @@ def apksigner_proxy():
               [os.environ['CHAIN_REACT_REAL_APKSIGNER'], *args], os.environ.copy())
 
 
+def keytool_proxy():
+    """Godot validates the same placeholder through its Java SDK keytool path."""
+    args = sys.argv[2:]
+    for flag, field in (('-storepass', FIELDS[2]), ('-keypass', FIELDS[3])):
+        if flag in args:
+            position = args.index(flag)
+            if position + 1 >= len(args) or args[position + 1] != 'CHAIN_REACT_PASSWORD_FROM_ENV':
+                raise SystemExit('Keytool proxy refuses an inline password')
+            args[position] = flag + ':env'
+            args[position + 1] = field
+    executable = os.environ['CHAIN_REACT_REAL_KEYTOOL']
+    os.execve(executable, [executable, *args], os.environ.copy())
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == '--keytool-proxy':
+        keytool_proxy()
+        return
     if len(sys.argv) > 1 and sys.argv[1] == '--apksigner-proxy':
         apksigner_proxy()
         return
