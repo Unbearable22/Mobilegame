@@ -195,3 +195,12 @@ Performance monitors по60кадрам наэкран: меню full≈130drawc
 APK реально скачан обратно: **28 438 529байт**, SHA256 `d5c95cbfbb8132be5f986d0d676ffc62bcf5a02430deddac6c11e704d3216c7f`. ZIPсодержит корректный level-audit.json;50JSON APK побайтно по JSON-значениям совпадают с текущими уровнями. Нетdocs/tests/keystore вAPK. Badging подтверждает0.5.0/code5/packageID,ARM64,portrait,min24/target36,нетpermissions;подписьv2/v3,zipalign16KB и resource-smoke пройдены. Последний открывает достижения/темы/экспорт/Continue, но исполняется desktopGodot, не Android-nativeкодом. [CI-report](android-v5-ci-artifact.json).
 
 Тот же файл находится `/workspaces/Mobilegame/build/android/chain-react-debug-arm64.apk`. Подтверждено отличие debug-сертификата от CI0.4.0; [backup/restore](android-progress-transfer.md) нужен перед удалением старой установки. Физическая0.5.0 и изменение удержания не проверялись. JSON-экспорт — sandbox+copy, без Downloads/share sheet; агрегация не является D1/D7когортным анализом.
+
+## v0.5.1 checkpoint — 2026-11-12
+
+- Existing full `tools/check.sh` completed: 1,026 original assertions passed, all 50 authored levels and 48,242 audit simulations passed; new theme contract has zero failures.
+- Independent review: `docs/v51-developer-review.md`. Palette compatibility, root and modal colors and full-progress backup wording were corrected. Targeted Board/UI/native touch/retention/statistics reruns passed after the fixes.
+- Python tests with actual Android apksigner: 18 passed, no skips.
+- Real Godot framebuffer captures: all five themes on menu/game, native touch, pixel-region checks and frozen-render negative control at 720×1280,1080×1920,1440×3200. Initial regression test failed before the fixes. See `docs/v51-theme-investigation.md` and `docs/screenshots/v51-*-report.json` for exact latest check counts.
+- Physical Android v0.5.1 has not been tested here. The original device-only no-color-change symptom remains unconfirmed; debug traces are provided for localization. Confirmed fixed defects were shared backgrounds/surfaces and hardcoded palette consumers.
+- Stable CI signing is explicitly blocked on owner Actions Secrets setup (HTTP403 from integration). Ordinary CI now fails closed; explicit manual ephemeral test signing is labeled nonpersistent. No private keys are committed.

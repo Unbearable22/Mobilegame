@@ -23,6 +23,8 @@ var progress_bar: ProgressBar
 var active: bool = false
 var suspended: bool = false
 var backdrop: GradientTexture2D
+var progress_panel: PanelContainer
+var background_color: Color=Color("080f1e")
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -79,6 +81,7 @@ func _ready() -> void:
 		collection.add_child(button)
 	column.add_child(collection)
 	var panel := PanelContainer.new()
+	progress_panel=panel
 	var box := StyleBoxFlat.new()
 	box.bg_color = Color("0c1729")
 	box.border_color = Color("223952")
@@ -172,7 +175,7 @@ func set_suspended(value: bool) -> void:
 	if reaction: reaction.set_active(active and not suspended)
 func _draw() -> void:
 	# Static backdrop redraws only on resize/visibility; all shapes are own vectors.
-	if backdrop: draw_texture_rect(backdrop,Rect2(Vector2.ZERO,size),false)
+	draw_rect(Rect2(Vector2.ZERO,size),background_color)
 	var stars := PackedVector2Array()
 	for i in range(36):
 		var p := Vector2(fposmod(i*173.3+49,size.x),fposmod(i*291.7+83,size.y))
@@ -188,6 +191,11 @@ func _draw() -> void:
 func configure_visuals(palette: Dictionary,reduced: bool) -> void:
 	CYAN = palette.accent
 	MUTED = palette.muted
+	background_color=palette.background
+	var panel_style: StyleBoxFlat=progress_panel.get_theme_stylebox("panel").duplicate()
+	panel_style.bg_color=palette.surface
+	panel_style.border_color=palette.border
+	progress_panel.add_theme_stylebox_override("panel",panel_style)
 	reaction.configure_visuals(palette,reduced)
 	for button in [continue_button,chapters_button,achievements_button,themes_button]:
 		for state in ["normal","hover","pressed","focus","disabled"]:

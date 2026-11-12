@@ -2,6 +2,8 @@ class_name MenuReaction
 extends Control
 # Cosmetic only: no GameManager, save, input or solver references.
 var CYAN: Color = Color("4de6f5")
+var node_surface: Color=Color("142137")
+var energy: Color=Color("e4fdff")
 var VIOLET: Color = Color("aa8bfa")
 const POINTS: Array[Vector2] = [Vector2(.13,.50),Vector2(.37,.50),Vector2(.37,.20),Vector2(.63,.20),Vector2(.63,.50),Vector2(.63,.80),Vector2(.87,.50)]
 const LINKS: Array[Vector2i] = [Vector2i(0,1),Vector2i(1,2),Vector2i(2,3),Vector2i(3,4),Vector2i(1,4),Vector2i(4,5),Vector2i(4,6)]
@@ -16,6 +18,8 @@ func _ready() -> void:
 	set_process(false)
 func configure_visuals(palette: Dictionary,reduced: bool) -> void:
 	CYAN = palette.accent
+	node_surface=palette.surface
+	energy=palette.energy
 	VIOLET = palette.secondary
 	reduced_effects = reduced
 	set_process(active and not reduced_effects)
@@ -50,14 +54,14 @@ func _draw() -> void:
 			draw_line(a.lerp(b,maxf(0,t-.22)),head,Color(color,.65),4,true)
 			draw_circle(head,12,Color(color,.07))
 			draw_circle(head,7,Color(color,.19))
-			draw_circle(head,3.5,Color("e4fdff"))
+			draw_circle(head,3.5,energy)
 	for i in range(POINTS.size()):
 		var p: Vector2 = point(i)
 		var color: Color = VIOLET if i in [2,3,5] else CYAN
 		var intensity: float = .35 if reduced_effects else .5+.5*sin(phase*2.3-i*.8)
 		for layer in range(0 if reduced_effects else 3,0,-1):
 			draw_circle(p,radius*(1+layer*.24),Color(color,(.018+intensity*.012)))
-		draw_circle(p,radius,Color("0c1b30"))
+		draw_circle(p,radius,node_surface)
 		draw_arc(p,radius,0,TAU,40,Color(color,.55+intensity*.4),2.5,true)
 		if i == 0:
 			draw_colored_polygon(PackedVector2Array([p+Vector2(-10,-15),p+Vector2(17,0),p+Vector2(-10,15)]),color)

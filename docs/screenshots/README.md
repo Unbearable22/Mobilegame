@@ -1,3 +1,16 @@
+# v0.5.1 rendered theme acceptance
+
+Real Godot OpenGL framebuffer captures, Linux llvmpipe; not physical Android.
+Each row is also captured at 720×1280 and 1440×3200 using the same filename prefix.
+
+| Theme | Game (1080×1920) | Menu (1080×1920) |
+|---|---|---|
+| neon | [Game](v51-1080x1920-game-neon.png) | [Menu](v51-1080x1920-menu-neon.png) |
+| electric_blue | [Game](v51-1080x1920-game-electric_blue.png) | [Menu](v51-1080x1920-menu-electric_blue.png) |
+| violet_pulse | [Game](v51-1080x1920-game-violet_pulse.png) | [Menu](v51-1080x1920-menu-violet_pulse.png) |
+| emerald_circuit | [Game](v51-1080x1920-game-emerald_circuit.png) | [Menu](v51-1080x1920-menu-emerald_circuit.png) |
+| solar_gold | [Game](v51-1080x1920-game-solar_gold.png) | [Menu](v51-1080x1920-menu-solar_gold.png) |
+
 # Реальные скриншоты Godot
 
 OpenGL Compatibility, Xvfb / Mesa llvmpipe; не макеты и не увеличенные копии. Каждый PNG получен из viewport указанного размера. Победа/поражение достигнуты действиями через GameManager. Для снимка реакции таймер и Tween остановлены на паузе, диалог скрыт только в инструменте съёмки.

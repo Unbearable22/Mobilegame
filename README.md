@@ -1,3 +1,5 @@
+> v0.5.1 theme stabilization is being verified before v0.6 expansion. [Theme investigation](docs/v51-theme-investigation.md), [rendered screenshots](docs/screenshots/README.md), [stable signing setup](docs/android-signing.md). Physical confirmation of the new version is pending.
+
 # Chain React! — One Tap Puzzle · 0.5.0
 
 Мобильная 2D-головоломка Godot 4 / GDScript: **5 глав, 50 авторских уровней**, portrait, процедурные узлы, SFX, локальные сохранения. Без рекламы, покупок, аналитики и системы подсказок.

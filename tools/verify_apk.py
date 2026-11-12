@@ -22,7 +22,16 @@ def validate_manifest(badging, manifest, permissions):
     return used_permissions
 
 
-def verify(apk, sdk, java, godot):
+def validate_certificate(signature, expected=None):
+    fingerprints = re.findall(r"^Signer #\d+ certificate SHA-256 digest: ([0-9a-fA-F]{64})$", signature, re.MULTILINE)
+    assert len(fingerprints) == 1, "Expected exactly one APK signing certificate"
+    actual = fingerprints[0].lower()
+    if expected:
+        assert actual == expected.lower().replace(':', ''), "APK certificate differs from selected signing identity"
+    return actual
+
+
+def verify(apk, sdk, java, godot, expected_certificate=None, signing_mode='unverified-origin'):
     tools = sdk / "build-tools/36.0.0"
     env = os.environ.copy()
     env["JAVA_HOME"] = str(java)
@@ -30,6 +39,7 @@ def verify(apk, sdk, java, godot):
     def command(*args):
         return subprocess.check_output([str(a) for a in args], text=True, env=env)
     signature = command(tools / "apksigner", "verify", "--verbose", "--print-certs", apk)
+    certificate = validate_certificate(signature, expected_certificate)
     command(tools / "zipalign", "-c", "-P", "16", "-v", "4", apk)
     badging = command(tools / "aapt", "dump", "badging", apk)
     manifest = command(tools / "aapt", "dump", "xmltree", apk, "AndroidManifest.xml")
@@ -68,6 +78,8 @@ def verify(apk, sdk, java, godot):
               "package_id": "org.chainreact.onetappuzzle", "abis": ["arm64-v8a"],
               "target_sdk": 36, "min_sdk": 24, "orientation": "portrait", "debuggable": True,
               "levels": 50, "permissions": used_permissions, "signature_verified": True,
+              "certificate_sha256": certificate, "signing_mode": signing_mode,
+              "signing_persistent": signing_mode == "persistent-debug",
               "zipalign_16k_verified": True, "packaged_resource_smoke": True, "physical_device_tested": False}
     apk.with_suffix(".verification.json").write_text(json.dumps(report, indent=2) + "\n")
     apk.with_suffix(".sha256").write_text(f"{digest}  {apk.name}\n")
@@ -83,5 +95,7 @@ if __name__ == "__main__":
     parser.add_argument("--sdk", type=Path, required=True)
     parser.add_argument("--java", type=Path, required=True)
     parser.add_argument("--godot", required=True)
+    parser.add_argument("--expected-certificate-sha256")
+    parser.add_argument("--signing-mode", choices=("persistent-debug", "ephemeral-nonpersistent", "unverified-origin"), default="unverified-origin")
     args = parser.parse_args()
-    verify(args.apk.resolve(), args.sdk.resolve(), args.java.resolve(), args.godot)
+    verify(args.apk.resolve(), args.sdk.resolve(), args.java.resolve(), args.godot, args.expected_certificate_sha256, args.signing_mode)

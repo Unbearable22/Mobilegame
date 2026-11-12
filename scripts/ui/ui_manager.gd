@@ -14,8 +14,10 @@ var MUTED: Color = Color("92a7c2")
 @export var save_path: String = "user://progress.json"
 var game: Node
 var board: Control
+var game_background: ColorRect
 var buttons: Dictionary = {}
 var overlay: ColorRect
+var modal_panel: PanelContainer
 var modal: VBoxContainer
 var title_label: Label
 var phase_label: Label
@@ -87,7 +89,7 @@ func _build_theme() -> void:
 	t.set_color("icon_pressed_color","Button",palette.energy)
 	t.set_color("icon_disabled_color","Button",palette.muted.darkened(.5))
 	t.set_color("font_color","Label",palette.text)
-	t.set_color("font_color", "Label", Color("edf6ff"))
+
 	for state_name in ["normal", "hover", "pressed", "disabled", "focus"]:
 		var box := StyleBoxFlat.new()
 		box.bg_color = palette.surface if state_name != "pressed" else palette.surface.lightened(.1)
@@ -99,7 +101,7 @@ func _build_theme() -> void:
 		box.content_margin_top = 15
 		box.content_margin_bottom = 15
 		t.set_stylebox(state_name, "Button", box)
-	t.set_color("font_color", "Button", Color("e4f5ff"))
+	t.set_color("font_color", "Button", palette.text)
 	t.set_color("font_disabled_color", "Button", Color("52657e"))
 	theme = t
 
@@ -141,6 +143,7 @@ func _icon_button(symbol: String, label: String, action: Callable, key: String =
 
 func _build_screen() -> void:
 	var background := ColorRect.new()
+	game_background=background
 	background.color = Color("080f20")
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -283,6 +286,7 @@ func _build_overlay() -> void:
 	center_container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	overlay.add_child(center_container)
 	var panel := PanelContainer.new()
+	modal_panel=panel
 	panel.custom_minimum_size.x = 850
 	var box := StyleBoxFlat.new()
 	box.bg_color = Color("101e33")
@@ -470,6 +474,7 @@ func toggle_sound() -> void:
 	if game.settings.sound_enabled(): _on_feedback("rotate")
 
 func _settings_changed(key: String) -> void:
+	if key=="theme" and OS.is_debug_build(): print("ThemeDebug "+JSON.stringify({"stage":"signal-received","id":game.settings.theme_id()}))
 	if key in ["theme","reduced_effects"]:
 		_apply_visuals()
 		if screen=="themes": show_themes()
@@ -718,14 +723,20 @@ func _exit_tree() -> void:
 	Icons.cache.clear()
 
 func _apply_visuals() -> void:
-	palette = Themes.palette(game.settings.theme_id())
+	palette = game.settings.active_palette
 	CYAN = palette.accent
 	MUTED = palette.muted
+	game_background.color=palette.background
+	var modal_style: StyleBoxFlat=modal_panel.get_theme_stylebox("panel").duplicate()
+	modal_style.bg_color=palette.surface
+	modal_style.border_color=palette.border
+	modal_panel.add_theme_stylebox_override("panel",modal_style)
 	_build_theme()
 	board.configure_visuals(palette,game.settings.reduced_effects_enabled())
 	main_menu.configure_visuals(palette,game.settings.reduced_effects_enabled())
 	if is_instance_valid(guide_preview): guide_preview.configure_visuals(palette,game.settings.reduced_effects_enabled())
-	_apply_label_palette(self)
+	var updated: int=3+int(is_instance_valid(guide_preview))+_apply_label_palette(self)
+	if OS.is_debug_build(): print("ThemeDebug "+JSON.stringify({"stage":"palette-applied","id":game.settings.theme_id(),"accent":palette.accent.to_html(),"background":palette.background.to_html(),"updated_components":updated}))
 	var toast_style: StyleBoxFlat=achievement_toast.get_theme_stylebox("panel").duplicate()
 	toast_style.border_color=CYAN
 	toast_style.bg_color=palette.surface
@@ -742,10 +753,13 @@ func _apply_visuals() -> void:
 			achievement_tween.tween_interval(2.8)
 			achievement_tween.tween_callback(func(): achievement_toast.hide())
 		if settings_closing: _restore_settings_parent()
-func _apply_label_palette(node: Node) -> void:
+func _apply_label_palette(node: Node) -> int:
+	var updated: int=0
 	if node is Label and node.has_meta("palette_role"):
 		node.add_theme_color_override("font_color",palette[node.get_meta("palette_role")])
-	for child in node.get_children(): _apply_label_palette(child)
+		updated+=1
+	for child in node.get_children(): updated+=_apply_label_palette(child)
+	return updated
 func _retention_screen(name: String,title: String) -> void:
 	if screen!=name and screen!="statistics_export": retention_parent=screen
 	screen=name
@@ -767,8 +781,12 @@ func show_achievements() -> void:
 func show_themes() -> void:
 	_retention_screen("themes","Оформление")
 	retention_view.build_themes(game.progress.data,game.settings.theme_id())
-	retention_view.theme_requested.connect(func(id: String): game.settings.set_theme(id))
+	retention_view.theme_requested.connect(_select_theme)
+	retention_view.theme_pointer.connect(func(id: String,available: bool):
+		if OS.is_debug_build(): print("ThemeDebug "+JSON.stringify({"stage":"button-pointer","before":game.settings.theme_id(),"requested":id,"available":available,"reason":"" if available else "locked: complete required levels"})))
 	_retention_back()
+func _select_theme(id: String) -> void:
+	if not game.settings.set_theme(id): _notice("Тема недоступна или не удалось сохранить выбор")
 func show_statistics() -> void:
 	_retention_screen("statistics","Локальная статистика")
 	retention_view.build_statistics(game.statistics.summary(),game.current+1)
@@ -795,7 +813,11 @@ JSON можно скопировать.",30,MUTED)
 	text.wrap_mode=TextEdit.LINE_WRAPPING_BOUNDARY
 	text.add_theme_font_size_override("font_size",26)
 	modal.add_child(text)
-	modal.add_child(_button("Скопировать JSON",func(): DisplayServer.clipboard_set(statistics_export_text)))
+	var copy_button: Button=_button("Скопировать JSON",func(): pass)
+	copy_button.pressed.connect(func():
+		DisplayServer.clipboard_set(statistics_export_text)
+		copy_button.text="Скопировано ✓" if DisplayServer.clipboard_get()==statistics_export_text else "Не удалось скопировать")
+	modal.add_child(copy_button)
 	_retention_back()
 func _build_achievement_toast() -> void:
 	achievement_toast=PanelContainer.new()

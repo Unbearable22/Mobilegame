@@ -5,13 +5,8 @@ const Model = preload("res://scripts/core/reaction_engine.gd")
 const CYAN: Color = Color("4de6f5")
 const PURPLE: Color = Color("aa8bfa")
 const GREEN: Color = Color("a5f3a3")
-# Each visual consumer owns a copy; callers can change themes without touching a run.
-const DEFAULT_PALETTE: Dictionary = {
-	"accent": CYAN, "secondary": PURPLE, "target": GREEN,
-	"background": Color("0c1629"), "surface": Color("13233a"),
-	"text": Color("d2fcff"), "muted": Color("718198"), "energy": Color("d2fcff")
-}
-var palette: Dictionary = DEFAULT_PALETTE.duplicate()
+var DEFAULT_PALETTE: Dictionary = preload("res://scripts/core/theme_catalog.gd").palette("neon")
+var palette: Dictionary = DEFAULT_PALETTE
 var reduced_effects: bool = false
 # Charge increases can occur without an activation in frame.nodes.
 var charge_feedback: Dictionary = {}
@@ -34,9 +29,11 @@ func _ready() -> void:
 
 func configure_visuals(colors: Dictionary, reduced: bool) -> void:
 	palette = DEFAULT_PALETTE.duplicate()
-	for key in DEFAULT_PALETTE:
-		if colors.get(key) is Color:
-			palette[key] = colors[key]
+	for key in palette:
+		if colors.get(key) is Color: palette[key]=colors[key]
+	# Compatibility for external previews using the original eight-role API.
+	for pair in [["border","accent"],["active_node","accent"],["inactive_node","accent"],["battery","secondary"]]:
+		if not colors.has(pair[0]): palette[pair[0]]=palette[pair[1]]
 	reduced_effects = reduced
 	if reduced_effects:
 		_clear_effects()
@@ -123,7 +120,7 @@ func _draw() -> void:
 	var origin: Vector2 = g.origin
 	var outer := StyleBoxFlat.new()
 	outer.bg_color = palette.background
-	outer.border_color = palette.muted.lerp(palette.background, 0.65)
+	outer.border_color = palette.border
 	outer.set_border_width_all(2)
 	outer.set_corner_radius_all(36)
 	draw_style_box(outer, Rect2(origin, g.extent))
@@ -168,7 +165,7 @@ func _draw_node(index: int, cell: float) -> void:
 	var active: bool = state.active[index]
 	if index == tapped and not reduced_effects:
 		draw_arc(p, r * (1.1 + (1.0 - tap_glow) * 0.5), 0, TAU, 48, Color(palette.accent, tap_glow), 5, true)
-	var color: Color = palette.target if n.type == "target" else (palette.secondary if n.type in ["battery", "splitter"] else palette.accent)
+	var color: Color = palette.target if n.type == "target" else (palette.battery if n.type == "battery" else (palette.secondary if n.type == "splitter" else (palette.active_node if active or n.type=="source" else palette.inactive_node)))
 	if n.type == "blocker": color = palette.muted
 	if active:
 		draw_circle(p, r * 1.32, Color(color, 0.09))

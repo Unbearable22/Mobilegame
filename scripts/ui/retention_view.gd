@@ -4,6 +4,7 @@ const Icons = preload("res://scripts/ui/icon_library.gd")
 const Themes = preload("res://scripts/core/theme_catalog.gd")
 signal achievement_page_requested(page: int)
 signal theme_requested(id: String)
+signal theme_pointer(id: String,available: bool)
 signal export_requested
 var achievement_cards: Array = []
 var theme_buttons: Dictionary = {}
@@ -91,6 +92,8 @@ func build_themes(data: Dictionary,selected: String) -> void:
 		var condition: String = "Выбрана" if entry.id==selected else ("Доступна" if unlocked else ("За всю кампанию" if entry.chapter==5 else "За главу "+["","I","II","III"][entry.chapter]))
 		var button := action(entry.name+"\n"+condition,func(): theme_requested.emit(entry.id))
 		button.disabled = not unlocked
+		button.gui_input.connect(func(event: InputEvent):
+			if event is InputEventMouseButton and event.pressed: theme_pointer.emit(entry.id,unlocked))
 		button.add_theme_color_override("font_color",Themes.palette(entry.id).accent)
 		if not unlocked:
 			button.icon = Icons.icon("lock")

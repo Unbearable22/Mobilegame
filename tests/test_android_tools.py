@@ -25,5 +25,22 @@ class ManifestTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             module.validate_manifest(BADGING.replace('org.chainreact.onetappuzzle', 'wrong.package'), MANIFEST, '')
 
+class SignatureTests(unittest.TestCase):
+    def test_certificate_fingerprint_is_recorded_and_checked(self):
+        self.assertTrue(hasattr(module, 'validate_certificate'), 'Certificate identity must be verified')
+        fingerprint = 'ab' * 32
+        signature = 'Signer #1 certificate SHA-256 digest: ' + fingerprint + '\n'
+        self.assertEqual(module.validate_certificate(signature, fingerprint.upper()), fingerprint)
+        with self.assertRaises(AssertionError):
+            module.validate_certificate(signature, 'cd' * 32)
+
+    def test_missing_or_multiple_signers_rejected(self):
+        self.assertTrue(hasattr(module, 'validate_certificate'), 'Certificate identity must be verified')
+        with self.assertRaises(AssertionError):
+            module.validate_certificate('Verified using v2 scheme: true', None)
+        with self.assertRaises(AssertionError):
+            module.validate_certificate('Signer #1 certificate SHA-256 digest: ' + 'ab' * 32 +
+                                        '\nSigner #2 certificate SHA-256 digest: ' + 'cd' * 32, None)
+
 if __name__ == '__main__':
     unittest.main()

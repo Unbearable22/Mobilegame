@@ -4,6 +4,12 @@ on:
     branches: [main, feat/chain-react-mvp]
   pull_request:
   workflow_dispatch:
+    inputs:
+      allow_ephemeral_signing:
+        description: 'Explicitly build with a NONPERSISTENT test certificate if signing Secrets are absent'
+        type: boolean
+        required: false
+        default: false
 permissions:
   contents: read
 jobs:
@@ -12,6 +18,28 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Prepare private debug signing (fail closed)
+        id: signing
+        shell: bash
+        env:
+          ANDROID_DEBUG_KEYSTORE_BASE64: ${{ secrets.ANDROID_DEBUG_KEYSTORE_BASE64 }}
+          ANDROID_DEBUG_KEY_ALIAS: ${{ secrets.ANDROID_DEBUG_KEY_ALIAS }}
+          ANDROID_DEBUG_STORE_PASSWORD: ${{ secrets.ANDROID_DEBUG_STORE_PASSWORD }}
+          ANDROID_DEBUG_KEY_PASSWORD: ${{ secrets.ANDROID_DEBUG_KEY_PASSWORD }}
+          ALLOW_EPHEMERAL: ${{ github.event_name == 'workflow_dispatch' && inputs.allow_ephemeral_signing == true }}
+        run: |
+          set -euo pipefail
+          signing_args=()
+          if [[ "$ALLOW_EPHEMERAL" == "true" ]]; then
+            signing_args+=(--allow-ephemeral-signing)
+          fi
+          python3 tools/setup_debug_signing.py prepare-ci \
+            --directory "$RUNNER_TEMP/chain-react-signing" "${signing_args[@]}"
+          if [[ -f "$RUNNER_TEMP/chain-react-signing/signing-config.json" ]]; then
+            echo 'label=persistent-debug' >> "$GITHUB_OUTPUT"
+          else
+            echo 'label=EPHEMERAL-NONPERSISTENT' >> "$GITHUB_OUTPUT"
+          fi
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -37,14 +65,28 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p build/android
-          python3 tools/build_android.py \
+          signing_args=()
+          if [[ -f "$RUNNER_TEMP/chain-react-signing/signing-config.json" ]]; then
+            signing_args+=(--signing-config "$RUNNER_TEMP/chain-react-signing/signing-config.json")
+          elif [[ "${{ github.event_name == 'workflow_dispatch' && inputs.allow_ephemeral_signing == true }}" == "true" ]]; then
+            echo '::warning::NONPERSISTENT debug certificate; APK updates are not guaranteed.'
+            signing_args+=(--allow-ephemeral-signing)
+          else
+            echo '::error::Stable signing is required. Configure the four Secrets described in docs/android-signing.md.'
+            exit 1
+          fi
+          python3 tools/build_android.py "${signing_args[@]}" \
             --godot "$RUNNER_TEMP/godot/Godot_v4.7.2-stable_linux.x86_64" \
             --sdk "$ANDROID_HOME" --java "$JAVA_HOME" \
             --templates "$RUNNER_TEMP/templates/templates" 2>&1 | tee build/android/build.log
       - name: Upload verified APK and reports
         uses: actions/upload-artifact@v4
         with:
-          name: chain-react-debug-arm64-${{ github.sha }}
+          name: chain-react-debug-arm64-${{ steps.signing.outputs.label }}-${{ github.sha }}
           path: build/android/
           if-no-files-found: error
           retention-days: 14
+      - name: Remove private signing material
+        if: always()
+        shell: bash
+        run: rm -rf -- "$RUNNER_TEMP/chain-react-signing"

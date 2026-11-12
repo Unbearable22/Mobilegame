@@ -55,7 +55,7 @@ func _initialize() -> void:
 	for theme in Themes.THEMES:
 		check(Themes.unlocked(theme.id,p.data), "theme complete unlock: "+theme.id)
 		var palette: Dictionary = Themes.palette(theme.id)
-		check(palette.size() == 8 and palette.accent is Color and palette.background.srgb_to_linear().get_luminance() < 0.05 and palette.text.srgb_to_linear().get_luminance() > 0.8, "readable palette: "+theme.id)
+		check(palette.size() == 12 and palette.accent is Color and palette.background.srgb_to_linear().get_luminance() < 0.05 and palette.text.srgb_to_linear().get_luminance() > 0.8, "readable palette: "+theme.id)
 	var all_notice_count: int = notices.size()
 	p.complete(50,3)
 	check(notices.size() == all_notice_count, "repeated final level has no duplicate achievement")

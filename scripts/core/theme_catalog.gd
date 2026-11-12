@@ -20,8 +20,17 @@ static func unlocked(id: String, data: Dictionary) -> bool:
 		if not completed.has(str(level)): return false
 	return true
 static func palette(id: String) -> Dictionary:
-	var accents: Dictionary = {"neon":"4de6f5", "electric_blue":"68bcff", "violet_pulse":"bc9dff", "emerald_circuit":"69edba", "solar_gold":"ffda7b"}
-	var accent: Color = Color(accents.get(id, accents.neon))
-	var secondary: Dictionary = {"neon":"aa8bfa", "electric_blue":"96a6ff", "violet_pulse":"f6a0d5", "emerald_circuit":"80cbff", "solar_gold":"ffad80"}
-	var targets: Dictionary = {"neon":"a5f3a3", "electric_blue":"80efcb", "violet_pulse":"a5e6ff", "emerald_circuit":"e1efa0", "solar_gold":"c2f3a3"}
-	return {"accent":accent, "secondary":Color(secondary.get(id,secondary.neon)), "target":Color(targets.get(id,targets.neon)), "background":Color("080f1e"), "surface":Color("142137"), "text":Color("f0f5ff"), "muted":Color("a5b7ce"), "energy":accent.lightened(0.22)}
+	# Color roles are supplied once by SettingsManager; renderers consume them.
+	var rows: Dictionary = {
+		"neon":["080f1e","142137","4de6f5","aa8bfa","a5f3a3"],
+		"electric_blue":["060f2c","112951","439bff","91caff","78efce"],
+		"violet_pulse":["180b2b","312044","d29aff","ff9bdd","a5e6ff"],
+		"emerald_circuit":["061d19","123b32","54edb4","8bdcff","e1efa0"],
+		"solar_gold":["211607","3c2c15","ffce62","ffa883","c2f3a3"]
+	}
+	var row: Array = rows.get(id,rows.neon)
+	var accent: Color = Color(row[2])
+	return {"background":Color(row[0]),"surface":Color(row[1]),
+		"accent":accent,"secondary":Color(row[3]),"border":accent.darkened(.42),
+		"energy":accent.lightened(.3),"active_node":accent,"inactive_node":accent.darkened(.2),
+		"target":Color(row[4]),"battery":Color(row[3]),"text":Color("f0f5ff"),"muted":Color("a5b7ce")}

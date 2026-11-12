@@ -3,10 +3,14 @@ extends RefCounted
 ## Typed preference API; persistence remains owned by ProgressionManager/SaveManager.
 ## Keep v1 sound storage compatible: there is no second sound variable.
 signal changed(key: String)
+signal theme_diagnostic(record: Dictionary)
+const Themes=preload("res://scripts/core/theme_catalog.gd")
+var active_palette: Dictionary
 var progress: RefCounted
 var touch_diagnostics_enabled: bool = false
 func _init(progression: RefCounted) -> void:
 	progress = progression
+	active_palette = Themes.palette(theme_id())
 func sound_enabled() -> bool:
 	return bool(progress.data.sound)
 func set_sound(enabled: bool) -> bool:
@@ -34,13 +38,32 @@ func theme_id() -> String:
 	var id: String = str(progress.data.theme)
 	return id if preload("res://scripts/core/theme_catalog.gd").unlocked(id,progress.data) else "neon"
 func set_theme(id: String) -> bool:
-	if not preload("res://scripts/core/theme_catalog.gd").unlocked(id,progress.data):
+	var before: String = theme_id()
+	var available: bool = Themes.unlocked(id,progress.data)
+	if not available:
 		progress.last_error = ERR_INVALID_PARAMETER
+		_theme_trace(before,id,available,"locked or unknown theme")
 		return false
-	if theme_id() == id:
+	if before == id:
 		progress.last_error = OK
+		_theme_trace(before,id,available,"already selected")
 		return true
+	# Commit preferences before notifying renderers. Failed persistence rolls back.
+	var candidate: Dictionary = progress.data.duplicate(true)
+	candidate.theme = id
+	progress.last_error = progress.save.write(candidate)
+	if progress.last_error != OK:
+		_theme_trace(before,id,available,"save failed: %d"%progress.last_error)
+		return false
 	progress.data.theme = id
-	progress.last_error = progress.save.write(progress.data)
+	active_palette = Themes.palette(id)
 	changed.emit("theme")
-	return progress.last_error == OK
+	_theme_trace(before,id,available,"")
+	return true
+func _theme_trace(before: String,requested: String,available: bool,reason: String) -> void:
+	if not OS.is_debug_build(): return
+	var record: Dictionary = {"stage":"selection","before":before,"requested":requested,
+		"after":theme_id(),"available":available,"reason":reason,
+		"accent":active_palette.accent.to_html(),"background":active_palette.background.to_html()}
+	print("ThemeDebug "+JSON.stringify(record))
+	theme_diagnostic.emit(record)
