@@ -72,7 +72,7 @@ Linux x86_64, Godot **4.7.2.stable.official.ed1daf0bf**. Полный скрип
 
 ## GitHub Actions — подтверждённый артефакт
 
-[Run 43018581923](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923) на коммите `b1011a6` завершён **success**: toolchain, тесты, export, verifier и upload прошли. [Скачать ZIP с APK](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923/artifacts/13853971657) (вход в GitHub, хранение 14 дней). ZIP скачан обратно, размер/хеш APK сверены с [CI-отчётом](android-ci-artifact.json). Это независимая чистая CI-сборка со своей debug-подписью.
+[Run 43018581923](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923) на коммите `b1011a6` завершён **success**: toolchain, тесты, export, verifier и upload прошли. [Скачать ZIP с APK](https://github.com/Unbearable22/Mobilegame/actions/runs/43018581923/artifacts/13854971657) (вход в GitHub, хранение 14 дней). ZIP скачан обратно, размер/хеш APK сверены с [CI-отчётом](android-ci-artifact.json). Это независимая чистая CI-сборка со своей debug-подписью.
 
 Первый CI запуск остановился на удалённом legacy SDK-пакете `tools` из defaults стороннего action; явно задан `packages: platform-tools`, повторный запуск успешен.
 
@@ -122,7 +122,7 @@ CPU-замер:1000полных правильно настроенных поб
 
 [Run43037655960](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960) на коммите `a6188b3` завершился **success**. Повторены528утверждений GDScript,8Python-тестов и полные50аудитов/48 242симуляции. Экспорт/verifier/upload прошли. [Прямой artifact](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960/artifacts/13864186042), хранение14дней.
 
-ZIP скачан обратно: размер APK **28 392 278 байт**, SHA256 `0a1bafbc8534eb3a1f271623e2cb16eeb9601045a15cfab87ab8ef594a2707ec` совпал с [CI-отчётом](android-v3-ci-artifact.json); вложенный level-audit.json содержит50complete/validрезультатов. Проверки на физическом телефоне0.3.0 пока нет.
+ZIP скачан обратно: размер APK **28 392 278 байт**, SHA256 `0a1bafbc8544eb3a1f271623e2cb16eeb9601045a15cfab87ab8ef594a2707ec` совпал с [CI-отчётом](android-v3-ci-artifact.json); вложенный level-audit.json содержит50complete/validрезультатов. Проверки на физическом телефоне0.3.0 пока нет.
 
 ## 0.4.0 — диагностика19/49 и новое меню
 
@@ -138,7 +138,7 @@ ZIP скачан обратно: размер APK **28 392 278 байт**, SHA25
 
 ### Реальные проверки
 
-`tools/check.sh` exit0: **853 утверждения GDScript** (прежние528 + MainMenu25 + LevelRegressions300), плюс отдельный аудит50уровней/**48 242симуляции** без пропусков. Все50проходимы на3звезды; ограничения дизайна и варианты решений проверены. **8 Python-тестов** прошли. Resource-smoke проверяет новый меню-компонент, анимацию и Continue. [Лог](screenshots/v4-tests.log).
+`tools/check.sh` exit0: **854 утверждения GDScript** (прежние528 + MainMenu26 + LevelRegressions300), плюс отдельный аудит50уровней/**48 242симуляции** без пропусков. Все50проходимы на3звезды; ограничения дизайна и варианты решений проверены. **8 Python-тестов** прошли. Resource-smoke проверяет новый меню-компонент, анимацию и Continue. [Лог](screenshots/v4-tests.log).
 
 `tools/v4_capture.gd` запущен в настоящем Godot/OpenGL/Xvfb с720×1280,1080×1920,1440×3200; все exit0 и0failures. **27PNG** показывают свежее/частичное/полное меню, Info, Settings, Chapters, game,19/49. Проверены pixel size, viewport containment, размеры сенсорных областей, текст, отсутствие наложений CTA/декорации, nativeInput обеих CTA/Info/Settings и AndroidBack. Отдельный headless-тест проверяет симулированные insets96/140/80/100; реальные вырезы телефона остаются ручной проверкой. Анимация реально изменяет пиксели и перестаёт перерисовываться в игре. [Галерея и логи](screenshots/README.md).
 

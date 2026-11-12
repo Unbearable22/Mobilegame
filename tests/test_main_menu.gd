@@ -32,6 +32,9 @@ func run() -> void:
 	var phase: float = menu.reaction.phase
 	await create_timer(0.1).timeout
 	check(menu.reaction.phase > phase,"animation advances")
+	menu.reaction.phase = 5.99
+	menu.reaction._process(0.02)
+	check(is_equal_approx(menu.reaction.phase,6.01),"decorative phase remains continuous across six-second boundary")
 	check(ui.game.progress.data == snapshot and ui.game.grid.state == state,"animation never touches progress or model")
 	ui.info.pressed.emit()
 	check(ui.screen == "guide" and not menu.reaction.is_processing(),"information stops animation")

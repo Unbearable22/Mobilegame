@@ -16,7 +16,7 @@ python3 tools/build_android.py \
   --templates /tmp/chain-android-toolchain/data/godot/export_templates/4.7.2.stable
 ```
 
-Скрипт проверяет версии, использует изолированные настройки Godot в игнорируемой `build/tooling/`, запускает 8 Python-тестов и 853 проверки GDScript, затем `--export-debug`. Стандартный debug-ключ создаётся в директории SDK и не попадает в Git/артефакт. Это не release identity. Полная перезапись build-папки не удаляет SDK-ключ.
+Скрипт проверяет версии, использует изолированные настройки Godot в игнорируемой `build/tooling/`, запускает 8 Python-тестов и 854 проверки GDScript, затем `--export-debug`. Стандартный debug-ключ создаётся в директории SDK и не попадает в Git/артефакт. Это не release identity. Полная перезапись build-папки не удаляет SDK-ключ.
 
 Результат: **`build/android/chain-react-debug-arm64.apk`**. Рядом `.sha256`, `.verification.json`, `.manifest.txt`, `.badging.txt`, `.signature.txt`, `.smoke.txt`. Хеш зависит от ключа и сборки; сверять с отчётом из той же папки/того же CI-артефакта.
 
@@ -36,7 +36,7 @@ python3 tools/build_android.py \
 
 [Чек-лист телефона](android-device-checklist.md). Физический Android не использовался. FPS/нагрев, аппаратный Back, вырезы и жизненный цикл требуют ручной проверки.
 
-## Последняя сборка 0.3.0
+## Предыдущая сборка 0.3.0
 
 [Успешный CI](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960) · [скачать APK и отчёты (ZIP)](https://github.com/Unbearable22/Mobilegame/actions/runs/43037655960/artifacts/13864186042). Внутри `chain-react-debug-arm64.apk`, **28 392 278 байт**. SHA256 `0a1bafbc8534eb3a1f271623e2cb16eeb9601045a15cfab87ab8ef594a2707ec`. [Проверенный CI-отчёт](android-v3-ci-artifact.json).
 

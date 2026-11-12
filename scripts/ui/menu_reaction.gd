@@ -15,7 +15,7 @@ func _ready() -> void:
 func set_active(active: bool) -> void:
 	set_process(active)
 func _process(delta: float) -> void:
-	phase = fmod(phase + delta,6.0)
+	phase += delta
 	queue_redraw()
 func point(index: int) -> Vector2:
 	# Preserve diagram proportions on extra-tall phones.
