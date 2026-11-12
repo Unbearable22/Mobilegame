@@ -1,0 +1,21 @@
+{
+	"animated_menu": {
+		"cosmetic_draw_recording_usec_mean": 570.908333333333,
+		"draw_calls_mean": 123.5,
+		"elapsed_ms": 32060.254,
+		"frames": 120,
+		"process_ms_mean": 301.519141666666
+	},
+	"environment": {
+		"renderer": "llvmpipe (LLVM 20.1.2, 256 bits)",
+		"resolution": "1440x3200",
+		"scope": "Linux debug software renderer; not mobile FPS or thermal measurements"
+	},
+	"static_game": {
+		"cosmetic_draw_recording_usec_mean": 782.0,
+		"draw_calls_mean": 59.0,
+		"elapsed_ms": 17479.975,
+		"frames": 120,
+		"process_ms_mean": 210.322183333333
+	}
+}

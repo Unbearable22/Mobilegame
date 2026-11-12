@@ -18,6 +18,9 @@ func run() -> void:
 		root.add_child(ui)
 		for frame in range(5): await process_frame
 		check(ui.game.levels.size() == 50 and ui.screen == "menu", "packaged game opens menu with 50 levels")
+		check(ui.main_menu.visible and ui.main_menu.reaction.is_processing(), "packaged menu animation starts")
+		ui.main_menu.continue_button.pressed.emit()
+		check(ui.screen == "game" and not ui.main_menu.reaction.is_processing(), "packaged Continue stops decoration and opens game")
 		ui.queue_free()
 		await create_timer(0.3).timeout
 	print("APK resource smoke: %d failures (desktop engine, not Android device)" % failed)

@@ -6,6 +6,7 @@ const CYAN: Color = Color("4de6f5")
 const Catalog = preload("res://scripts/core/chapter_catalog.gd")
 const Icons = preload("res://scripts/ui/icon_library.gd")
 const Guide = preload("res://scripts/ui/node_guide.gd")
+const Menu = preload("res://scripts/ui/main_menu.gd")
 const MUTED: Color = Color("92a7c2")
 @export var save_path: String = "user://progress.json"
 var game: Node
@@ -36,6 +37,7 @@ var guide_page: int = 0
 var guide_parent: String = "game"
 var guide_preview: Control
 var notice_tween: Tween
+var main_menu: Control
 @export var start_in_menu: bool = true
 
 func _ready() -> void:
@@ -43,6 +45,7 @@ func _ready() -> void:
 	_build_theme()
 	_build_screen()
 	_build_overlay()
+	_build_main_menu()
 	_build_audio()
 	_build_gear()
 	game = Game.new(save_path)
@@ -160,6 +163,17 @@ func _build_screen() -> void:
 	actions.add_child(_icon_button("chapters", "Главы", show_chapters, "levels"))
 	column.add_child(actions)
 
+func _build_main_menu() -> void:
+	main_menu = Menu.new()
+	overlay.add_child(main_menu)
+	main_menu.continued.connect(_continue_from_menu)
+	main_menu.chapters_requested.connect(show_chapters)
+
+func _continue_from_menu() -> void:
+	var selected: int = int(game.progress.data.last_level)-1
+	if selected != game.current: game.select_level(selected)
+	close_overlay()
+
 func _safe_area() -> void:
 	var left: int = 48
 	var right: int = 48
@@ -176,6 +190,7 @@ func _safe_area() -> void:
 			bottom += int((window.y - safe.end.y) * logical.y / window.y)
 	for pair in [["left", left], ["right", right], ["top", top], ["bottom", bottom]]:
 		margin.add_theme_constant_override("margin_" + pair[0], pair[1])
+	if main_menu: main_menu.apply_insets(left,top,right,bottom)
 	if gear:
 		gear.offset_left = -right - 144
 		gear.offset_right = -right
@@ -188,6 +203,7 @@ func _safe_area() -> void:
 		info.offset_bottom = top + 144
 
 func refresh() -> void:
+	if main_menu and game: main_menu.update_progress(game.progress.data,game.progress.total_stars())
 	if not game.error_message.is_empty():
 		_open_modal("Не удалось загрузить уровни")
 		modal.add_child(_label(game.error_message, 24))
@@ -254,6 +270,8 @@ func _build_overlay() -> void:
 	overlay.hide()
 
 func _open_modal(title: String) -> void:
+	if main_menu: main_menu.set_active(false)
+	overlay.get_child(0).show()
 	gear.hide()
 	info.hide()
 	if modal_tween: modal_tween.kill()
@@ -268,6 +286,7 @@ func _open_modal(title: String) -> void:
 	overlay.show()
 
 func close_overlay() -> void:
+	if main_menu: main_menu.set_active(false)
 	for button in buttons.values(): button.focus_mode = Control.FOCUS_ALL
 	screen = "game"
 	gear.show()
@@ -422,36 +441,33 @@ func _on_feedback(kind: String) -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		if overlay.visible: back_overlay()
+		if screen != "game": back_overlay()
 		else: show_pause()
 		get_viewport().set_input_as_handled()
 
 func _notification(what: int) -> void:
+	if main_menu and what == NOTIFICATION_APPLICATION_PAUSED: main_menu.set_suspended(true)
+	if main_menu and what == NOTIFICATION_APPLICATION_RESUMED: main_menu.set_suspended(false)
 	if what == NOTIFICATION_APPLICATION_PAUSED and game and screen == "settings" and settings_return_screen == "game":
 		settings_return_screen = "pause"
 	if what == NOTIFICATION_APPLICATION_PAUSED and game and screen == "guide" and guide_parent == "game": guide_parent = "pause"
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST and game:
-		if overlay.visible: back_overlay()
+		if screen != "game": back_overlay()
 		else: show_pause()
 
 func show_main_menu() -> void:
 	screen = "menu"
-	game.paused = true
-	board.locked = true
-	if board.tween: board.tween.pause()
+	_pause_for_panel()
 	margin.hide()
-	_open_modal("◈  CHAIN REACT!")
-	var subtitle := _label("ONE TAP PUZZLE\nПланируй. Запускай. Зажигай.", 36, MUTED)
-	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	modal.add_child(subtitle)
-	var play := _button("Продолжить · %02d" % (game.current + 1), close_overlay)
-	modal.add_child(play)
-	modal.add_child(_button("Главы", show_chapters))
+	_open_modal("")
+	overlay.get_child(0).hide()
+	main_menu.update_progress(game.progress.data,game.progress.total_stars())
+	main_menu.set_active(true)
 	gear.show()
 	gear.focus_mode = Control.FOCUS_ALL
 	info.show()
 	info.focus_mode = Control.FOCUS_ALL
-	play.grab_focus()
+	main_menu.continue_button.grab_focus()
 
 func back_overlay() -> void:
 	if screen == "settings":

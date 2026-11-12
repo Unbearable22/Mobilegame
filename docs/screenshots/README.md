@@ -14,6 +14,24 @@ OpenGL Compatibility, Xvfb / Mesa llvmpipe; не макеты и не увели
 
 В логах — результаты прохождения и проверок границ. Съёмка использует отдельные файлы сохранений. Физический Android DPI, вырезы, мультитач на устройстве и нагрев этим способом не проверяются.
 
+## Актуальное меню 0.4.0
+
+| Экран | 720×1280 | 1080×1920 | 1440×3200 |
+|---|---|---|---|
+| Новая игра | [PNG](v4-720x1280-menu-fresh.png) | [PNG](v4-1080x1920-menu-fresh.png) | [PNG](v4-1440x3200-menu-fresh.png) |
+| Частичный прогресс | [PNG](v4-720x1280-menu-partial.png) | [PNG](v4-1080x1920-menu-partial.png) | [PNG](v4-1440x3200-menu-partial.png) |
+| Кампания завершена | [PNG](v4-720x1280-menu-complete.png) | [PNG](v4-1080x1920-menu-complete.png) | [PNG](v4-1440x3200-menu-complete.png) |
+| Справочник | [PNG](v4-720x1280-guide.png) | [PNG](v4-1080x1920-guide.png) | [PNG](v4-1440x3200-guide.png) |
+| Настройки | [PNG](v4-720x1280-settings.png) | [PNG](v4-1080x1920-settings.png) | [PNG](v4-1440x3200-settings.png) |
+| Главы | [PNG](v4-720x1280-chapters.png) | [PNG](v4-1080x1920-chapters.png) | [PNG](v4-1440x3200-chapters.png) |
+| Игровой экран | [PNG](v4-720x1280-game.png) | [PNG](v4-1080x1920-game.png) | [PNG](v4-1440x3200-game.png) |
+| Уровень19 | [PNG](v4-720x1280-level-19.png) | [PNG](v4-1080x1920-level-19.png) | [PNG](v4-1440x3200-level-19.png) |
+| Уровень49 | [PNG](v4-720x1280-level-49.png) | [PNG](v4-1080x1920-level-49.png) | [PNG](v4-1440x3200-level-49.png) |
+
+Все27 PNG сняты работающим Godot/OpenGL через `tools/v4_capture.gd`. Проверены реальные размеры, границы элементов, минимальные сенсорные области144логических px (Continue160), native Input касания обеих CTA/Info/Settings, Back и отсутствие работы декорации в игре. Полный прогресс — изолированная QA-фикстура. Цвета и формы — собственная процедурная графика.
+
+Логи: [720](v4-720x1280-run.log), [1080](v4-1080x1920-run.log), [1440](v4-1440x3200-run.log); все exit0. [Автотесты](v4-tests.log). Замеры: [720](v4-720x1280-performance.json), [1080](v4-1080x1920-performance.json), [1440](v4-1440x3200-performance.json). Это программный Linux renderer, не FPS/нагрев Android. v0.4.0 на физическом телефоне не проверялась.
+
 ## Настройки и touch 0.2.0
 
 - 720x1280: [menu](settings-720x1280-menu.png), [panel](settings-720x1280-panel.png), [game](settings-720x1280-game.png), [rotation](settings-720x1280-rotation.png)
@@ -22,7 +40,7 @@ OpenGL Compatibility, Xvfb / Mesa llvmpipe; не макеты и не увели
 
 Снято обычным Godot через Xvfb. Настройки открываются и переключаются native Input-событиями, поворот — одним native касанием. Это не тест физического Android.
 
-## Актуальный интерфейс 0.3.0
+## Интерфейс 0.3.0 (история)
 
 - **720x1280**: [меню](v3-720x1280-menu.png), [поле](v3-720x1280-game.png), [справочник](v3-720x1280-guide.png), [закрытые главы](v3-720x1280-chapters-locked.png), [прогресс глав](v3-720x1280-chapters-complete.png), [уровни V](v3-720x1280-levels-v.png), [настройки](v3-720x1280-settings.png), [победа](v3-720x1280-victory.png), [поражение](v3-720x1280-loss.png)
 - **1080x1920**: [меню](v3-1080x1920-menu.png), [поле](v3-1080x1920-game.png), [справочник](v3-1080x1920-guide.png), [закрытые главы](v3-1080x1920-chapters-locked.png), [прогресс глав](v3-1080x1920-chapters-complete.png), [уровни V](v3-1080x1920-levels-v.png), [настройки](v3-1080x1920-settings.png), [победа](v3-1080x1920-victory.png), [поражение](v3-1080x1920-loss.png)

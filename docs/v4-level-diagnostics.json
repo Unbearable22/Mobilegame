@@ -1,0 +1,3220 @@
+{
+	"engine": "4.7.2-stable (official)",
+	"levels": [
+		{
+			"actions": [
+				{
+					"action": {
+						"index": 1.0,
+						"type": "rotate"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 1,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 0
+					},
+					"frames": []
+				},
+				{
+					"action": {
+						"index": 4.0,
+						"type": "rotate"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 2,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 0
+					},
+					"frames": []
+				},
+				{
+					"action": {
+						"index": 8.0,
+						"type": "rotate"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 3,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 0
+					},
+					"frames": []
+				},
+				{
+					"action": {
+						"index": 0.0,
+						"type": "launch"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 4,
+						"state": {
+							"active": [
+								true,
+								true,
+								true,
+								false,
+								false,
+								false,
+								true,
+								false,
+								true,
+								true,
+								true
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 1
+					},
+					"frames": [
+						{
+							"battery_changes": [],
+							"edges": [],
+							"new_targets": [],
+							"nodes": [
+								0
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "right",
+									"from": 0,
+									"legal": true,
+									"to": 6
+								},
+								{
+									"direction": "up",
+									"from": 0,
+									"legal": true,
+									"to": 1
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								1,
+								6
+							],
+							"state": {
+								"active": [
+									true,
+									true,
+									false,
+									false,
+									false,
+									false,
+									true,
+									false,
+									false,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "right",
+									"from": 1,
+									"legal": true,
+									"to": 2
+								},
+								{
+									"direction": "right",
+									"from": 6,
+									"legal": true,
+									"to": 8
+								}
+							],
+							"new_targets": [
+								2
+							],
+							"nodes": [
+								2,
+								8
+							],
+							"state": {
+								"active": [
+									true,
+									true,
+									true,
+									false,
+									false,
+									false,
+									true,
+									false,
+									true,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 8,
+									"legal": true,
+									"to": 9
+								},
+								{
+									"direction": "down",
+									"from": 8,
+									"legal": true,
+									"to": 10
+								}
+							],
+							"new_targets": [
+								9,
+								10
+							],
+							"nodes": [
+								9,
+								10
+							],
+							"state": {
+								"active": [
+									true,
+									true,
+									true,
+									false,
+									false,
+									false,
+									true,
+									false,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						}
+					]
+				},
+				{
+					"action": {
+						"index": 3.0,
+						"type": "launch"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 5,
+						"state": {
+							"active": [
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"status": "won",
+						"used": 2
+					},
+					"frames": [
+						{
+							"battery_changes": [],
+							"edges": [],
+							"new_targets": [],
+							"nodes": [
+								3
+							],
+							"state": {
+								"active": [
+									true,
+									true,
+									true,
+									true,
+									false,
+									false,
+									true,
+									false,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "left",
+									"from": 3,
+									"legal": true,
+									"to": 7
+								},
+								{
+									"direction": "down",
+									"from": 3,
+									"legal": true,
+									"to": 4
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								4,
+								7
+							],
+							"state": {
+								"active": [
+									true,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "left",
+									"from": 4,
+									"legal": true,
+									"to": 5
+								},
+								{
+									"direction": "left",
+									"from": 7,
+									"legal": true,
+									"to": 8
+								}
+							],
+							"new_targets": [
+								5
+							],
+							"nodes": [
+								5,
+								8
+							],
+							"state": {
+								"active": [
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 8,
+									"legal": true,
+									"to": 9
+								},
+								{
+									"direction": "down",
+									"from": 8,
+									"legal": true,
+									"to": 10
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								9,
+								10
+							],
+							"state": {
+								"active": [
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			],
+			"alternatives": {
+				"all_wins_require_all_non_blockers_active": true,
+				"minimum_launches": 2,
+				"orientation_count": 64,
+				"simulations": 384,
+				"winning_paths": [
+					{
+						"rotations": {
+							"1": 1,
+							"4": 1,
+							"8": 1
+						},
+						"sources": [
+							0,
+							3
+						]
+					},
+					{
+						"rotations": {
+							"1": 1,
+							"4": 1,
+							"8": 1
+						},
+						"sources": [
+							3,
+							0
+						]
+					},
+					{
+						"rotations": {
+							"1": 1,
+							"4": 1,
+							"8": 3
+						},
+						"sources": [
+							0,
+							3
+						]
+					},
+					{
+						"rotations": {
+							"1": 1,
+							"4": 1,
+							"8": 3
+						},
+						"sources": [
+							3,
+							0
+						]
+					}
+				],
+				"winning_rotation_values": {
+					"1": [
+						1
+					],
+					"4": [
+						1
+					],
+					"8": [
+						1,
+						3
+					]
+				},
+				"winning_source_sequences": {
+					"[0,3]": true,
+					"[3,0]": true
+				}
+			},
+			"existing_exhaustive_audit": {
+				"author_won": true,
+				"calls": 384,
+				"complete": true,
+				"minimum_launches": 2,
+				"minimum_rotated": 3,
+				"valid": true,
+				"wins": 4,
+				"wrong_order": false
+			},
+			"finish": [
+				{
+					"stars": 3,
+					"won": true
+				}
+			],
+			"id": 19,
+			"initial": {
+				"busy": false,
+				"history_size": 0,
+				"state": {
+					"active": [
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false
+					],
+					"charges": [
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					"rotations": [
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"status": "playing",
+				"used": 0
+			},
+			"name": "Общий выход",
+			"nodes": [
+				{
+					"dirs": [
+						1.0,
+						0.0
+					],
+					"type": "source",
+					"x": 0.0,
+					"y": 2.0
+				},
+				{
+					"dirs": [
+						0.0
+					],
+					"rotatable": true,
+					"type": "directional",
+					"x": 0.0,
+					"y": 1.0
+				},
+				{
+					"type": "target",
+					"x": 1.0,
+					"y": 1.0
+				},
+				{
+					"dirs": [
+						3.0,
+						2.0
+					],
+					"type": "source",
+					"x": 4.0,
+					"y": 2.0
+				},
+				{
+					"dirs": [
+						2.0
+					],
+					"rotatable": true,
+					"type": "directional",
+					"x": 4.0,
+					"y": 3.0
+				},
+				{
+					"type": "target",
+					"x": 3.0,
+					"y": 3.0
+				},
+				{
+					"dirs": [
+						1.0
+					],
+					"type": "directional",
+					"x": 1.0,
+					"y": 2.0
+				},
+				{
+					"dirs": [
+						3.0
+					],
+					"type": "directional",
+					"x": 3.0,
+					"y": 2.0
+				},
+				{
+					"dirs": [
+						3.0,
+						1.0
+					],
+					"rotatable": true,
+					"type": "splitter",
+					"x": 2.0,
+					"y": 2.0
+				},
+				{
+					"type": "target",
+					"x": 2.0,
+					"y": 1.0
+				},
+				{
+					"type": "target",
+					"x": 2.0,
+					"y": 3.0
+				}
+			],
+			"objective": "Два источника делят одну настроенную развилку.",
+			"solver_by_launch_budget": [
+				{
+					"actions": [],
+					"budget": 1,
+					"error": "",
+					"solved": false,
+					"visited": 64
+				},
+				{
+					"actions": [
+						{
+							"index": 1,
+							"type": "rotate"
+						},
+						{
+							"index": 4,
+							"type": "rotate"
+						},
+						{
+							"index": 8,
+							"type": "rotate"
+						},
+						{
+							"index": 0,
+							"type": "launch"
+						},
+						{
+							"index": 3,
+							"type": "launch"
+						}
+					],
+					"budget": 2,
+					"error": "",
+					"solved": true,
+					"visited": 65
+				}
+			],
+			"solver_first": {
+				"actions": [
+					{
+						"index": 1,
+						"type": "rotate"
+					},
+					{
+						"index": 4,
+						"type": "rotate"
+					},
+					{
+						"index": 8,
+						"type": "rotate"
+					},
+					{
+						"index": 0,
+						"type": "launch"
+					},
+					{
+						"index": 3,
+						"type": "launch"
+					}
+				],
+				"error": "",
+				"solved": true,
+				"visited": 65
+			}
+		},
+		{
+			"actions": [
+				{
+					"action": {
+						"index": 2.0,
+						"type": "rotate"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 1,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 0
+					},
+					"frames": []
+				},
+				{
+					"action": {
+						"index": 4.0,
+						"type": "rotate"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 2,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 0
+					},
+					"frames": []
+				},
+				{
+					"action": {
+						"index": 7.0,
+						"type": "rotate"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 3,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 0
+					},
+					"frames": []
+				},
+				{
+					"action": {
+						"index": 10.0,
+						"type": "rotate"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 4,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 0
+					},
+					"frames": []
+				},
+				{
+					"action": {
+						"index": 13.0,
+						"type": "rotate"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 5,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 0
+					},
+					"frames": []
+				},
+				{
+					"action": {
+						"index": 5.0,
+						"type": "launch"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 6,
+						"state": {
+							"active": [
+								false,
+								false,
+								false,
+								false,
+								false,
+								true,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false,
+								false
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 1
+					},
+					"frames": [
+						{
+							"battery_changes": [],
+							"edges": [],
+							"new_targets": [],
+							"nodes": [
+								5
+							],
+							"state": {
+								"active": [
+									false,
+									false,
+									false,
+									false,
+									false,
+									true,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [
+								{
+									"after": 1,
+									"before": 0,
+									"index": 6
+								}
+							],
+							"edges": [
+								{
+									"direction": "right",
+									"from": 5,
+									"legal": true,
+									"to": 6
+								}
+							],
+							"new_targets": [],
+							"nodes": [],
+							"state": {
+								"active": [
+									false,
+									false,
+									false,
+									false,
+									false,
+									true,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						}
+					]
+				},
+				{
+					"action": {
+						"index": 5.0,
+						"type": "launch"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 7,
+						"state": {
+							"active": [
+								true,
+								false,
+								true,
+								true,
+								false,
+								true,
+								true,
+								true,
+								true,
+								false,
+								true,
+								false,
+								true,
+								true,
+								true,
+								true
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								2,
+								0,
+								0,
+								1,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"status": "playing",
+						"used": 2
+					},
+					"frames": [
+						{
+							"battery_changes": [],
+							"edges": [],
+							"new_targets": [],
+							"nodes": [
+								5
+							],
+							"state": {
+								"active": [
+									false,
+									false,
+									false,
+									false,
+									false,
+									true,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [
+								{
+									"after": 2,
+									"before": 1,
+									"index": 6
+								}
+							],
+							"edges": [
+								{
+									"direction": "right",
+									"from": 5,
+									"legal": true,
+									"to": 6
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								6
+							],
+							"state": {
+								"active": [
+									false,
+									false,
+									false,
+									false,
+									false,
+									true,
+									true,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 6,
+									"legal": true,
+									"to": 2
+								},
+								{
+									"direction": "right",
+									"from": 6,
+									"legal": true,
+									"to": 7
+								},
+								{
+									"direction": "down",
+									"from": 6,
+									"legal": true,
+									"to": 10
+								},
+								{
+									"direction": "left",
+									"from": 6,
+									"legal": true,
+									"to": 5
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								2,
+								7,
+								10
+							],
+							"state": {
+								"active": [
+									false,
+									false,
+									true,
+									false,
+									false,
+									true,
+									true,
+									true,
+									false,
+									false,
+									true,
+									false,
+									false,
+									false,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 2,
+									"legal": true,
+									"to": 0
+								},
+								{
+									"direction": "up",
+									"from": 7,
+									"legal": true,
+									"to": 3
+								},
+								{
+									"direction": "right",
+									"from": 7,
+									"legal": true,
+									"to": 8
+								},
+								{
+									"direction": "down",
+									"from": 10,
+									"legal": true,
+									"to": 12
+								}
+							],
+							"new_targets": [
+								0,
+								3
+							],
+							"nodes": [
+								0,
+								3,
+								8,
+								12
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									false,
+									true,
+									false,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [
+								{
+									"after": 1,
+									"before": 0,
+									"index": 9
+								}
+							],
+							"edges": [
+								{
+									"direction": "right",
+									"from": 8,
+									"legal": true,
+									"to": 9
+								},
+								{
+									"direction": "right",
+									"from": 12,
+									"legal": true,
+									"to": 13
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								13
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									false,
+									true,
+									true,
+									false,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "right",
+									"from": 13,
+									"legal": true,
+									"to": 14
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								14
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									false,
+									true,
+									true,
+									true,
+									false
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 14,
+									"legal": true,
+									"to": 11
+								},
+								{
+									"direction": "right",
+									"from": 14,
+									"legal": true,
+									"to": 15
+								},
+								{
+									"direction": "left",
+									"from": 14,
+									"legal": true,
+									"to": 13
+								}
+							],
+							"new_targets": [
+								15
+							],
+							"nodes": [
+								15
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						}
+					]
+				},
+				{
+					"action": {
+						"index": 5.0,
+						"type": "launch"
+					},
+					"after": {
+						"busy": false,
+						"history_size": 8,
+						"state": {
+							"active": [
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								true,
+								false,
+								true,
+								true,
+								true,
+								true
+							],
+							"charges": [
+								0,
+								0,
+								0,
+								0,
+								0,
+								0,
+								2,
+								0,
+								0,
+								2,
+								0,
+								0,
+								0,
+								0,
+								0,
+								0
+							],
+							"rotations": [
+								0,
+								0,
+								1,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0,
+								1,
+								0,
+								0
+							]
+						},
+						"status": "won",
+						"used": 3
+					},
+					"frames": [
+						{
+							"battery_changes": [],
+							"edges": [],
+							"new_targets": [],
+							"nodes": [
+								5
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "right",
+									"from": 5,
+									"legal": true,
+									"to": 6
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								6
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 6,
+									"legal": true,
+									"to": 2
+								},
+								{
+									"direction": "right",
+									"from": 6,
+									"legal": true,
+									"to": 7
+								},
+								{
+									"direction": "down",
+									"from": 6,
+									"legal": true,
+									"to": 10
+								},
+								{
+									"direction": "left",
+									"from": 6,
+									"legal": true,
+									"to": 5
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								2,
+								7,
+								10
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 2,
+									"legal": true,
+									"to": 0
+								},
+								{
+									"direction": "up",
+									"from": 7,
+									"legal": true,
+									"to": 3
+								},
+								{
+									"direction": "right",
+									"from": 7,
+									"legal": true,
+									"to": 8
+								},
+								{
+									"direction": "down",
+									"from": 10,
+									"legal": true,
+									"to": 12
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								0,
+								3,
+								8,
+								12
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									1,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [
+								{
+									"after": 2,
+									"before": 1,
+									"index": 9
+								}
+							],
+							"edges": [
+								{
+									"direction": "right",
+									"from": 8,
+									"legal": true,
+									"to": 9
+								},
+								{
+									"direction": "right",
+									"from": 12,
+									"legal": true,
+									"to": 13
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								9,
+								13
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									2,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 9,
+									"legal": true,
+									"to": 4
+								},
+								{
+									"direction": "left",
+									"from": 9,
+									"legal": true,
+									"to": 8
+								},
+								{
+									"direction": "right",
+									"from": 13,
+									"legal": true,
+									"to": 14
+								}
+							],
+							"new_targets": [],
+							"nodes": [
+								4,
+								14
+							],
+							"state": {
+								"active": [
+									true,
+									false,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									2,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						},
+						{
+							"battery_changes": [],
+							"edges": [
+								{
+									"direction": "up",
+									"from": 4,
+									"legal": true,
+									"to": 1
+								},
+								{
+									"direction": "up",
+									"from": 14,
+									"legal": true,
+									"to": 11
+								},
+								{
+									"direction": "right",
+									"from": 14,
+									"legal": true,
+									"to": 15
+								},
+								{
+									"direction": "left",
+									"from": 14,
+									"legal": true,
+									"to": 13
+								}
+							],
+							"new_targets": [
+								1
+							],
+							"nodes": [
+								1,
+								15
+							],
+							"state": {
+								"active": [
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									true,
+									false,
+									true,
+									true,
+									true,
+									true
+								],
+								"charges": [
+									0,
+									0,
+									0,
+									0,
+									0,
+									0,
+									2,
+									0,
+									0,
+									2,
+									0,
+									0,
+									0,
+									0,
+									0,
+									0
+								],
+								"rotations": [
+									0,
+									0,
+									1,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0,
+									1,
+									0,
+									0
+								]
+							}
+						}
+					]
+				}
+			],
+			"alternatives": {
+				"all_wins_require_all_non_blockers_active": true,
+				"minimum_launches": 3,
+				"orientation_count": 1024,
+				"simulations": 3072,
+				"winning_paths": [
+					{
+						"rotations": {
+							"10": 1,
+							"13": 1,
+							"2": 1,
+							"4": 1,
+							"7": 1
+						},
+						"sources": [
+							5,
+							5,
+							5
+						]
+					}
+				],
+				"winning_rotation_values": {
+					"10": [
+						1
+					],
+					"13": [
+						1
+					],
+					"2": [
+						1
+					],
+					"4": [
+						1
+					],
+					"7": [
+						1
+					]
+				},
+				"winning_source_sequences": {
+					"[5,5,5]": true
+				}
+			},
+			"existing_exhaustive_audit": {
+				"author_won": true,
+				"calls": 3072,
+				"complete": true,
+				"minimum_launches": 3,
+				"minimum_rotated": 5,
+				"valid": true,
+				"wins": 1,
+				"wrong_order": false
+			},
+			"finish": [
+				{
+					"stars": 3,
+					"won": true
+				}
+			],
+			"id": 49,
+			"initial": {
+				"busy": false,
+				"history_size": 0,
+				"state": {
+					"active": [
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false
+					],
+					"charges": [
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					"rotations": [
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0,
+						0
+					]
+				},
+				"status": "playing",
+				"used": 0
+			},
+			"name": "Разделённый горизонт",
+			"nodes": [
+				{
+					"type": "target",
+					"x": 1.0,
+					"y": 0.0
+				},
+				{
+					"type": "target",
+					"x": 4.0,
+					"y": 0.0
+				},
+				{
+					"dirs": [
+						3.0
+					],
+					"rotatable": true,
+					"type": "directional",
+					"x": 1.0,
+					"y": 1.0
+				},
+				{
+					"type": "target",
+					"x": 2.0,
+					"y": 1.0
+				},
+				{
+					"dirs": [
+						3.0
+					],
+					"rotatable": true,
+					"type": "directional",
+					"x": 4.0,
+					"y": 1.0
+				},
+				{
+					"dirs": [
+						1.0
+					],
+					"type": "source",
+					"x": 0.0,
+					"y": 2.0
+				},
+				{
+					"type": "battery",
+					"x": 1.0,
+					"y": 2.0
+				},
+				{
+					"dirs": [
+						3.0,
+						0.0
+					],
+					"rotatable": true,
+					"type": "splitter",
+					"x": 2.0,
+					"y": 2.0
+				},
+				{
+					"dirs": [
+						1.0
+					],
+					"type": "directional",
+					"x": 3.0,
+					"y": 2.0
+				},
+				{
+					"type": "battery",
+					"x": 4.0,
+					"y": 2.0
+				},
+				{
+					"dirs": [
+						1.0
+					],
+					"rotatable": true,
+					"type": "directional",
+					"x": 1.0,
+					"y": 3.0
+				},
+				{
+					"type": "blocker",
+					"x": 3.0,
+					"y": 3.0
+				},
+				{
+					"dirs": [
+						1.0
+					],
+					"type": "directional",
+					"x": 1.0,
+					"y": 4.0
+				},
+				{
+					"dirs": [
+						0.0
+					],
+					"rotatable": true,
+					"type": "directional",
+					"x": 2.0,
+					"y": 4.0
+				},
+				{
+					"type": "normal",
+					"x": 3.0,
+					"y": 4.0
+				},
+				{
+					"type": "target",
+					"x": 4.0,
+					"y": 4.0
+				}
+			],
+			"objective": "Подготовьте верхние цели и нижний обход, затем завершите дальнюю батарею.",
+			"solver_by_launch_budget": [
+				{
+					"actions": [],
+					"budget": 1,
+					"error": "",
+					"solved": false,
+					"visited": 1024
+				},
+				{
+					"actions": [],
+					"budget": 2,
+					"error": "",
+					"solved": false,
+					"visited": 2048
+				},
+				{
+					"actions": [
+						{
+							"index": 2,
+							"type": "rotate"
+						},
+						{
+							"index": 4,
+							"type": "rotate"
+						},
+						{
+							"index": 7,
+							"type": "rotate"
+						},
+						{
+							"index": 10,
+							"type": "rotate"
+						},
+						{
+							"index": 13,
+							"type": "rotate"
+						},
+						{
+							"index": 5,
+							"type": "launch"
+						},
+						{
+							"index": 5,
+							"type": "launch"
+						},
+						{
+							"index": 5,
+							"type": "launch"
+						}
+					],
+					"budget": 3,
+					"error": "",
+					"solved": true,
+					"visited": 1026
+				}
+			],
+			"solver_first": {
+				"actions": [
+					{
+						"index": 2,
+						"type": "rotate"
+					},
+					{
+						"index": 4,
+						"type": "rotate"
+					},
+					{
+						"index": 7,
+						"type": "rotate"
+					},
+					{
+						"index": 10,
+						"type": "rotate"
+					},
+					{
+						"index": 13,
+						"type": "rotate"
+					},
+					{
+						"index": 5,
+						"type": "launch"
+					},
+					{
+						"index": 5,
+						"type": "launch"
+					},
+					{
+						"index": 5,
+						"type": "launch"
+					}
+				],
+				"error": "",
+				"solved": true,
+				"visited": 1026
+			}
+		}
+	],
+	"node_indexing": "zero based; coordinates x,y; directions 0 up,1 right,2 down,3 left",
+	"physical_android_tested": false
+}

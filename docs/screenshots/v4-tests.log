@@ -1,0 +1,263 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Unable to open Android 'build-tools' directory.
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (5 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  16% ] [90m[1mupdate_scripts_classes[22m | MainMenu[39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  66% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (27 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | v4-720x1280-chapters.png[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | v4-720x1280-game.png[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | v4-720x1280-guide.png[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | v4-720x1280-level-19.png[39m[0m
+[  14% ] [90m[1m_update_scan_actions[22m | v4-720x1280-level-49.png[39m[0m
+[  17% ] [90m[1m_update_scan_actions[22m | v4-720x1280-menu-complete.png[39m[0m
+[  21% ] [90m[1m_update_scan_actions[22m | v4-720x1280-menu-fresh.png[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | v4-720x1280-menu-partial.png[39m[0m
+[  28% ] [90m[1m_update_scan_actions[22m | v4-720x1280-settings.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-chapters.png[39m[0m
+[  35% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-game.png[39m[0m
+[  39% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-guide.png[39m[0m
+[  42% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-level-19.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-level-49.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-menu-complete.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-menu-fresh.png[39m[0m
+[  57% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-menu-partial.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | v4-1080x1920-settings.png[39m[0m
+[  64% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-chapters.png[39m[0m
+[  67% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-game.png[39m[0m
+[  71% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-guide.png[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-level-19.png[39m[0m
+[  78% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-level-49.png[39m[0m
+[  82% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-menu-complete.png[39m[0m
+[  85% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-menu-fresh.png[39m[0m
+[  89% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-menu-partial.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | v4-1440x3200-settings.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (27 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   3% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   7% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  10% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  14% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  17% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  21% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  28% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  32% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  35% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  39% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  42% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  46% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  53% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  57% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  60% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  64% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  67% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  71% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  78% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  82% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  85% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  89% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  92% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | v4-1440x3200-settings.png[39m[0m
+[   3% ] [90m[1mreimport[22m | v4-1440x3200-menu-partial.png[39m[0m
+[   3% ] [90m[1mreimport[22m | v4-1440x3200-menu-partial.png[39m[0m
+[   7% ] [90m[1mreimport[22m | v4-1440x3200-menu-fresh.png[39m[0m
+[   7% ] [90m[1mreimport[22m | v4-1440x3200-menu-fresh.png[39m[0m
+[  10% ] [90m[1mreimport[22m | v4-1440x3200-menu-complete.png[39m[0m
+[  10% ] [90m[1mreimport[22m | v4-1440x3200-menu-complete.png[39m[0m
+[  14% ] [90m[1mreimport[22m | v4-1440x3200-level-49.png[39m[0m
+[  14% ] [90m[1mreimport[22m | v4-1440x3200-level-49.png[39m[0m
+[  17% ] [90m[1mreimport[22m | v4-1440x3200-level-19.png[39m[0m
+[  17% ] [90m[1mreimport[22m | v4-1440x3200-level-19.png[39m[0m
+[  21% ] [90m[1mreimport[22m | v4-1440x3200-guide.png[39m[0m
+[  25% ] [90m[1mreimport[22m | v4-1440x3200-game.png[39m[0m
+[  28% ] [90m[1mreimport[22m | v4-1440x3200-chapters.png[39m[0m
+[  32% ] [90m[1mreimport[22m | v4-1080x1920-settings.png[39m[0m
+[  35% ] [90m[1mreimport[22m | v4-1080x1920-menu-partial.png[39m[0m
+[  39% ] [90m[1mreimport[22m | v4-1080x1920-menu-fresh.png[39m[0m
+[  42% ] [90m[1mreimport[22m | v4-1080x1920-menu-complete.png[39m[0m
+[  46% ] [90m[1mreimport[22m | v4-1080x1920-level-49.png[39m[0m
+[  50% ] [90m[1mreimport[22m | v4-1080x1920-level-19.png[39m[0m
+[  53% ] [90m[1mreimport[22m | v4-1080x1920-guide.png[39m[0m
+[  57% ] [90m[1mreimport[22m | v4-1080x1920-game.png[39m[0m
+[  60% ] [90m[1mreimport[22m | v4-1080x1920-chapters.png[39m[0m
+[  64% ] [90m[1mreimport[22m | v4-720x1280-settings.png[39m[0m
+[  67% ] [90m[1mreimport[22m | v4-720x1280-menu-partial.png[39m[0m
+[  71% ] [90m[1mreimport[22m | v4-720x1280-menu-fresh.png[39m[0m
+[  75% ] [90m[1mreimport[22m | v4-720x1280-menu-complete.png[39m[0m
+[  78% ] [90m[1mreimport[22m | v4-720x1280-level-49.png[39m[0m
+[  82% ] [90m[1mreimport[22m | v4-720x1280-level-19.png[39m[0m
+[  85% ] [90m[1mreimport[22m | v4-720x1280-guide.png[39m[0m
+[  89% ] [90m[1mreimport[22m | v4-720x1280-game.png[39m[0m
+[  92% ] [90m[1mreimport[22m | v4-720x1280-chapters.png[39m[0m
+[  96% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (27 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Core: 21 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Level 01: solution [{ "type": "launch", "index": 0 }] (1 states)
+Level 02: solution [{ "type": "launch", "index": 0 }] (1 states)
+Level 03: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 1 }, { "type": "rotate", "index": 1 }, { "type": "launch", "index": 0 }] (4 states)
+Level 04: solution [{ "type": "launch", "index": 0 }] (1 states)
+Level 05: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 1 }, { "type": "rotate", "index": 1 }, { "type": "launch", "index": 0 }] (4 states)
+Level 06: solution [{ "type": "launch", "index": 0 }, { "type": "launch", "index": 0 }] (2 states)
+Level 07: solution [{ "type": "launch", "index": 0 }] (1 states)
+Level 08: solution [{ "type": "launch", "index": 0 }, { "type": "launch", "index": 3 }] (2 states)
+Level 09: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 2 }, { "type": "launch", "index": 0 }] (7 states)
+Level 10: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 3 }, { "type": "launch", "index": 0 }] (27 states)
+Level 11: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "launch", "index": 0 }] (6 states)
+Level 12: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 3 }, { "type": "launch", "index": 0 }] (23 states)
+Level 13: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 5 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 4 }] (17 states)
+Level 14: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 7 }, { "type": "launch", "index": 0 }] (86 states)
+Level 15: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 4 }, { "type": "launch", "index": 0 }] (86 states)
+Level 16: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 7 }, { "type": "launch", "index": 0 }] (86 states)
+Level 17: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "launch", "index": 0 }] (22 states)
+Level 18: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 5 }, { "type": "launch", "index": 0 }] (86 states)
+Level 19: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 8 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 3 }] (65 states)
+Level 20: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 5 }, { "type": "launch", "index": 0 }] (342 states)
+Level 21: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 1 }] (17 states)
+Level 22: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "launch", "index": 0 }] (22 states)
+Level 23: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 6 }, { "type": "launch", "index": 0 }] (22 states)
+Level 24: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 0 }] (44 states)
+Level 25: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 5 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 0 }] (66 states)
+Level 26: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 8 }] (17 states)
+Level 27: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 7 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 4 }] (65 states)
+Level 28: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 10 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 8 }] (65 states)
+Level 29: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 7 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 6 }] (33 states)
+Level 30: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 7 }, { "type": "rotate", "index": 12 }, { "type": "launch", "index": 0 }, { "type": "launch", "index": 11 }] (257 states)
+Level 31: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 6 }, { "type": "launch", "index": 4 }] (22 states)
+Level 32: solution [{ "type": "rotate", "index": 0 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 8 }, { "type": "rotate", "index": 10 }, { "type": "launch", "index": 3 }] (342 states)
+Level 33: solution [{ "type": "rotate", "index": 5 }, { "type": "rotate", "index": 7 }, { "type": "launch", "index": 8 }, { "type": "launch", "index": 8 }] (18 states)
+Level 34: solution [{ "type": "rotate", "index": 3 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 7 }, { "type": "launch", "index": 6 }, { "type": "launch", "index": 6 }] (44 states)
+Level 35: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 6 }, { "type": "launch", "index": 8 }, { "type": "launch", "index": 8 }] (44 states)
+Level 36: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 7 }, { "type": "rotate", "index": 7 }, { "type": "rotate", "index": 7 }, { "type": "launch", "index": 3 }, { "type": "launch", "index": 3 }] (230 states)
+Level 37: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 8 }, { "type": "rotate", "index": 9 }, { "type": "rotate", "index": 10 }, { "type": "launch", "index": 7 }] (342 states)
+Level 38: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 2 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 8 }, { "type": "launch", "index": 7 }] (86 states)
+Level 39: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 4 }, { "type": "launch", "index": 9 }, { "type": "launch", "index": 9 }] (323 states)
+Level 40: solution [{ "type": "rotate", "index": 3 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 7 }, { "type": "rotate", "index": 9 }, { "type": "rotate", "index": 11 }, { "type": "launch", "index": 6 }] (406 states)
+Level 41: solution [{ "type": "rotate", "index": 3 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 8 }, { "type": "launch", "index": 7 }, { "type": "launch", "index": 7 }, { "type": "launch", "index": 7 }] (66 states)
+Level 42: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 10 }, { "type": "rotate", "index": 11 }, { "type": "launch", "index": 13 }, { "type": "launch", "index": 13 }] (978 states)
+Level 43: solution [{ "type": "rotate", "index": 3 }, { "type": "rotate", "index": 5 }, { "type": "rotate", "index": 8 }, { "type": "rotate", "index": 9 }, { "type": "rotate", "index": 10 }, { "type": "launch", "index": 11 }, { "type": "launch", "index": 11 }] (684 states)
+Level 44: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 8 }, { "type": "rotate", "index": 11 }, { "type": "launch", "index": 10 }, { "type": "launch", "index": 10 }, { "type": "launch", "index": 10 }] (66 states)
+Level 45: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 3 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 6 }, { "type": "rotate", "index": 8 }, { "type": "launch", "index": 10 }, { "type": "launch", "index": 10 }] (684 states)
+Level 46: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 8 }, { "type": "rotate", "index": 10 }, { "type": "launch", "index": 7 }, { "type": "launch", "index": 7 }] (512 states)
+Level 47: solution [{ "type": "rotate", "index": 1 }, { "type": "rotate", "index": 6 }, { "type": "rotate", "index": 9 }, { "type": "rotate", "index": 12 }, { "type": "rotate", "index": 14 }, { "type": "launch", "index": 4 }, { "type": "launch", "index": 4 }] (684 states)
+Level 48: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 10 }, { "type": "rotate", "index": 11 }, { "type": "rotate", "index": 12 }, { "type": "launch", "index": 9 }, { "type": "launch", "index": 13 }] (1025 states)
+Level 49: solution [{ "type": "rotate", "index": 2 }, { "type": "rotate", "index": 4 }, { "type": "rotate", "index": 7 }, { "type": "rotate", "index": 10 }, { "type": "rotate", "index": 13 }, { "type": "launch", "index": 5 }, { "type": "launch", "index": 5 }, { "type": "launch", "index": 5 }] (1026 states)
+Level 50: solution [{ "type": "rotate", "index": 4 }, { "type": "rotate", "index": 6 }, { "type": "rotate", "index": 8 }, { "type": "rotate", "index": 9 }, { "type": "rotate", "index": 11 }, { "type": "rotate", "index": 14 }, { "type": "launch", "index": 16 }, { "type": "launch", "index": 16 }] (2732 states)
+Levels: 159 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Save: 9 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+UI: 198 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Input: 4 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Acceptance: 14 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Native touch: 54 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Settings: 16 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Chapters: 9 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Guide/UI chapters: 44 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+AUDIT 01: { "calls": 1, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 0, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 1 }
+AUDIT 02: { "calls": 1, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 0, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 2 }
+AUDIT 03: { "calls": 4, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 1, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 3 }
+AUDIT 04: { "calls": 1, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 0, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 4 }
+AUDIT 05: { "calls": 4, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 1, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 5 }
+AUDIT 06: { "calls": 2, "complete": true, "wins": 1, "minimum_launches": 2, "minimum_rotated": 0, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 6 }
+AUDIT 07: { "calls": 1, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 0, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 7 }
+AUDIT 08: { "calls": 6, "complete": true, "wins": 2, "minimum_launches": 2, "minimum_rotated": 0, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 8 }
+AUDIT 09: { "calls": 16, "complete": true, "wins": 2, "minimum_launches": 1, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 9 }
+AUDIT 10: { "calls": 64, "complete": true, "wins": 2, "minimum_launches": 1, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 10 }
+AUDIT 11: { "calls": 16, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 11 }
+AUDIT 12: { "calls": 64, "complete": true, "wins": 2, "minimum_launches": 1, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 12 }
+AUDIT 13: { "calls": 96, "complete": true, "wins": 2, "minimum_launches": 2, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 13 }
+AUDIT 14: { "calls": 256, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 4, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 14 }
+AUDIT 15: { "calls": 256, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 4, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 15 }
+AUDIT 16: { "calls": 256, "complete": true, "wins": 4, "minimum_launches": 1, "minimum_rotated": 4, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 16 }
+AUDIT 17: { "calls": 64, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 17 }
+AUDIT 18: { "calls": 256, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 4, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 18 }
+AUDIT 19: { "calls": 384, "complete": true, "wins": 4, "minimum_launches": 2, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 19 }
+AUDIT 20: { "calls": 1024, "complete": true, "wins": 2, "minimum_launches": 1, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 20 }
+AUDIT 21: { "calls": 96, "complete": true, "wins": 2, "minimum_launches": 2, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 21 }
+AUDIT 22: { "calls": 64, "complete": true, "wins": 2, "minimum_launches": 1, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 22 }
+AUDIT 23: { "calls": 64, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 23 }
+AUDIT 24: { "calls": 128, "complete": true, "wins": 2, "minimum_launches": 2, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 24 }
+AUDIT 25: { "calls": 192, "complete": true, "wins": 1, "minimum_launches": 3, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 25 }
+AUDIT 26: { "calls": 96, "complete": true, "wins": 1, "minimum_launches": 2, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 26 }
+AUDIT 27: { "calls": 384, "complete": true, "wins": 4, "minimum_launches": 2, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 27 }
+AUDIT 28: { "calls": 384, "complete": true, "wins": 1, "minimum_launches": 2, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 28 }
+AUDIT 29: { "calls": 224, "complete": true, "wins": 6, "minimum_launches": 3, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 29 }
+AUDIT 30: { "calls": 1536, "complete": true, "wins": 2, "minimum_launches": 2, "minimum_rotated": 4, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 30 }
+AUDIT 31: { "calls": 64, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 31 }
+AUDIT 32: { "calls": 1024, "complete": true, "wins": 2, "minimum_launches": 1, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 32 }
+AUDIT 33: { "calls": 384, "complete": true, "wins": 10, "minimum_launches": 2, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 33 }
+AUDIT 34: { "calls": 128, "complete": true, "wins": 1, "minimum_launches": 2, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 34 }
+AUDIT 35: { "calls": 128, "complete": true, "wins": 2, "minimum_launches": 2, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 35 }
+AUDIT 36: { "calls": 1536, "complete": true, "wins": 5, "minimum_launches": 2, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 36 }
+AUDIT 37: { "calls": 1024, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 37 }
+AUDIT 38: { "calls": 256, "complete": true, "wins": 1, "minimum_launches": 1, "minimum_rotated": 4, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 38 }
+AUDIT 39: { "calls": 3072, "complete": true, "wins": 28, "minimum_launches": 2, "minimum_rotated": 2, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 39 }
+AUDIT 40: { "calls": 1024, "complete": true, "wins": 6, "minimum_launches": 1, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 40 }
+AUDIT 41: { "calls": 192, "complete": true, "wins": 1, "minimum_launches": 3, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 41 }
+AUDIT 42: { "calls": 6144, "complete": true, "wins": 8, "minimum_launches": 2, "minimum_rotated": 4, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 42 }
+AUDIT 43: { "calls": 2048, "complete": true, "wins": 2, "minimum_launches": 2, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 43 }
+AUDIT 44: { "calls": 192, "complete": true, "wins": 1, "minimum_launches": 3, "minimum_rotated": 3, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 44 }
+AUDIT 45: { "calls": 2048, "complete": true, "wins": 2, "minimum_launches": 2, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 45 }
+AUDIT 46: { "calls": 3582, "complete": true, "wins": 3, "minimum_launches": 2, "minimum_rotated": 4, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 46 }
+AUDIT 47: { "calls": 2048, "complete": true, "wins": 1, "minimum_launches": 2, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 47 }
+AUDIT 48: { "calls": 6144, "complete": true, "wins": 6, "minimum_launches": 2, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 48 }
+AUDIT 49: { "calls": 3072, "complete": true, "wins": 1, "minimum_launches": 3, "minimum_rotated": 5, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 49 }
+AUDIT 50: { "calls": 8192, "complete": true, "wins": 4, "minimum_launches": 2, "minimum_rotated": 6, "wrong_order": false, &"author_won": true, &"valid": true, &"id": 50 }
+Level audit: 50 levels, 48242 simulations, 0 failures
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Main menu: 25 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Level regressions: 300 passed, 0 failed
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org

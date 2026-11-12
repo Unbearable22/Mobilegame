@@ -16,17 +16,19 @@ python3 tools/build_android.py \
   --templates /tmp/chain-android-toolchain/data/godot/export_templates/4.7.2.stable
 ```
 
-Скрипт проверяет версии, использует изолированные настройки Godot в игнорируемой `build/tooling/`, запускает 8 Python-тестов и 528 проверок GDScript, затем `--export-debug`. Стандартный debug-ключ создаётся в директории SDK и не попадает в Git/артефакт. Это не release identity. Полная перезапись build-папки не удаляет SDK-ключ.
+Скрипт проверяет версии, использует изолированные настройки Godot в игнорируемой `build/tooling/`, запускает 8 Python-тестов и 853 проверки GDScript, затем `--export-debug`. Стандартный debug-ключ создаётся в директории SDK и не попадает в Git/артефакт. Это не release identity. Полная перезапись build-папки не удаляет SDK-ключ.
 
 Результат: **`build/android/chain-react-debug-arm64.apk`**. Рядом `.sha256`, `.verification.json`, `.manifest.txt`, `.badging.txt`, `.signature.txt`, `.smoke.txt`. Хеш зависит от ключа и сборки; сверять с отчётом из той же папки/того же CI-артефакта.
 
-Проверки бинарника: debug=true, portrait, ожидаемые package/SDK/ABI, отсутствие разрешений и dev-файлов; все 10 JSON совпадают с исходниками; наличие mipmap launcher icons; apksigner; zipalign 16KB. Ресурсы извлекаются из APK и запускаются десктопным Godot, где проверяются main scene, меню, десять уровней, ориентация и mobile Compatibility. Это проверка комплектности Android-пакета, **не исполнение Android native-библиотеки и не тест телефона**.
+Проверки бинарника: debug=true, portrait, ожидаемые package/SDK/ABI, отсутствие разрешений и dev-файлов; все 50 JSON совпадают с исходниками; наличие mipmap launcher icons; apksigner; zipalign 16KB. Ресурсы извлекаются из APK и запускаются десктопным Godot, где проверяются main scene, меню, 50 уровней, ориентация и mobile Compatibility. Это проверка комплектности Android-пакета, **не исполнение Android native-библиотеки и не тест телефона**.
+
+В artifact0.4.0 также включена полная диагностическая трасса уровней19/49. Resource smoke проверяет создание нового меню и переход Continue с остановкой декорации.
 
 ## GitHub Actions и скачивание
 
 [Workflow Android debug APK](https://github.com/Unbearable22/Mobilegame/actions/workflows/android-debug.yml) запускается при push в main/feat/chain-react-mvp и pull request; поддерживает workflow_dispatch. На чистом Ubuntu runner устанавливает toolchain, тестирует, собирает, проверяет и загружает `chain-react-debug-arm64-<commit>` на 14 дней. Нужен вход в GitHub для скачивания Actions artifact. Распаковать ZIP, установить `.apk`; `.sha256` относится именно к нему.
 
-У workflow только `contents: read`. Артефакт содержит APK и отчёты, но не toolchain, ключи или editor settings. CI-подпись debug может меняться между чистыми runners: при конфликте подписи не удалять старое приложение, пока не сохранены результаты тестов.
+У workflow только `contents: read`. Артефакт содержит APK и отчёты, но не toolchain, ключи или editor settings. CI-подпись debug может меняться между чистыми runners: при конфликте подписи не удалять старое приложение до проверенной резервной копии. [Точный перенос прогресса через adb](android-progress-transfer.md). Старый приватный CI-ключ недоступен; бесшовное обновление поверх прошлой CI-сборки не гарантируется.
 
 ## Независимый review
 
