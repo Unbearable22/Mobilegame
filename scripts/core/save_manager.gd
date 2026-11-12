@@ -1,14 +1,17 @@
 class_name SaveManager
 extends RefCounted
 const Catalog = preload("res://scripts/core/chapter_catalog.gd")
-const VERSION: int = 2
+const Achievements = preload("res://scripts/core/achievement_catalog.gd")
+const Themes = preload("res://scripts/core/theme_catalog.gd")
+const Statistics = preload("res://scripts/core/statistics_manager.gd")
+const VERSION: int = 3
 var path: String
 var last_error: Error = OK
 var warning: String = ""
 func _init(file_path: String = "user://progress.json") -> void:
 	path = file_path
 static func defaults() -> Dictionary:
-	return {"version": VERSION, "last_level": 1, "completed": {}, "sound": true, "unlocked_chapters": [1]}
+	return {"version": VERSION, "last_level": 1, "completed": {}, "sound": true, "unlocked_chapters": [1], "achievements": {}, "theme": "neon", "reduced_effects": false, "statistics": {"levels":{}, "last_played_level":0}}
 func read() -> Dictionary:
 	warning = ""
 	if not FileAccess.file_exists(path): return defaults()
@@ -20,19 +23,20 @@ func read() -> Dictionary:
 	var parse_error: Error = parser.parse(file.get_as_text())
 	var parsed: Variant = parser.data if parse_error == OK else null
 	file.close()
-	if not parsed is Dictionary or (parsed.get("version", -1) != 1 and parsed.get("version", -1) != VERSION):
+	if not parsed is Dictionary or (parsed.get("version", -1) != 1 and parsed.get("version", -1) != 2 and parsed.get("version", -1) != VERSION):
 		warning = "Сохранение повреждено или имеет другую версию. Создан новый прогресс."
 		var backup_error: Error = DirAccess.copy_absolute(path, path + ".corrupt")
 		if backup_error != OK: warning += " Резервная копия недоступна."
 		return defaults()
-	if parsed.get("version") == 1 and not FileAccess.file_exists(path + ".v1.bak"):
-		var backup_result: Error = DirAccess.copy_absolute(path,path + ".v1.bak")
+	var backup_suffix: String = ".v%d.bak" % int(parsed.get("version"))
+	if int(parsed.get("version")) in [1,2] and not FileAccess.file_exists(path + backup_suffix):
+		var backup_result: Error = DirAccess.copy_absolute(path,path + backup_suffix)
 		if backup_result != OK: warning = "Не удалось создать резервную копию старого прогресса."
 	return sanitize(parsed)
 static func sanitize(raw: Dictionary) -> Dictionary:
 	var clean: Dictionary = defaults()
 	var selected: Variant = raw.get("last_level", 1)
-	if (selected is float or selected is int) and selected >= 1 and selected <= Catalog.LEVEL_COUNT and selected == floor(selected):
+	if (selected is float or selected is int) and is_finite(float(selected)) and selected >= 1 and selected <= Catalog.LEVEL_COUNT and selected == floor(selected):
 		clean.last_level = int(selected)
 	if raw.get("sound") is bool: clean.sound = raw.sound
 	if raw.get("completed") is Dictionary:
@@ -40,12 +44,12 @@ static func sanitize(raw: Dictionary) -> Dictionary:
 			var id: String = str(key)
 			var stars: Variant = raw.completed[key]
 			if id.is_valid_int() and int(id) >= 1 and int(id) <= Catalog.LEVEL_COUNT and str(int(id)) == id:
-				if (stars is float or stars is int) and stars >= 1 and stars <= 3 and stars == floor(stars):
+				if (stars is float or stars is int) and is_finite(float(stars)) and stars >= 1 and stars <= 3 and stars == floor(stars):
 					clean.completed[id] = int(stars)
 	var unlocked: Array = [1]
 	if raw.get("unlocked_chapters") is Array:
 		for chapter in raw.unlocked_chapters:
-			if (chapter is int or chapter is float) and chapter == floor(chapter) and chapter >= 1 and chapter <= 5 and not int(chapter) in unlocked:
+			if (chapter is int or chapter is float) and is_finite(float(chapter)) and chapter == floor(chapter) and chapter >= 1 and chapter <= 5 and not int(chapter) in unlocked:
 				unlocked.append(int(chapter))
 	var visited: int = Catalog.chapter_for_level(int(clean.last_level))
 	if not visited in unlocked: unlocked.append(visited)
@@ -59,6 +63,13 @@ static func sanitize(raw: Dictionary) -> Dictionary:
 		if finished and not chapter+1 in unlocked: unlocked.append(chapter+1)
 	unlocked.sort()
 	clean.unlocked_chapters = unlocked
+	if raw.get("achievements") is Dictionary:
+		for entry in Achievements.ACHIEVEMENTS:
+			if raw.achievements.get(entry.id) is bool and raw.achievements.get(entry.id) == true:
+				clean.achievements[entry.id] = true
+	if raw.get("reduced_effects") is bool: clean.reduced_effects = raw.reduced_effects
+	if raw.get("theme") is String and Themes.unlocked(raw.theme,clean): clean.theme = raw.theme
+	clean.statistics = Statistics.sanitize(raw.get("statistics", {}))
 	return clean
 func write(data: Dictionary) -> Error:
 	var file := FileAccess.open(path + ".tmp", FileAccess.WRITE)

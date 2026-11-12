@@ -14,7 +14,7 @@ func _initialize() -> void:
 	file.store_string(JSON.stringify({"version":1,"last_level":10,"completed":{"1":3,"10":2},"sound":false}))
 	file.close()
 	var old: Dictionary = save.read()
-	check(old.version == 2 and old.completed["10"] == 2 and not old.sound and old.last_level == 10, "v1 migrates preserving all progress/settings")
+	check(old.version == Save.VERSION and old.completed["10"] == 2 and not old.sound and old.last_level == 10, "v1 migrates preserving all progress/settings")
 	check(FileAccess.file_exists(save.path + ".v1.bak"), "v1 migration preserves backup")
 	var p := Progress.new(save)
 	check(p.chapter_unlocked(1) and not p.chapter_unlocked(2), "only first chapter initially")

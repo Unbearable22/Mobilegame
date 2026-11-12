@@ -2,15 +2,19 @@ class_name MainMenu
 extends Control
 signal continued
 signal chapters_requested
+signal achievements_requested
+signal themes_requested
 const Reaction = preload("res://scripts/ui/menu_reaction.gd")
 const Catalog = preload("res://scripts/core/chapter_catalog.gd")
 const Icons = preload("res://scripts/ui/icon_library.gd")
-const CYAN: Color = Color("4de6f5")
-const MUTED: Color = Color("92a7c2")
+var CYAN: Color = Color("4de6f5")
+var MUTED: Color = Color("92a7c2")
 var inset: MarginContainer
 var reaction: Control
 var continue_button: Button
 var chapters_button: Button
+var achievements_button: Button
+var themes_button: Button
 var chapter_label: Label
 var status_label: Label
 var progress_label: Label
@@ -62,6 +66,18 @@ func _ready() -> void:
 	chapters_button = _action("Выбор глав", "chapters",false)
 	chapters_button.pressed.connect(func(): chapters_requested.emit())
 	column.add_child(chapters_button)
+	var collection := HBoxContainer.new()
+	collection.add_theme_constant_override("separation",16)
+	achievements_button = _action("Достижения","trophy",false)
+	achievements_button.add_theme_font_size_override("font_size",32)
+	achievements_button.pressed.connect(func(): achievements_requested.emit())
+	themes_button = _action("Темы","palette",false)
+	themes_button.add_theme_font_size_override("font_size",32)
+	themes_button.pressed.connect(func(): themes_requested.emit())
+	for button in [achievements_button,themes_button]:
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		collection.add_child(button)
+	column.add_child(collection)
 	var panel := PanelContainer.new()
 	var box := StyleBoxFlat.new()
 	box.bg_color = Color("0c1729")
@@ -105,6 +121,7 @@ func _ready() -> void:
 func _label(text: String,font_size: int,color: Color = Color("eaf5ff")) -> Label:
 	var label := Label.new()
 	label.text = text
+	label.set_meta("palette_role","accent" if color==CYAN else ("muted" if color==MUTED else ("secondary" if color==Color("c5b3ff") else "text")))
 	label.add_theme_font_size_override("font_size",font_size)
 	label.add_theme_color_override("font_color",color)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -167,3 +184,22 @@ func _draw() -> void:
 		draw_line(Vector2(x,size.y*.24),Vector2(x,size.y*.67),Color(CYAN,.13),1,true)
 		for i in range(5):
 			draw_line(Vector2(x-4,size.y*.3+i*24),Vector2(x+4,size.y*.3+i*24),Color(CYAN,.28),1,true)
+
+func configure_visuals(palette: Dictionary,reduced: bool) -> void:
+	CYAN = palette.accent
+	MUTED = palette.muted
+	reaction.configure_visuals(palette,reduced)
+	for button in [continue_button,chapters_button,achievements_button,themes_button]:
+		for state in ["normal","hover","pressed","focus","disabled"]:
+			var style: StyleBoxFlat = button.get_theme_stylebox(state).duplicate()
+			style.bg_color = palette.surface.lightened(.08 if state=="pressed" else 0)
+			style.border_color = CYAN if button==continue_button or state in ["hover","focus"] else palette.muted.darkened(.6)
+			style.shadow_color = Color(CYAN,.05)
+			button.add_theme_stylebox_override(state,style)
+		button.add_theme_color_override("font_color",palette.text)
+		button.add_theme_color_override("icon_normal_color",CYAN)
+	for part in ["fill","background"]:
+		var style: StyleBoxFlat = progress_bar.get_theme_stylebox(part).duplicate()
+		style.bg_color = CYAN if part=="fill" else palette.surface.lightened(.08)
+		progress_bar.add_theme_stylebox_override(part,style)
+	queue_redraw()

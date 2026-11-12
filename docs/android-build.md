@@ -16,7 +16,7 @@ python3 tools/build_android.py \
   --templates /tmp/chain-android-toolchain/data/godot/export_templates/4.7.2.stable
 ```
 
-Скрипт проверяет версии, использует изолированные настройки Godot в игнорируемой `build/tooling/`, запускает 8 Python-тестов и 854 проверки GDScript, затем `--export-debug`. Стандартный debug-ключ создаётся в директории SDK и не попадает в Git/артефакт. Это не release identity. Полная перезапись build-папки не удаляет SDK-ключ.
+Скрипт проверяет версии, использует изолированные настройки Godot в игнорируемой `build/tooling/`, запускает 8 Python-тестов и 1026 проверок GDScript, затем `--export-debug`. Стандартный debug-ключ создаётся в директории SDK и не попадает в Git/артефакт. Это не release identity. Полная перезапись build-папки не удаляет SDK-ключ.
 
 Результат: **`build/android/chain-react-debug-arm64.apk`**. Рядом `.sha256`, `.verification.json`, `.manifest.txt`, `.badging.txt`, `.signature.txt`, `.smoke.txt`. Хеш зависит от ключа и сборки; сверять с отчётом из той же папки/того же CI-артефакта.
 

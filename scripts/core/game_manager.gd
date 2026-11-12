@@ -10,6 +10,7 @@ signal feedback(kind: String)
 var levels: Array = []
 var grid: RefCounted = Grid.new()
 var progress: RefCounted
+var statistics: RefCounted
 var settings: RefCounted
 var current: int = 0
 var busy: bool = false
@@ -20,6 +21,7 @@ var error_message: String = ""
 
 func _init(save_path: String = "user://progress.json") -> void:
 	progress = Progress.new(preload("res://scripts/core/save_manager.gd").new(save_path))
+	statistics = preload("res://scripts/core/statistics_manager.gd").new(progress)
 	settings = preload("res://scripts/core/settings_manager.gd").new(progress)
 
 func _ready() -> void:
@@ -34,20 +36,24 @@ func _ready() -> void:
 func select_level(index: int) -> void:
 	if levels.is_empty(): return
 	if not progress.chapter_unlocked(preload("res://scripts/core/chapter_catalog.gd").chapter_for_level(index + 1)): return
+	flush_statistics()
 	epoch += 1
 	busy = false
 	paused = false
 	current = clampi(index, 0, levels.size() - 1)
 	grid.load_level(levels[current])
+	statistics.select(current+1)
 	progress.select_level(current + 1)
 	changed.emit()
 
 func restart() -> void:
+	statistics.restart()
 	select_level(current)
 
 func undo() -> void:
 	if busy or paused: return
 	if grid.undo():
+		statistics.undo()
 		feedback.emit("undo")
 		changed.emit()
 
@@ -56,6 +62,7 @@ func tap(index: int) -> void:
 	if index < 0 or index >= grid.level.nodes.size(): return
 	if grid.level.nodes[index].type != "source":
 		if grid.rotate(index):
+			statistics.action("rotations")
 			feedback.emit("rotate")
 			changed.emit()
 		else:
@@ -63,6 +70,7 @@ func tap(index: int) -> void:
 		return
 	var result: Dictionary = grid.launch(index)
 	if not result.accepted: return
+	statistics.action("launches")
 	busy = true
 	var ticket: int = epoch
 	# Visuals read immutable snapshots; the model already knows the final result.
@@ -81,10 +89,14 @@ func tap(index: int) -> void:
 	var status: String = grid.status()
 	if status == "won":
 		var stars: int = 3 if grid.used <= int(grid.level.get("par_launches", 1)) else 2
+		statistics.finish(true,stars,grid.used)
+		flush_statistics()
 		progress.complete(current + 1, stars)
 		feedback.emit("win")
 		finished.emit(true, stars)
 	elif status == "lost":
+		statistics.finish(false,0,grid.used)
+		flush_statistics()
 		feedback.emit("lose")
 		finished.emit(false, 0)
 
@@ -92,8 +104,9 @@ func next_level() -> void:
 	select_level((current + 1) % levels.size())
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_PAUSED:
+	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
 		paused = true
+		flush_statistics()
 		changed.emit()
 
 func action_rejection(index: int) -> String:
@@ -105,3 +118,8 @@ func action_rejection(index: int) -> String:
 		if grid.used > 0: return "Повороты доступны только до первого запуска. Нажмите Restart или Undo, чтобы изменить решение."
 	if grid.status() != "playing": return "Уровень завершён. Выберите следующий уровень, Restart или Undo."
 	return ""
+
+func _process(delta: float) -> void:
+	if not paused: statistics.tick(delta)
+func flush_statistics() -> Error:
+	return statistics.flush()

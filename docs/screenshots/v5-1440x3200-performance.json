@@ -1,0 +1,28 @@
+{
+	"board_reduced": {
+		"cosmetic_draws_during_sample": 0,
+		"draw_calls_mean": 158.0,
+		"elapsed_ms": 9066.763,
+		"frames": 60,
+		"process_ms_mean": 214.289183333333
+	},
+	"environment": {
+		"renderer": "llvmpipe (LLVM 20.1.2, 256 bits)",
+		"resolution": "1440x3200",
+		"scope": "Linux debug llvmpipe; not mobile FPS, GPU or thermals"
+	},
+	"menu_full": {
+		"cosmetic_draws_during_sample": 59,
+		"draw_calls_mean": 130.0,
+		"elapsed_ms": 16135.585,
+		"frames": 60,
+		"process_ms_mean": 325.710333333333
+	},
+	"menu_reduced": {
+		"cosmetic_draws_during_sample": 0,
+		"draw_calls_mean": 84.0,
+		"elapsed_ms": 15365.753,
+		"frames": 60,
+		"process_ms_mean": 277.06375
+	}
+}

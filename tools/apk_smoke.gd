@@ -19,6 +19,18 @@ func run() -> void:
 		for frame in range(5): await process_frame
 		check(ui.game.levels.size() == 50 and ui.screen == "menu", "packaged game opens menu with 50 levels")
 		check(ui.main_menu.visible and ui.main_menu.reaction.is_processing(), "packaged menu animation starts")
+		ui.main_menu.achievements_button.pressed.emit()
+		check(ui.screen=="achievements" and ui.game.progress.achievement_status().size()==10,"packaged achievements screen")
+		ui.back_overlay()
+		ui.main_menu.themes_button.pressed.emit()
+		check(ui.screen=="themes" and ui.retention_view.theme_buttons.size()==5,"packaged themes screen")
+		ui.back_overlay()
+		ui.show_statistics()
+		ui.statistics_export_path="user://apk-smoke-statistics.json"
+		ui._export_statistics()
+		check(ui.screen=="statistics_export" and FileAccess.file_exists(ui.statistics_export_path),"packaged local JSON export")
+		ui.back_overlay()
+		ui.back_overlay()
 		ui.main_menu.continue_button.pressed.emit()
 		check(ui.screen == "game" and not ui.main_menu.reaction.is_processing(), "packaged Continue stops decoration and opens game")
 		ui.queue_free()

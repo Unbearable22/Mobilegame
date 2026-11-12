@@ -2,6 +2,11 @@ class_name IconLibrary
 extends RefCounted
 static var cache: Dictionary = {}
 const PATHS: Dictionary = {
+	"spark": '<path d="M35 5L14 35h16l-3 24 23-34H33Z"/>',
+	"trophy": '<path d="M20 9h24v17a12 12 0 0 1-24 0ZM20 14H9v9c0 10 11 10 11 10M44 14h11v9c0 10-11 10-11 10M32 38v15M21 55h22"/>',
+	"star": '<path d="M32 6l8 17 19 3-14 14 3 19-16-9-16 9 3-19L5 26l19-3Z"/>',
+	"circuit": '<path d="M10 32h44M32 10v44"/><circle cx="10" cy="32" r="5"/><circle cx="54" cy="32" r="5"/><circle cx="32" cy="10" r="5"/><circle cx="32" cy="54" r="5"/><circle cx="32" cy="32" r="10"/>',
+	"palette": '<circle cx="32" cy="32" r="23"/><circle cx="24" cy="20" r="3"/><circle cx="41" cy="23" r="3"/><circle cx="19" cy="36" r="3"/><path d="M34 44l10-8"/>',
 	"undo": '<path d="M24 16L10 28l14 12M10 28h24c24 0 24 24 5 24"/>',
 	"restart": '<path d="M50 22A22 22 0 1 0 53 40M50 8v16H34"/>',
 	"pause": '<path d="M23 13v38M41 13v38"/>',
@@ -18,7 +23,7 @@ const PATHS: Dictionary = {
 }
 static func icon(key: String) -> Texture2D:
 	if cache.has(key): return cache[key]
-	var svg: String = '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><g fill="none" stroke="#b7f4fa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">' + PATHS[key] + '</g></svg>'
+	var svg: String = '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><g fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">' + PATHS[key] + '</g></svg>'
 	var bitmap := Image.new()
 	bitmap.load_svg_from_string(svg,2.0)
 	var texture: Texture2D = ImageTexture.create_from_image(bitmap)

@@ -14,7 +14,7 @@ OpenGL Compatibility, Xvfb / Mesa llvmpipe; не макеты и не увели
 
 В логах — результаты прохождения и проверок границ. Съёмка использует отдельные файлы сохранений. Физический Android DPI, вырезы, мультитач на устройстве и нагрев этим способом не проверяются.
 
-## Актуальное меню 0.4.0
+## Меню 0.4.0 (история)
 
 | Экран | 720×1280 | 1080×1920 | 1440×3200 |
 |---|---|---|---|
@@ -31,6 +31,38 @@ OpenGL Compatibility, Xvfb / Mesa llvmpipe; не макеты и не увели
 Все27 PNG сняты работающим Godot/OpenGL через `tools/v4_capture.gd`. Проверены реальные размеры, границы элементов, минимальные сенсорные области144логических px (Continue160), native Input касания обеих CTA/Info/Settings, Back и отсутствие работы декорации в игре. Полный прогресс — изолированная QA-фикстура. Цвета и формы — собственная процедурная графика.
 
 Логи: [720](v4-720x1280-run.log), [1080](v4-1080x1920-run.log), [1440](v4-1440x3200-run.log); все exit0. [Автотесты](v4-tests.log). Замеры: [720](v4-720x1280-performance.json), [1080](v4-1080x1920-performance.json), [1440](v4-1440x3200-performance.json). Это программный Linux renderer, не FPS/нагрев Android. v0.4.0 на физическом телефоне не проверялась.
+
+## Актуальные экраны0.5.0
+
+Godot/OpenGL, реальные PNG трёх размеров. Завершённая кампания/темы — явная QA-фикстура; обычная игра не получает их бесплатно.
+
+| Экран | 720×1280 | 1080×1920 | 1440×3200 |
+|---|---|---|---|
+| Меню | [PNG](v5-720x1280-menu.png) | [PNG](v5-1080x1920-menu.png) | [PNG](v5-1440x3200-menu.png) |
+| Минимальные уровниI | [PNG](v5-720x1280-levels-i.png) | [PNG](v5-1080x1920-levels-i.png) | [PNG](v5-1440x3200-levels-i.png) |
+| Заблокированная сетка | [PNG](v5-720x1280-levels-locked.png) | [PNG](v5-1080x1920-levels-locked.png) | [PNG](v5-1440x3200-levels-locked.png) |
+| Минимальные уровниV | [PNG](v5-720x1280-levels-v.png) | [PNG](v5-1080x1920-levels-v.png) | [PNG](v5-1440x3200-levels-v.png) |
+| Достижения | [PNG](v5-720x1280-achievements-locked.png) | [PNG](v5-1080x1920-achievements-locked.png) | [PNG](v5-1440x3200-achievements-locked.png) |
+| Все достижения | [PNG](v5-720x1280-achievements-complete.png) | [PNG](v5-1080x1920-achievements-complete.png) | [PNG](v5-1440x3200-achievements-complete.png) |
+| Темы закрыты | [PNG](v5-720x1280-themes-locked.png) | [PNG](v5-1080x1920-themes-locked.png) | [PNG](v5-1440x3200-themes-locked.png) |
+| Темы открыты | [PNG](v5-720x1280-themes-unlocked.png) | [PNG](v5-1080x1920-themes-unlocked.png) | [PNG](v5-1440x3200-themes-unlocked.png) |
+| Neon | [PNG](v5-720x1280-theme-neon.png) | [PNG](v5-1080x1920-theme-neon.png) | [PNG](v5-1440x3200-theme-neon.png) |
+| Electric Blue | [PNG](v5-720x1280-theme-electric_blue.png) | [PNG](v5-1080x1920-theme-electric_blue.png) | [PNG](v5-1440x3200-theme-electric_blue.png) |
+| Violet Pulse | [PNG](v5-720x1280-theme-violet_pulse.png) | [PNG](v5-1080x1920-theme-violet_pulse.png) | [PNG](v5-1440x3200-theme-violet_pulse.png) |
+| Emerald Circuit | [PNG](v5-720x1280-theme-emerald_circuit.png) | [PNG](v5-1080x1920-theme-emerald_circuit.png) | [PNG](v5-1440x3200-theme-emerald_circuit.png) |
+| Solar Gold | [PNG](v5-720x1280-theme-solar_gold.png) | [PNG](v5-1080x1920-theme-solar_gold.png) | [PNG](v5-1440x3200-theme-solar_gold.png) |
+| Частичный заряд | [PNG](v5-720x1280-battery-partial.png) | [PNG](v5-1080x1920-battery-partial.png) | [PNG](v5-1440x3200-battery-partial.png) |
+| Реакция | [PNG](v5-720x1280-reaction.png) | [PNG](v5-1080x1920-reaction.png) | [PNG](v5-1440x3200-reaction.png) |
+| Победа/достижение | [PNG](v5-720x1280-victory-achievement.png) | [PNG](v5-1080x1920-victory-achievement.png) | [PNG](v5-1440x3200-victory-achievement.png) |
+| Настройки | [PNG](v5-720x1280-settings-reduced.png) | [PNG](v5-1080x1920-settings-reduced.png) | [PNG](v5-1440x3200-settings-reduced.png) |
+| Статистика | [PNG](v5-720x1280-statistics.png) | [PNG](v5-1080x1920-statistics.png) | [PNG](v5-1440x3200-statistics.png) |
+| Экспорт JSON | [PNG](v5-720x1280-statistics-export.png) | [PNG](v5-1080x1920-statistics-export.png) | [PNG](v5-1440x3200-statistics-export.png) |
+| Справочник | [PNG](v5-720x1280-guide.png) | [PNG](v5-1080x1920-guide.png) | [PNG](v5-1440x3200-guide.png) |
+| Полная кампания | [PNG](v5-720x1280-menu-complete.png) | [PNG](v5-1080x1920-menu-complete.png) | [PNG](v5-1440x3200-menu-complete.png) |
+
+Инструмент `tools/v5_capture.gd` проверяет реальные размеры, видимость/границы текста и кнопок, nativeInput CTA/настроек/достижений/тем/экспорта/копирования и Back. Сначала ждёт layout новых Containers, затем вычисляет позицию касания. Звёзды и заряд получены реальными действиями GameManager. Закрытая сетка — read-only QA-вызов; в обычной навигации закрытая глава отключена. Ширина/высота сенсорных кнопок минимум144логических px.
+
+Логи и Performance monitors: [720](v5-720x1280-run.log)/[JSON](v5-720x1280-performance.json), [1080](v5-1080x1920-run.log)/[JSON](v5-1080x1920-performance.json), [1440](v5-1440x3200-run.log)/[JSON](v5-1440x3200-performance.json). [Автотесты](v5-tests.log). Программный llvmpipe/Linux не заменяет физические FPS/нагрев/вырезы Android0.5.
 
 ## Настройки и touch 0.2.0
 

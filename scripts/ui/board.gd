@@ -5,6 +5,16 @@ const Model = preload("res://scripts/core/reaction_engine.gd")
 const CYAN: Color = Color("4de6f5")
 const PURPLE: Color = Color("aa8bfa")
 const GREEN: Color = Color("a5f3a3")
+# Each visual consumer owns a copy; callers can change themes without touching a run.
+const DEFAULT_PALETTE: Dictionary = {
+	"accent": CYAN, "secondary": PURPLE, "target": GREEN,
+	"background": Color("0c1629"), "surface": Color("13233a"),
+	"text": Color("d2fcff"), "muted": Color("718198"), "energy": Color("d2fcff")
+}
+var palette: Dictionary = DEFAULT_PALETTE.duplicate()
+var reduced_effects: bool = false
+# Charge increases can occur without an activation in frame.nodes.
+var charge_feedback: Dictionary = {}
 var level: Dictionary = {}
 var state: Dictionary = {}
 var edges: Array = []
@@ -22,25 +32,55 @@ func _ready() -> void:
 	resized.connect(queue_redraw)
 	set_process(false)
 
-func show_state(data: Dictionary, snapshot: Dictionary, is_locked: bool) -> void:
+func configure_visuals(colors: Dictionary, reduced: bool) -> void:
+	palette = DEFAULT_PALETTE.duplicate()
+	for key in DEFAULT_PALETTE:
+		if colors.get(key) is Color:
+			palette[key] = colors[key]
+	reduced_effects = reduced
+	if reduced_effects:
+		_clear_effects()
+	queue_redraw()
+
+func _clear_effects() -> void:
 	if tween:
 		tween.kill()
 		tween = null
-	level = data
-	state = snapshot
+	if tap_tween:
+		tap_tween.kill()
+		tap_tween = null
+	tapped = -1
+	tap_glow = 0.0
+	animation = 1.0
+	charge_feedback = {}
+
+func show_state(data: Dictionary, snapshot: Dictionary, is_locked: bool) -> void:
+	_clear_effects()
+	level = data.duplicate(true)
+	state = snapshot.duplicate(true)
 	locked = is_locked
 	edges = []
 	lit = []
 	queue_redraw()
 
 func show_frame(frame: Dictionary) -> void:
-	state = frame.state
-	edges = frame.edges
-	lit = frame.nodes
-	if tween: tween.kill()
-	animation = 0.0
-	tween = create_tween()
-	tween.tween_method(_animate, 0.0, 1.0, 0.15)
+	charge_feedback = {}
+	if not reduced_effects:
+		for index in range(level.nodes.size()):
+			if level.nodes[index].type == "battery" and int(frame.state.charges[index]) > int(state.charges[index]):
+				charge_feedback[index] = int(frame.state.charges[index])
+	state = frame.state.duplicate(true)
+	edges = frame.edges.duplicate(true)
+	lit = frame.nodes.duplicate(true)
+	if tween:
+		tween.kill()
+		tween = null
+	animation = 1.0 if reduced_effects else 0.0
+	if not reduced_effects:
+		tween = create_tween()
+		tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		tween.tween_method(_animate, 0.0, 1.0, 0.15)
+	queue_redraw()
 
 func _animate(value: float) -> void:
 	animation = value
@@ -82,48 +122,68 @@ func _draw() -> void:
 	var cell: float = g.cell
 	var origin: Vector2 = g.origin
 	var outer := StyleBoxFlat.new()
-	outer.bg_color = Color("0c1629")
-	outer.border_color = Color("25374f")
+	outer.bg_color = palette.background
+	outer.border_color = palette.muted.lerp(palette.background, 0.65)
 	outer.set_border_width_all(2)
 	outer.set_corner_radius_all(36)
 	draw_style_box(outer, Rect2(origin, g.extent))
 	for x in range(int(level.width)):
 		for y in range(int(level.height)):
 			var p: Vector2 = origin + Vector2(x + 0.5, y + 0.5) * cell
-			draw_circle(p, 3.0, Color("2c3c53"))
+			draw_circle(p, 3.0, palette.muted.lerp(palette.background, 0.7))
 	# Physical adjacency links give a stable map of the network.
 	for i in range(level.nodes.size()):
 		for j in range(i + 1, level.nodes.size()):
 			var a: Dictionary = level.nodes[i]
 			var b: Dictionary = level.nodes[j]
 			if absi(int(a.x - b.x)) + absi(int(a.y - b.y)) == 1:
-				draw_line(center(i), center(j), Color("263a51"), 5, true)
+				draw_line(center(i), center(j), palette.muted.lerp(palette.background, 0.72), 5, true)
 	for edge in edges:
 		var a: Vector2 = center(edge.from)
 		var b: Vector2 = center(edge.to)
-		draw_line(a, a.lerp(b, animation), Color(CYAN, 0.8), 7, true)
-		draw_circle(a.lerp(b, animation), 10, Color("d2fcff"))
+		_draw_pulse(a, b)
 	for i in range(level.nodes.size()):
 		_draw_node(i, cell)
+
+func _draw_pulse(a: Vector2, b: Vector2) -> void:
+	if reduced_effects:
+		draw_line(a, b, Color(palette.accent, 0.9), 7, true)
+		return
+	var head: Vector2 = a.lerp(b, animation)
+	draw_line(a, head, Color(palette.accent, 0.32), 5, true)
+	# Four short tail segments soften the head without particles or extra tweens.
+	for segment in range(4):
+		var tail: float = maxf(0.0, animation - 0.30 + segment * 0.075)
+		var tip: float = minf(animation, tail + 0.075)
+		draw_line(a.lerp(b, tail), a.lerp(b, tip), Color(palette.accent, 0.25 + segment * 0.16), 5 + segment, true)
+	var glow: float = 1.0 - animation * 0.65
+	draw_circle(head, 15, Color(palette.accent, glow * 0.12))
+	draw_circle(head, 9, Color(palette.energy, glow * 0.25))
+	draw_circle(head, 5, palette.energy)
 
 func _draw_node(index: int, cell: float) -> void:
 	var n: Dictionary = level.nodes[index]
 	var p: Vector2 = center(index)
 	var r: float = cell * 0.30
 	var active: bool = state.active[index]
-	if index == tapped:
-		draw_arc(p, r * (1.1 + (1.0 - tap_glow) * 0.5), 0, TAU, 48, Color(CYAN, tap_glow), 5, true)
-	var color: Color = GREEN if n.type == "target" else (PURPLE if n.type in ["battery", "splitter"] else CYAN)
-	if n.type == "blocker": color = Color("718198")
+	if index == tapped and not reduced_effects:
+		draw_arc(p, r * (1.1 + (1.0 - tap_glow) * 0.5), 0, TAU, 48, Color(palette.accent, tap_glow), 5, true)
+	var color: Color = palette.target if n.type == "target" else (palette.secondary if n.type in ["battery", "splitter"] else palette.accent)
+	if n.type == "blocker": color = palette.muted
 	if active:
 		draw_circle(p, r * 1.32, Color(color, 0.09))
 		draw_circle(p, r * 1.12, Color(color, 0.13))
-	if index in lit:
+	if index in lit and not reduced_effects:
 		draw_arc(p, r * (1.15 + animation * 0.35), 0, TAU, 40, Color(color, 1.0 - animation), 4, true)
-	draw_circle(p, r, Color("13233a"))
+	if charge_feedback.has(index) and not reduced_effects:
+		var full: bool = int(charge_feedback[index]) >= 2
+		var charge_color: Color = palette.energy if full else palette.secondary
+		draw_arc(p, r * (1.12 + animation * (0.48 if full else 0.25)), 0, TAU, 40,
+			Color(charge_color, (1.0 - animation) * 0.9), 6 if full else 4, true)
+	draw_circle(p, r, palette.surface)
 	if n.type == "target":
 		var diamond := PackedVector2Array([p + Vector2(0, -r), p + Vector2(r, 0), p + Vector2(0, r), p + Vector2(-r, 0), p + Vector2(0, -r)])
-		draw_colored_polygon(diamond, Color("16352f") if active else Color("132a30"))
+		draw_colored_polygon(diamond, palette.surface.lerp(palette.target, 0.18 if active else 0.06))
 		draw_polyline(diamond, color, 4, true)
 		if active:
 			draw_line(p + Vector2(-r * 0.4, 0), p + Vector2(-r * 0.05, r * 0.3), color, 6, true)
@@ -138,7 +198,7 @@ func _draw_node(index: int, cell: float) -> void:
 					var tip: Vector2 = p + d * r * 1.20
 					draw_line(tip - d.rotated(0.65) * r * 0.25, tip, color, 4, true)
 					draw_line(tip - d.rotated(-0.65) * r * 0.25, tip, color, 4, true)
-				draw_colored_polygon(PackedVector2Array([p + Vector2(-r * 0.25, -r * 0.45), p + Vector2(r * 0.45, 0), p + Vector2(-r * 0.25, r * 0.45)]), color)
+				draw_colored_polygon(PackedVector2Array([p + Vector2(-r * 0.25, -r * 0.45), p + Vector2(r * 0.45, 0), p + Vector2(-r * 0.25, r * 0.45)]), palette.text)
 			"normal":
 				draw_circle(p,r*0.22,color)
 				for d in Model.DIRECTIONS:
@@ -149,7 +209,9 @@ func _draw_node(index: int, cell: float) -> void:
 				for k in range(2):
 					var rect := Rect2(p + Vector2(-r * 0.43 + k * r * 0.5, -r * 0.4), Vector2(r * 0.35, r * 0.8))
 					draw_rect(rect, color, false, 3)
-					if int(state.charges[index]) > k: draw_rect(rect.grow(-4),color)
+					if int(state.charges[index]) > k:
+						var charge_color: Color = palette.energy if active else color
+						draw_rect(rect.grow(-4), charge_color)
 			"directional", "splitter":
 				for direction in n.dirs:
 					var d: Vector2 = Vector2(Model.DIRECTIONS[(int(direction) + int(state.rotations[index])) % 4])
@@ -167,6 +229,7 @@ func _draw_node(index: int, cell: float) -> void:
 
 
 func flash_tap(index: int) -> void:
+	if reduced_effects: return
 	if tap_tween: tap_tween.kill()
 	tapped = index
 	tap_glow = 1.0
