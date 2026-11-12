@@ -1,0 +1,35 @@
+{
+  "apk": "chain-react-debug-arm64.apk",
+  "bytes": 28520396,
+  "sha256": "d5d045e5657ea56747ae54d8b1a4d7e2b98f74d90386c4cffe8b192ee2739b68",
+  "package_id": "org.chainreact.onetappuzzle",
+  "abis": [
+    "arm64-v8a"
+  ],
+  "target_sdk": 36,
+  "min_sdk": 24,
+  "orientation": "portrait",
+  "debuggable": true,
+  "levels": 100,
+  "permissions": [],
+  "signature_verified": true,
+  "certificate_sha256": "3ff232e70e87f245e1e400f4ba31853f64b2c60b7d5d88b6e14a2b42cadae384",
+  "signing_mode": "persistent-debug",
+  "signing_persistent": true,
+  "zipalign_16k_verified": true,
+  "packaged_resource_smoke": true,
+  "physical_device_tested": false,
+  "source_commit": "9d740f9e3947bada2e2c4bc7b6f4783c11f1d073",
+  "version_name": "0.6.0",
+  "version_code": 7,
+  "build_origin": "local isolated JDK17/AndroidSDK36; NOT a GitHub Actions artifact",
+  "download_url": "https://github.com/Unbearable22/Mobilegame/releases/download/v0.6.0-debug/chain-react-debug-arm64.apk",
+  "release_url": "https://github.com/Unbearable22/Mobilegame/releases/tag/v0.6.0-debug",
+  "local_path": "/workspaces/Mobilegame/build/android/chain-react-debug-arm64.apk",
+  "ci": {
+    "status": "blocked_missing_owner_signing_Secrets",
+    "run": "https://github.com/Unbearable22/Mobilegame/actions/runs/43216462879",
+    "secrets_api_http_status": 403,
+    "workflow_dispatch_http_status": 403
+  }
+}

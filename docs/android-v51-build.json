@@ -1,0 +1,25 @@
+{
+  "apk": "chain-react-debug-arm64.apk",
+  "bytes": 28438529,
+  "sha256": "cb139f6d91a6b3f2e34b2b91d5d7d6eda91910785e5049e91dc88ae64e426415",
+  "package_id": "org.chainreact.onetappuzzle",
+  "abis": [
+    "arm64-v8a"
+  ],
+  "target_sdk": 36,
+  "min_sdk": 24,
+  "orientation": "portrait",
+  "debuggable": true,
+  "levels": 50,
+  "permissions": [],
+  "signature_verified": true,
+  "certificate_sha256": "3ff232e70e87f245e1e400f4ba31853f64b2c60b7d5d88b6e14a2b42cadae384",
+  "signing_mode": "persistent-debug",
+  "signing_persistent": true,
+  "zipalign_16k_verified": true,
+  "packaged_resource_smoke": true,
+  "physical_device_tested": false,
+  "source_commit": "faf0d3d394f7f738c9366be8bf08cfdf91d9eb32",
+  "build_origin": "local archived checkpoint plus committed keystore-preflight fix",
+  "download_url": "https://github.com/Unbearable22/Mobilegame/releases/download/v0.5.1-debug/chain-react-debug-arm64.apk"
+}

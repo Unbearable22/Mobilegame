@@ -1,3 +1,24 @@
+# v0.6.0 verified local debug APK
+
+[Download ARM64 APK](https://github.com/Unbearable22/Mobilegame/releases/download/v0.6.0-debug/chain-react-debug-arm64.apk) · [release](https://github.com/Unbearable22/Mobilegame/releases/tag/v0.6.0-debug) · [machine report](android-v6-build.json).
+
+- Source commit:`9d740f9e3947bada2e2c4bc7b6f4783c11f1d073`.
+- Local file:`build/android/chain-react-debug-arm64.apk`, **28,520,396 bytes**.
+- SHA256:`d5d045e5657ea56747ae54d8b1a4d7e2b98f74d90386c4cffe8b192ee2739b68`.
+- Version0.6.0/code7; package`org.chainreact.onetappuzzle`; onlyARM64; portrait; Compatibility; SDK24–36; debug;100 exact level JSONs; own launcher icons; **zero requested permissions**.
+- APK signature and selected persistent certificate match:`3ff232e70e87f245e1e400f4ba31853f64b2c60b7d5d88b6e14a2b42cadae384`.16KB alignment and packaged-resource startup smoke passed. The smoke runs extracted APK resources on desktop Godot; it is not Android runtime/device testing.
+- The export tool reran all2,294 GDScript assertions,19 Python tests,55,034 audit simulations and438 witness mutations before exporting. Password scan of build log passed. Public release assets include signature/asset verification, checksum and content audit; no key/password is uploaded.
+
+This is a **local build**, using isolated JDK17/SDK36 and matching Godot4.7.2 templates. The [Actions run](https://github.com/Unbearable22/Mobilegame/actions/runs/43216462879) failed as intended because signing Secrets are absent; Secrets access and dispatch both returnHTTP403 for this integration. It did not produce an artifact. Owner setup:[android-signing.md](android-signing.md). CI now fails closed rather than silently generating a fresh certificate.
+
+A separate [v0.5.1 checkpoint](https://github.com/Unbearable22/Mobilegame/releases/tag/v0.5.1-debug) uses this same new certificate; its APK is28,438,529bytes,SHA256`cb139f6d91a6b3f2e34b2b91d5d7d6eda91910785e5049e91dc88ae64e426415`. Earlier APKs used different per-run certificates. Back up full progress before replacing those installations:[transfer instructions](android-progress-transfer.md).
+
+Physical-device validation, clipboard-on-Android, FPS/heat and human difficulty/fun remain pending. Original Android theme failure was not reproduced on a phone; confirmed palette defects and diagnostic route are documented in[v51-theme-investigation.md](v51-theme-investigation.md).
+
+---
+
+## Earlier build history
+
 # Android debug ARM64
 
 Godot **4.7.2 stable** + совпадающие official export templates; локальный Temurin **JDK 17.0.21+9**, Android command-line tools, platform-tools, **SDK Platform 36 / Build-tools 36.0.0**. Системная Java не заменялась. NDK/CMake/Gradle не нужны для выбранного экспорта готового APK-шаблона без native-плагинов.

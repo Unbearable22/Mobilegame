@@ -5,7 +5,7 @@
 Темы используют общую палитру и проверяются по пикселям реального Godot-рендера. Прогресс схем1–3 мигрирует с резервной копией. Нет рекламы, покупок, сетевой аналитики или новых разрешений.
 
 - [APK v0.5.1 debug ARM64](https://github.com/Unbearable22/Mobilegame/releases/tag/v0.5.1-debug) — отдельный контрольный этап тем.
-- APK v0.6.0: финальная сборка и проверка выполняются; актуальные факты будут записаны в Android build report.
+- [Скачать APK v0.6.0 debug ARM64](https://github.com/Unbearable22/Mobilegame/releases/download/v0.6.0-debug/chain-react-debug-arm64.apk) —28 520 396байт. [SHA256 и отчёт](docs/android-v6-build.json). Локальная сборка, опубликованная в Releases.
 - [Проверки](docs/verification.md), [скриншоты](docs/screenshots/README.md), [независимое ревью](docs/v6-developer-review.md).
 - [Архитектура и ограничения](docs/v6-foundation.md), [правила механик](docs/v6-mechanics-spec.md), [качество уровней](docs/v6-quality-report.json).
 - [Стабильная подпись](docs/android-signing.md), [перенос полного прогресса](docs/android-progress-transfer.md), [проверка на смартфоне](docs/android-device-checklist.md).
